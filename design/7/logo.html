@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        section{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        section .box img{
+            position: absolute;
+            transform: translate(-50%,-50%);
+            width: 53%;
+            top: 50%;
+            left: -100%;
+        }
+        section .box .bg{
+            display: none;
+        }
+        section .left{
+            position: absolute;
+            top: -25%;
+            left: -18%;
+            width: 16%;
+        }
+        section .right{
+            position: absolute;
+            top: -25%;
+            right: -18%;
+            width: 16%;
+        }
+        section .human{
+            position: absolute;
+            transform: translateX(-50%);
+            bottom: -70%;
+            left: 50%;
+            width: 15%;
+        }
+        section .sit{
+            position: absolute;
+            transform: translateX(-50%);
+            bottom: -50%;
+            left: 50%;
+            width: 101%;
+        }
+        #main{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #main .big{
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top: 50%;
+            display: none;
+        }
+        article{
+            width: 100%;
+            height: 100vh;
+            margin-bottom: 60px;
+        }
+    </style>
+    <script>
+        $(function(){
+            var start = setTimeout(function(){
+                $("section .box img").eq(0).animate({
+                    left:"50%"
+                },200).delay(250).animate({
+                    left:"150%"
+                },200)
+                $("section .box img").eq(1).delay(200).animate({
+                    left:"50%"
+                },200).delay(250).animate({
+                    left:"150%"
+                },200)
+                $("section .box img").eq(2).delay(400).animate({
+                    left:"50%"
+                },200).delay(250).animate({
+                    left:"150%"
+                },200)
+                $("section .box img").eq(3).delay(600).animate({
+                    left:"50%"
+                },200).delay(250).animate({
+                    left:"150%"
+                },200)
+                $("section .box img").eq(4).delay(800).animate({
+                    left:"50%"
+                },200).delay(250).animate({
+                    left:"150%"
+                },200)
+                $("section .box img").eq(5).delay(1000).animate({
+                    left:"50%"
+                },200).delay(250).animate({
+                    left:"150%"
+                },200)
+                $("section .box img").eq(6).delay(1200).animate({
+                    left:"50%"
+                },200).delay(250).animate({
+                    left:"150%"
+                },200)
+                $("section .box img").eq(7).delay(1400).animate({
+                    left:"50%"
+                },200).delay(250).fadeOut(500)
+                $("section .box img").eq(8).delay(1400).animate({
+                    left:"50%"
+                },200).delay(250).fadeIn(500)
+                $("section .left").delay(1600).animate({
+                    left:"-1.35%"
+                })
+                $("section .right").delay(1600).animate({
+                    right:"-1.35%"
+                })
+                $("section .sit").delay(1650).animate({
+                    bottom:"-16%"
+                },500)
+                $("section .human").delay(1700).animate({
+                    bottom:"-15%"
+                },500,function(){
+                    $("section").delay(250).fadeOut(500)
+                    $("#main .big").delay(250).fadeIn(250)
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <article>
+        <section>
+            <div class="box">
+                <img src="images/title(1).png">
+                <img src="images/title(2).png">
+                <img src="images/title(3).png">
+                <img src="images/title(4).png">
+                <img src="images/title(5).png">
+                <img src="images/title(6).png">
+                <img src="images/title(7).png">
+                <img src="images/title(8).png">
+                <img class="bg" src="images/title_bg.png">
+            </div>
+            <img class="left" src="images/wall_left.png">
+            <img class="right" src="images/wall_right.png">
+            <img class="human" src="images/human.png">
+            <img class="sit" src="images/sit.png">
+        </section>
+        <div id="main">
+            <img class="big" src="images/main.png">
+        </div>
+    </article>
+    <img src="images/info.png">
+</body>
+</html>

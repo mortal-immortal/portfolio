@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            height: 100vh;
+        }
+        img{
+            position: absolute;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top: 50%;
+            height: 90%;
+            transition: all 1s;
+        }
+        img:nth-of-type(1){
+            height: 0;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("img:eq(1)").click(function(){
+                $("img:eq(0)").css({
+                    height:"90%"
+                })
+                $("img:eq(1)").css({
+                    height:"0%"
+                })
+            })
+            $("img:eq(0)").click(function(){
+                $("img:eq(1)").css({
+                    height:"90%"
+                })
+                $("img:eq(0)").css({
+                    height:"0%"
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <img src="images/bg.png">
+    <img src="images/cd.png">
+</body>
+</html>

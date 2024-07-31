@@ -1,0 +1,112 @@
+@charset "utf-8";
+#about_me{
+    background: url(../image/bg/bg1.svg)no-repeat center/cover,linear-gradient(to bottom,rgb(5, 5, 105),rgb(0, 0, 55));
+    color: white;
+}
+#about_me .photo{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    transition: all 1s;
+}
+#about_me .photo:hover{
+    left: 15%;
+    top: 10px;
+    rotate: 5deg;
+}
+#about_me .photo img{
+    position: absolute;
+    left: -10%;
+    bottom: -258px;
+    width: 90%;
+}
+#about_me .title{
+    position: absolute;
+    font-size: 128px;
+    font-weight: 700;
+    color: orangered;
+    left: -50%;
+    top: 80%;
+}
+#about_me .title span{
+    position: relative;
+    left: -50%;
+    opacity: 0;
+}
+
+#about_me .main>div{
+    position: absolute;
+    bottom: -200px;
+    left: 20%;
+    width: 80%;
+    height: 130px;
+    text-align: right;
+    font-size: 128px;
+    scale: 1.5;
+    z-index: 0;
+    pointer-events: none;
+}
+#about_me .main>div .box{
+    position: absolute;
+    right: 0;
+    pointer-events: all;
+    width: 55%;
+    height: 100%;
+}
+#about_me .main>div .text{
+    font-size: 48px;
+    display: none;
+    text-shadow: -1px 0 rgb(0, 0, 55), 0 1px rgb(0, 0, 55), 1px 0 rgb(0, 0, 55), 0 -1px rgb(0, 0, 55);
+}
+#about_me .main .skill .text{
+    position: absolute;
+    /* display: block; */
+    left: 0;
+    width: 100%;
+}
+#about_me .main .skill .text>div{
+    position: relative;
+    width: 50%;
+}
+#about_me .main .skill .text>div span{
+    position: absolute;
+    top: 10px;
+    left: 5%;
+    width: 40%;
+    height: 25px;
+    border: 2px solid white;
+    border-radius: 25px;
+    overflow: hidden;
+}
+#about_me .main .skill .text>div span .bar{
+    width: 0%;
+    height: 100%;
+    font-size: 32px;
+    overflow: hidden;
+}
+#about_me .main .skill .text>div .ps .bar{
+    background-image: linear-gradient(to right, #001e36, #31a8ff);
+}
+#about_me .main .skill .text>div .ai .bar{
+    background-image: linear-gradient(to right, #330000, #ff9a00);
+}
+#about_me .main .skill .text>div .id .bar{
+    background-image: linear-gradient(to right, #49021f, #ff3366);
+}
+#about_me .main .skill .text>div .ae .bar{
+    background-image: linear-gradient(to right, #00005b, #9999ff);
+}
+#about_me .main .skill .text>div .hc .bar{
+    background-image: linear-gradient(to right, #e44d26, #264de4);
+}
+#about_me .main .skill .text>div .js .bar{
+    background-image: linear-gradient(to right, #0769ad, #FFC928);
+}
+#about_me .main .skill .text>div .vr .bar{
+    background-image: linear-gradient(to right, #34495E, #087ea4);
+}
+#about_me .main .skill .text>div .fg .bar{
+    background-image: linear-gradient(to right, #a259ff, #0acf83);
+}

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DISTANT HORIZONE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        p{
+            margin: 0;
+        }
+        .vid{
+            width:100%;
+            height:100%;
+            position:fixed;
+        }
+        .vid video{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            /* width:100%; */
+            /* height: 100%; */
+        }
+        .left{
+            width:447px;
+            height:100%;
+            position:fixed;
+            z-index: 10;
+            background:rgb(255, 203, 106);
+            top:0;
+            left:-225px;
+            transform:skewX(-25deg);
+            /* border-right: 5px solid white; */
+        }
+        .left>.menu{
+            width:30%;
+            padding: 0;
+            position:absolute;
+            top:70%;
+            right: 0;
+            transform: translate(0,-200%);
+            
+        }
+        .left>.menu>li:hover{
+            background: rgba(255, 255, 255, .2);
+        }
+        .left>.menu>li>a{
+            text-align: right;
+            padding: 10px 20px 10px 0;
+            border-bottom: 2px solid black;
+            display:block;
+            color: white;
+            font-weight: bold;
+        }
+        .left>.menu>li>a>span{
+            display: block;
+            transform: skewX(25deg);
+        }
+        .logo{
+            position: absolute;
+            width: 125px;
+            height: 125px;
+            right: 200px;
+            top: 50px;
+            background: url(자료/로고.png) no-repeat 100%/cover;
+            transform: skewX(25deg);
+            transition: all 1s ease-out;
+        }
+        .logo:hover{
+            scale: 1.2;
+        }
+        .left>.menu>li{
+            position: relative;
+        }
+        .side{
+            width:420px;
+            position:absolute;
+            top: -321px;
+            left: -50px;
+            z-index: 1;
+            /* border-right: 5px solid white; */
+            /* display: none; */
+            opacity: 0;
+            transition: all .5s ease-out;
+        }
+        .left>.menu>li:hover>.side>.menu{
+            width: 35%;
+        }
+        .side>.menu{
+            width:0;
+            padding: 0;
+            position:absolute;
+            z-index: -10;
+            /* background: rgb(255, 203, 106); */
+            top:925px;
+            right: 0;
+            transform: translate(0,-200%);
+            overflow: hidden;
+        }
+        .side>.menu>li:hover{
+            background: white;
+            color: black;
+        }
+        .side>.menu>li:hover>a{
+            color: black;
+        }
+        .side>.menu>li>a{
+            text-align: right;
+            padding: 10px 20px 10px 0;
+            border-bottom: 2px solid black;
+            display:block;
+            color: white;
+            font-weight: bold;
+        }
+        .left>.menu>li:nth-of-type(1)>a{
+            border-top: 2px solid black;
+        }
+        .side>.menu>li:nth-of-type(1)>a{
+            border-top: 2px solid black;
+        }
+        .left>.menu>li:hover>.side{
+            opacity: 1;
+            left: -138px;
+        }
+        .right{
+            position: fixed;
+            width: 600px;
+            height: 100%;
+            right: -650px;
+            /* right: -220px; */
+            transform: skewX(-25deg);
+            background: blue;
+            /* opacity: .5; */
+            transition: all 2s;
+            overflow: hidden;
+        }
+        .ani{
+            position: relative;
+            left: 25px;
+            top: -1125px;
+            margin-bottom: 25px;
+            width: 350px;
+            height: 200px;
+            background: red;
+            animation-name: ani;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            transition: all 2s;
+            opacity: .5;
+        }
+        .right:hover{
+            right: -220px;
+            /* opacity: 1; */
+        }
+        .right:hover>.ani{
+            opacity: 1;
+        }
+        .i1{
+            background: url(자료/562d1-17103942901434-1920.avif) no-repeat 100%/cover;
+        }
+        .i2{
+            background: url(자료/distant-horizons-mod-for-minecraft-2-scaled.webp) no-repeat 100%/cover;
+        }
+        .i3{
+            background: url(자료/distant-horizons-shaders-wow-v0-2qcj9c0ob7oc1.webp) no-repeat 100%/cover;
+        }
+        .i4{
+            background: url(자료/maxresdefault.jpg) no-repeat 100%/cover;
+        }
+        .i5{
+            background: url(자료/vfr5mhppvtoc1.jpeg) no-repeat 100%/cover;
+        }
+        @keyframes ani{
+            form{
+                top: -1125px;
+            }
+            to{
+                top: 0;
+            }
+        }
+        .cbox{
+            position: absolute;
+            bottom: 70px;
+            right: 100px;
+            width: 100px;
+            height: 100px;
+            background: url(자료/click.webp) no-repeat 100%/cover;
+            /* border: 5px solid white; */
+        }
+        .title{
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+            font-size: 124px;
+            font-weight: bold;
+        }
+        .title:hover>.mine{
+            /* width: 0px; */
+            height: 150px;
+        }
+        .mine{
+            margin: 0 auto;
+            /* width: 0; */
+            height: 0px;
+            transition: all 1s ease-out;
+            /* border-bottom: 2px solid white;
+            border-top: 2px solid white; */
+        }
+        .mine>span{
+            display: block;
+            margin: 0 auto;
+            width: 0;
+            background: url(자료/klipartz.com.png) no-repeat 50% 50% /cover;
+            height: 100%;
+            border-bottom: 2px solid white;
+            border-top: 2px solid white;
+            transition: all .1s ease-out;
+            transition-delay: 1s;
+        }
+        .title:hover>.mine>span{
+            width: 150px;
+            transition: all 1s ease-out;
+            transition-delay: 1s;
+        }
+        .you{
+            position: absolute;
+            right: 85px;
+            bottom: 45px;
+            /* background: white; */
+        }
+        .you>a>i{
+            transform: skewX(25deg);
+            font-size: 80px;
+            color: white;
+        }
+        .site{
+            position: absolute;
+            z-index: 20;
+            top: 195px;
+            left: 80px;
+            font-size: 20px;
+        }
+        .menu>li>a>span>i{
+            position: absolute;
+            top: 2px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <figure class="vid">
+        <video src="video/Minecraft RPG map with Distant Horizons 2.0.mp4" autoplay loop muted></video>
+    </figure>
+    <div class="left">
+        <div class="logo"></div>
+        <ul class="menu">
+            <li><a href="#"><span><i class="fa-solid fa-house"></i>HOME</span></a></li>
+            <li>
+                <a href="#"><span><i class="fa-brands fa-gitlab"></i>GITLAB</span></a>
+                <div class="side">
+                    <ul class="menu">
+                        <li><a href="#"><span>1.16.5</span></a></li>
+                        <li><a href="#"><span>1.17.1</span></a></li>
+                        <li><a href="#"><span>1.18.2</span></a></li>
+                        <li><a href="#"><span>1.19.2</span></a></li>
+                        <li><a href="#"><span>1.20.1</span></a></li>
+                        <li><a href="#"><span>1.20.2</span></a></li>
+                        <li><a href="#"><span>1.20.4</span></a></li>
+                    </ul> 
+                </div>
+            </li>
+            <li class="shader">
+                <a href="#"><span><i class="fa-solid fa-shield-halved"></i>SHADER</span></a>
+                <div class="side">
+                    <ul class="menu">
+                        <li><a href="#"><span>BLISS</span></a></li>
+                        <li><a href="#"><span>BSL</span></a></li>
+                        <li><a href="#"><span>CTMPOMFIX</span></a></li>
+                        <li><a href="#"><span>NOBLE</span></a></li>
+                        <li><a href="#"><span>PHOTON</span></a></li>
+                        <li><a href="#"><span>PIXEL PERFECT</span></a></li>
+                        <li><a href="#"><span>SHRIMPLE</span></a></li>
+                    </ul> 
+                </div>
+            </li>
+            <li>
+                <a href="#"><span><i class="fa-solid fa-video"></i>VIDEO</span></a>
+                <div class="side">
+                    <ul class="menu">
+                        <li><a href="https://www.youtube.com/watch?v=v61iOYZQWCs" target="_blank"><span>ALPHA 1.0</span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=CCT-3s02tYA" target="_blank"><span>ALPHA 1.2</span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=X0mwwc43P5o" target="_blank"><span>ALPHA 1.3.1</span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=MDWcEvdUGUE" target="_blank"><span>ALPHA 1.4</span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=H2tnvEVbO1c" target="_blank"><span>ALPHA 1.5</span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=XGJuA7-mhC8" target="_blank"><span>ALPHA 1.6</span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=_04BZ8W2bDM&t=2s" target="_blank"><span>ALPHA 1.6.3</span></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=SxQdbtjGEsc&t=202s" target="_blank"><span>ALPHA 2.0</span></a></li>
+                    </ul> 
+                </div>
+            </li>
+            <li><a href="#"><span><i class="fa-brands fa-discord"></i>DISCROD</span></a></li>
+        </ul> 
+    </div>
+    <div class="cbox"></div>
+    <div class="right">
+        <div class="ani i1"></div>
+        <div class="ani i2"></div>
+        <div class="ani i3"></div>
+        <div class="ani i4"></div>
+        <div class="ani i5"></div>
+        <div class="ani i1"></div>
+        <div class="ani i2"></div>
+        <div class="ani i3"></div>
+        <div class="ani i4"></div>
+        <div class="ani i5"></div>
+        <div class="you"><a href="https://www.youtube.com/@Distant_Horizons/videos" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
+    </div>
+    <div class="title">
+        <p>DISTANT</p>
+        <div class="mine">
+            <span></span>
+        </div>
+        <p>HORIZONE</p>
+    </div>
+    <div class="site">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+        <i class="fa-brands fa-twitch"></i>
+    </div>
+</body>
+</html>

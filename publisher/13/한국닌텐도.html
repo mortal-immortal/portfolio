@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/nintendo.css">
+    <!-- bxSlider CSS file -->
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
+    <!-- jQuery library -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- bxSlider Javascript file -->
+    <script src="js/jquery.bxslider.js"></script>
+    <script>
+        $(document).ready(function(){ /*문서가 다 로드되고 나서 읽어준다.*/
+            $('.bxslider').bxSlider({
+            mode: 'horizontal', // 가로, 세로
+            moveSlides: 1, //슬라이드 이동시 개수
+            slideMargin: 40,//슬라이드 사이여백
+            infiniteLoop: true, //반복
+            // slideWidth: 660,//슬라이드 너비
+            // sliderHeight:200,//슬라이드 높이 
+            minSlides: 1, //슬라이드 최소 노출개수
+            maxSlides: 1, //슬라이드 최대 노출개수
+            speed: 1600, //스피드
+            controls:true, //이전, 다음 버튼 노출
+            auto:true, //자동실행여부
+            pause:4800,  //자동 실행전환 사이의 시간설정
+            pager:true, //동그라미 버튼 노출 여부
+            autoHover:true //호버시 애니메이션 정지여부
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js"></script>
+    <script>
+        $().ready(function(){
+            
+          Vue.config.devtools = true;
+    
+          Vue.component('card', {
+            template: `
+              <div class="card-wrap"
+                @mousemove="handleMouseMove"
+                @mouseenter="handleMouseEnter"
+                @mouseleave="handleMouseLeave"
+                ref="card">
+                <div class="card"
+                  :style="cardStyle">
+                  <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
+                  <div class="card-info">
+                    <slot name="header"></slot>
+                    <slot name="content"></slot>
+                  </div>
+                </div>
+              </div>`,
+            mounted() {
+              this.width = this.$refs.card.offsetWidth;
+              this.height = this.$refs.card.offsetHeight;
+            },
+            props: ['dataImage'],
+            data: () => ({
+              width: 0,
+              height: 0,
+              mouseX: 0,
+              mouseY: 0,
+              mouseLeaveDelay: null
+            }),
+            computed: {
+              mousePX() {
+                return this.mouseX / this.width;
+              },
+              mousePY() {
+                return this.mouseY / this.height;
+              },
+              cardStyle() {
+                const rX = this.mousePX * 30;
+                const rY = this.mousePY * -30;
+                return {
+                  transform: `rotateY(${rX}deg) rotateX(${rY}deg)`
+                };
+              },
+              cardBgTransform() {
+                const tX = this.mousePX * -40;
+                const tY = this.mousePY * -40;
+                return {
+                  transform: `translateX(${tX}px) translateY(${tY}px)`
+                }
+              },
+              cardBgImage() {
+                return {
+                  backgroundImage: `url(${this.dataImage})`
+                }
+              }
+            },
+            methods: {
+              handleMouseMove(e) {
+                this.mouseX = e.pageX - this.$refs.card.offsetLeft - this.width/2;
+                this.mouseY = e.pageY - this.$refs.card.offsetTop - this.height/2;
+              },
+              handleMouseEnter() {
+                clearTimeout(this.mouseLeaveDelay);
+              },
+              handleMouseLeave() {
+                this.mouseLeaveDelay = setTimeout(()=>{
+                  this.mouseX = 0;
+                  this.mouseY = 0;
+                }, 1000);
+              }
+            }
+          });
+    
+          const app = new Vue({
+            el: '#app'
+          });
+            
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div id="menu">
+            <ul class="clear">
+                <li class="logo left"></li>
+                <li class="console left"><a href=""><img class="icon" src="자료/메뉴바/기기.png" alt="">게임 기기</a><span></span>
+                    <div class="box">
+                        <a href=""><img src="자료/nav_switch_family.png" alt=""></a>
+                    </div>
+                </li>
+                <li class="soft left"><a href=""><img class="icon" src="자료/메뉴바/소프트웨어.png" alt="">소프트웨어</a><span></span>
+                    <div class="box">
+                        <a href=""><img src="자료/소프 (1).jpg" alt=""></a>
+                        <a href=""><img src="자료/소프 (2).jpg" alt=""></a>
+                        <a href=""><img src="자료/소프 (3).jpg" alt=""></a>
+                        <a href=""><img src="자료/소프 (4).jpg" alt=""></a>
+                        <a href=""><img src="자료/소프 (5).jpg" alt=""></a>
+                    </div>
+                </li>
+                <li class="as left"><a href=""><img class="icon" src="자료/메뉴바/지원.png" alt="">고객지원</a><span></span>
+                    <div class="box clear">
+                        <div class="maxbox">
+                            <a class="left" href="">
+                                <div class="dbox">
+                                    <img src="자료/as (1).gif" alt="">
+                                    <p>Nintendo Switch 고객지원</p>
+                                </div>
+                            </a>
+                            <a class="left" href="">
+                                <div class="dbox">
+                                    <img src="자료/as (2).gif" alt="">
+                                    <p>닌텐도 3DS 고객지원</p>
+                                </div>
+                            </a>
+                            <a class="left" href="">
+                                <div class="dbox">
+                                    <img src="자료/as (3).gif" alt="">
+                                    <p>부품 수리 고객지원</p>
+                                </div>
+                            </a>
+                            <a class="left" href="">
+                                <div class="dbox">
+                                    <img src="자료/as (4).gif" alt="">
+                                    <p>Nintendo Switch Online 서포트</p>
+                                </div>
+                            </a>
+                            <a class="left" href="">
+                                <div class="dbox">
+                                    <img src="자료/as (5).gif" alt="">
+                                    <p>네트워크 장애 발생 상황</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shop left"><a href=""><img class="icon" src="자료/메뉴바/쇼핑.png" alt="">닌텐도몰</a><span></span>
+                </li>
+                <li class="search left"><p><img class="icon" src="자료/메뉴바/검색.png" alt="">검색</p><span></span>
+                    <div class="box">
+                        <input class="text" type="text" value="">
+                        <input class="btn" type="button" value="검색">
+                    </div>
+                </li>
+                <a href=""><li class="amiibo left"></li></a>
+                <a href=""><li class="account right"></li></a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="voidtop"></div>
+    <section>
+        <div id="top">
+            <ul class="bxslider">
+                <li><img src="자료/상단1.webp" /></li>
+                <li><img src="자료/상단2.webp" /></li>
+                <li><img src="자료/상단3.webp" /></li>
+                <li><img src="자료/상단4.webp" /></li>
+                <li><img src="자료/상단5.webp" /></li>
+                <li><img src="자료/상단6.png" /></li>
+                <li><img src="자료/상단7.png" /></li>
+            </ul>
+        </div>
+        <div id="news">
+            <div class="text">
+                <h1>Nintendo Switch Online</h1>
+                <h3>새롭게 알려드립니다.</h3>
+            </div>
+            <img src="자료/gameboyadvenced.png" alt="">
+            <p>
+                <a href="">더보기</a>
+            </p>
+        </div>
+        <div id="chara">
+            <h1>닌텐도 캐릭터들</h1>
+            <div id="app" class="container">
+                <card data-image="자료/img-mario.webp">
+                    <h1 slot="header">마리오</h1>
+                    <p slot="content">마리오 시리즈의 주인공이자, 닌텐도의 상징 캐릭터. 더 나아가 비디오 게임을 대표하는 게임계의 대명사격인 캐릭터.</p>
+                </card>
+                <card data-image="자료/img-zelda-2.webp">
+                    <h1 slot="header">젤다의 전설</h1>
+                    <p slot="content">그 어떤 고난과 역경에도 항상 흔들리지 않고 묵묵히 나아가 대륙을 누비고 세계에 위험이 닥칠 때마다 출현하는 메시아, 전설의 용사</p>
+                </card>
+                <card data-image="자료/img-kirby.webp">
+                    <h1 slot="header">별의 커비</h1>
+                    <p slot="content">봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사. 적을 빨아들이고 능력을 카피해, 변신하는 캐릭터</p>
+                </card>
+                <card data-image="자료/img-splatoon.webp">
+                    <h1 slot="header">스플래툰</h1>
+                    <p slot="content">오징어에서 진화한 종족, 패션에 민감하며 언제나 축제를 즐기는 향락주의적 가치관을 가진 캐릭터</p>
+                </card>
+                <card data-image="자료/img-pikmin.jpg">
+                    <h1 slot="header">피크민</h1>
+                    <p slot="content">행성 PNF-404에 사는 생물로, 최초의 발견자는 올리마 평소에 좋아하던 야채인 "피크피크당근"에서 따와 피크민으로 명명되었다.</p>
+                </card>
+              </div>
+        </div>
+        <div id="company">
+            <h1>닌텐도 주요 회사</h1>
+            <div class="main">
+                <div class="side">
+                    <a href="https://www.gamefreak.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>게임 프리크</h3>
+                            <img src="자료/게임 프리크.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.hallab.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>HAL 연구소</h3>
+                            <img src="자료/할연구소.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://intsys.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>인텔리전트 시스템즈</h3>
+                            <img src="자료/인텔리전트.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.retrostudios.com/" target="_blank">
+                        <div class="sub">
+                            <h3>레트로 스튜디오</h3>
+                            <img src="자료/레트로.webp" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.monolithsoft.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>모노리스 소프트</h3>
+                            <img src="자료/모노리스.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://1-up-studio.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>1-UP 스튜디오</h3>
+                            <img src="자료/1-up.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.smashbros.com/ko_KR/" target="_blank">
+                        <div class="sub">
+                            <h3>소라</h3>
+                            <img src="자료/소라.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.camelot.co.jp/wp/" target="_blank">
+                        <div class="sub">
+                            <h3>카멜롯</h3>
+                            <img src="자료/카멜롯.webp" alt="">
+                        </div>
+                    </a>
+                    <a href="https://nextlevelgames.com/" target="_blank">
+                        <div class="sub">
+                            <h3>넥스트 레벨 게임즈</h3>
+                            <img src="자료/넥스트.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.ndcube.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>ND큐브(주)</h3>
+                            <img src="자료/큐브.webp" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.good-feel.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>굿-필</h3>
+                            <img src="자료/굿필.png" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.grezzo.co.jp/jp/" target="_blank">
+                        <div class="sub">
+                            <h3>GREZZO</h3>
+                            <img src="자료/그레쪼.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.mercurysteam.com/" target="_blank">
+                        <div class="sub">
+                            <h3>머큐리스팀</h3>
+                            <img src="자료/머큐리.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.platinumgames.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>플래티넘 게임즈</h3>
+                            <img src="자료/플레티넘.webp" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.gamefreak.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>게임 프리크</h3>
+                            <img src="자료/게임 프리크.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.hallab.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>HAL 연구소</h3>
+                            <img src="자료/할연구소.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://intsys.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>인텔리전트 시스템즈</h3>
+                            <img src="자료/인텔리전트.svg" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.retrostudios.com/" target="_blank">
+                        <div class="sub">
+                            <h3>레트로 스튜디오</h3>
+                            <img src="자료/레트로.webp" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.monolithsoft.co.jp/" target="_blank">
+                        <div class="sub">
+                            <h3>모노리스 소프트</h3>
+                            <img src="자료/모노리스.svg" alt="">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="soft">
+            <h1>최신 소프트웨어</h1>
+            <div class="main">
+                <a href="">
+                    <div class="sub">
+                        <div class="imgbox">
+                            <img src="자료/소프트웨어 (5).webp" alt="">
+                        </div>
+                        <h3>마리오 카트 8 디럭스</h3>
+                        <div class="info clear">
+                            <div class="left">
+                                <p>Nintendo Switch</p>
+                                <h4>2017.12.15</h4>
+                                <p>한국닌텐도</p>
+                            </div>
+                            <div class="right">
+                                <img class="top" src="자료/icn-grac_all.svg" alt="">
+                                <img class="bottom" src="자료/ico_lang_korea.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="sub">
+                        <div class="imgbox">
+                            <img src="자료/소프트웨어 (7).webp" alt="">
+                        </div>
+                        <h3>프린세스 피치 Showtime!</h3>
+                        <div class="info clear">
+                            <div class="left">
+                                <p>Nintendo Switch</p>
+                                <h4>2024.03.22</h4>
+                                <p>한국닌텐도</p>
+                            </div>
+                            <div class="right">
+                                <img class="top" src="자료/icn-grac_all.svg" alt="">
+                                <img class="bottom" src="자료/ico_lang_korea.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="sub">
+                        <div class="imgbox">
+                            <img src="자료/소프트웨어 젤다.webp" alt="">
+                        </div>
+                        <h3>젤다의 전설 티어스 오브 더 킹덤</h3>
+                        <div class="info clear">
+                            <div class="left">
+                                <p>Nintendo Switch</p>
+                                <h4>2023.05.12</h4>
+                                <p>한국닌텐도</p>
+                            </div>
+                            <div class="right">
+                                <img class="top" src="자료/icn-grac_12.svg" alt="">
+                                <img class="bottom" src="자료/ico_lang_korea.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="sub">
+                        <div class="imgbox">
+                            <img src="자료/소프트웨어 (4).webp" alt="">
+                        </div>
+                        <h3>슈퍼 마리오 브라더스 원더</h3>
+                        <div class="info clear">
+                            <div class="left">
+                                <p>Nintendo Switch</p>
+                                <h4>2023.10.20</h4>
+                                <p>한국닌텐도</p>
+                            </div>
+                            <div class="right">
+                                <img class="top" src="자료/icn-grac_all.svg" alt="">
+                                <img class="bottom" src="자료/ico_lang_korea.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="sub">
+                        <div class="imgbox">
+                            <img src="자료/소프트웨어 (1).webp" alt="">
+                        </div>
+                        <h3>페이퍼 마리오 1000년의 문(2024)</h3>
+                        <div class="info clear">
+                            <div class="left">
+                                <p>Nintendo Switch</p>
+                                <h4>2024.05.23</h4>
+                                <p>한국닌텐도</p>
+                            </div>
+                            <div class="right">
+                                <img class="top" src="자료/icn-grac_all.svg" alt="">
+                                <img class="bottom" src="자료/ico_lang_korea.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="sub">
+                        <div class="imgbox">
+                            <img src="자료/소프트웨어 (2).webp" alt="">
+                        </div>
+                        <h3>포에버 블루 루미너스</h3>
+                        <div class="info clear">
+                            <div class="left">
+                                <p>Nintendo Switch</p>
+                                <h4>2024.05.02</h4>
+                                <p>한국닌텐도</p>
+                            </div>
+                            <div class="right">
+                                <img class="top" src="자료/icn-grac_all.svg" alt="">
+                                <img class="bottom" src="자료/ico_lang_korea.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="sub">
+                        <div class="imgbox">
+                            <img src="자료/소프트웨어 (3).webp" alt="">
+                        </div>
+                        <h3>Nintendo Switch Sports</h3>
+                        <div class="info clear">
+                            <div class="left">
+                                <p>Nintendo Switch</p>
+                                <h4>2022.04.29</h4>
+                                <p>한국닌텐도</p>
+                            </div>
+                            <div class="right">
+                                <img class="top" src="자료/icn-grac_all.svg" alt="">
+                                <img class="bottom" src="자료/ico_lang_korea.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="sub">
+                        <div class="imgbox">
+                            <img src="자료/소프트웨어 (6).webp" alt="">
+                        </div>
+                        <h3>링 피트 어드벤처</h3>
+                        <div class="info clear">
+                            <div class="left">
+                                <p>Nintendo Switch</p>
+                                <h4>2019.10.18</h4>
+                                <p>한국닌텐도</p>
+                            </div>
+                            <div class="right">
+                                <img class="top" src="자료/icn-grac_all.svg" alt="">
+                                <img class="bottom" src="자료/ico_lang_korea.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="social clear">
+            <div class="icon">
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-square-x-twitter"></i>
+                <i class="fa-brands fa-square-facebook"></i>
+                <i class="fa-brands fa-square-instagram"></i>
+                <i class="fa-brands fa-line"></i>
+                <i class="fa-brands fa-bilibili"></i>
+            </div>
+        </div>
+        <div class="nav">
+            <h3>한국 닌텐도</h3>
+            <p><a href="">- 회사개요</a></p>
+            <p><a href="">- 찾아오시는 길</a></p>
+        </div>
+        <div class="bottom">
+            <div class="main clear">
+                <div class="left">
+                    <p>이용약관 | <b>개인정보처리 방침</b></p>
+                    <p>&copy; Nintendo of Korea Co., Ltd. All Rights Reserved</p>
+                    <ul class="clear">
+                        <li class="left">상호명 : 한국 닌텐도주식화사</li>
+                        <li class="left">대표자명 : 미우라 타카히로</li>
+                        <li class="left">사업자등록번호 : 120-87-03578</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <p>고객지원 문의전화 : 1670-9900 (평일 오전 9시 30분~오후 5시 30분)</p>
+                    <br>
+                    <p>※ 토/일/공휴일/회사 정기휴일 및 특별휴일 제외</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

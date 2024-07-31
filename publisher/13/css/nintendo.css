@@ -1,0 +1,721 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .25s;
+}
+/* body{
+    height: 5000px;
+} */
+a{
+    text-decoration: none;
+    color: inherit;
+}
+ul{
+    list-style: none;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+#menu:hover{
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+#menu{
+    position: fixed;
+    width: 100%;
+    height: 102px;
+    border-bottom: 2px solid rgb(230, 230, 230);
+    transition: all .5s;
+    z-index: 3;
+}
+#menu>ul{
+    font-size: 24px;
+    color: rgb(180, 180, 180);
+}
+#menu>ul>li{
+    z-index: 1;
+}
+.icon{
+    margin-right: 5%;
+}
+#menu>ul>li:hover>span{
+    width: 100%;
+}
+#menu>ul>li>span{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 0%;
+    text-align: center;
+    display: block;
+    border-bottom: 4px solid rgb(230, 0, 18);
+    transition: all .5s;
+}
+#menu>ul>.logo{
+    width: 15%;
+    height: 100px;
+    background: url(../자료/top.png) no-repeat 50%,rgb(230, 0, 18);
+}
+#menu>ul>:not(.logo,.amiibo,.account,a){
+    width: 14%;
+    height: 100px;
+    line-height: 98px;
+    text-align: center;
+    border-right: 2px solid rgb(230, 230, 230);
+}
+#menu>ul>.console{
+    background: white;
+}
+#menu>ul>.console .icon{
+    width: 20px;
+}
+#menu>ul>.console:hover>.box{
+    top: 102px;
+    height: 300px;
+}
+#menu>ul>.console>.box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100px;
+    background: white;
+    border-bottom: 2px solid rgb(230, 0, 18);
+    transition: all 1s;
+    z-index: -1;
+}
+#menu>ul>.console>.box img{
+    position: relative;
+    top: 50%;
+    transform: translate(0,-50%);
+    
+}
+#menu>ul>.console>.box img:hover{
+    opacity: .5;
+}
+#menu>ul>.soft{
+    background: white;
+}
+#menu>ul>.soft .icon{
+    width: 20px;
+}
+#menu>ul>.soft:hover>.box{
+    top: 102px;
+    height: 300px;
+}
+#menu>ul>.soft>.box{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 0px;
+    background: white;
+    border-bottom: 2px solid rgb(230, 0, 18);
+    transition: all 1s;
+    z-index: -1;
+}
+#menu>ul>.soft>.box img:hover{
+    opacity: .5;
+}
+#menu>ul>.soft>.box img{
+    position: relative;
+    width: 10%;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+#menu>ul>.as{
+    background: white;
+}
+#menu>ul>.as .icon{
+    width: 20px;
+}
+#menu>ul>.as:hover>.box{
+    top: 102px;
+    height: 130px;
+}
+#menu>ul>.as>.box{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 0px;
+    background: white;
+    border-bottom: 2px solid rgb(230, 0, 18);
+    transition: all 1s;
+    z-index: -1;
+}
+#menu>ul>.as>.box>.maxbox{
+    width: 80%;
+    margin: 0 auto;
+}
+#menu>ul>.as>.box>.maxbox>a{
+    width: 20%;
+}
+#menu>ul>.as>.box .dbox:hover>img{
+    opacity: .5;
+}
+#menu>ul>.as>.box img{
+    width: 50%;
+    transition: all .5s;
+}
+#menu>ul>.as>.box p{
+    font-size: 16px;
+    position: relative;
+    top: -80px;
+}
+#menu>ul>.shop{
+    background: white;
+}
+#menu>ul>.shop .icon{
+    width: 20px;
+}
+#menu>ul>.search{
+    width: 10%;
+    background: white;
+}
+#menu>ul>.search .icon{
+    width: 20px;
+}
+#menu>ul>.search:hover>.box{
+    top: 102px;
+    height: 110px;
+}
+#menu>ul>.search>.box{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100vw;
+    height: 0px;
+    background: white;
+    border-bottom: 2px solid rgb(230, 0, 18);
+    transition: all 1s;
+    z-index: -1;
+}
+#menu>ul>.search>.box>.text{
+    width: 55%;
+    height: 50px;
+}
+#menu>ul>.search>.box>.btn{
+    position: relative;
+    top: 2px;
+    width: 3%;
+    height: 50px;
+}
+#menu>ul>a>.amiibo{
+    width: 14%;
+    height: 100px;
+    background: url(../자료/아미보.png)no-repeat 50% 45%,white;
+}
+#menu>ul>a>.account{
+    width: 5%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background: url(../자료/어카운트.png) no-repeat 50%/cover;
+}
+#top{
+    transition: none;
+}
+.bxslider{
+    transition: none;
+}
+.bxslider *{
+    transition: none;
+}
+.box{
+    overflow: hidden;
+}
+#voidtop{
+    height: 102px;
+}
+section{
+    position: relative;
+}
+#news{
+    text-align: center;
+    margin-bottom: 60px;
+}
+#news>*:not(:last-child){
+    margin-bottom: 60px;
+}
+#news>img{
+    width: 100%;
+}
+#news>p{
+    width: 80%;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 auto;
+    transition: all .25s ease-in-out;
+}
+#news>p>a:hover{
+    opacity: .5;
+}
+#news>p>a{
+    padding: 4px 6px;
+    color: white;
+    background: rgb(230, 0, 18);
+}
+#chara{
+    text-align: center;
+    margin-bottom: 60px;
+}
+/* #chara>*:not(:last-child){
+    margin-bottom: 60px;
+} */
+.container {
+    padding: 40px 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card-wrap {
+    margin: 10px;
+    transform: perspective(800px);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+.card-wrap:hover .card-info {
+    transform: translateY(0);
+}
+.card-wrap:hover .card-info p {
+    opacity: 1;
+}
+.card-wrap:hover .card-info, .card-wrap:hover .card-info p {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.card-wrap:hover .card-info:after {
+    transition: 5s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 1;
+    transform: translateY(0);
+}
+.card-wrap:hover .card-bg {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 5s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0.8;
+}
+.card-wrap:hover .card {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, rgba(255, 255, 255, 1) 0 0 0 1px, rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
+}
+.card:hover{
+    scale: 1.2;
+}
+.card {
+    position: relative;
+    flex: 0 0 240px;
+    width: 240px;
+    height: 320px;
+    background-color: #333;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
+    transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.card-bg {
+    opacity: 0.75;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    pointer-events: none;
+}
+.card-info {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    transform: translateY(40%);
+    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.card-info p {
+    opacity: 0;
+    text-shadow: rgba(0, 0, 0, 1) 0 2px 3px;
+    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.card-info * {
+    position: relative;
+    z-index: 1;
+}
+.card-info:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+    background-blend-mode: overlay;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.card-info h1 {
+    font-family: "Playfair Display";
+    font-size: 36px;
+    font-weight: 700;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
+}
+#company{
+    /* text-align: center; */
+    margin-bottom: 60px;
+}
+#company>h1{
+    text-align: center;
+}
+#company>*:not(:last-child){
+    margin-bottom: 60px;
+}
+#company>.main{
+    width: 100%;
+    overflow: hidden;
+}
+#company>.main:hover>.side{
+    animation-play-state: paused;
+}
+#company>.main>.side{
+    position: relative;
+    left: 0;
+    width: 7132px;
+    animation: company 70s linear infinite;
+}
+@keyframes company{
+    form{
+        left: 0;
+    }
+    to{
+        left: -5269px;
+    }
+}
+#company>.main>.side img{
+    position: relative;
+    width: 300px;
+}
+#company>.main>.side .sub:hover{
+    scale: 1.2;
+}
+#company>.main>.side .sub{
+    width: 320px;
+    display:inline-block;
+    margin: 25px;
+}
+#soft{
+    text-align: center;
+    margin-bottom: 60px;
+}
+#soft>*:not(:last-child){
+    margin-bottom: 60px;
+}
+#soft>.main{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+#soft>.main>a>.sub{
+    position: relative;
+    width: 300px;
+    /* height: 390px; */
+    display:inline-block;
+    margin: 25px;
+    border-bottom: 2px solid rgb(180, 180, 180);
+}
+#soft>.main>a>.sub>*:not(:last-child){
+    margin-bottom: 10px;
+}
+#soft>.main>a>.sub>.imgbox{
+    width: 300px;
+    height: 170px;
+    overflow: hidden;
+}
+#soft>.main>a>.sub:hover>.imgbox>img{
+    scale: 1.2;
+    opacity: .35;
+}
+#soft>.main>a>.sub>.imgbox img{
+    position: relative;
+    width: 300px;
+    height: 170px;
+}
+#soft>.main>a>.sub:hover>.info{
+    opacity: 1;
+}
+#soft>.main>a>.sub>.info{
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    text-align: left;
+    width: 90%;
+    height: 140px;
+    transform: translate(-50%,0);
+    opacity: 0;
+}
+#soft>.main>a>.sub>.info>.left{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 75%;
+}
+#soft>.main>a>.sub>.info>.right{
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 25%;
+    height: 100%;
+}
+#soft>.main>a>.sub>.info>.right img{
+    width: 100%;
+    bottom: 0;
+}
+#soft>.main>a>.sub>.info>.right>.top{
+    position: absolute;
+    top: 0;
+}
+#soft>.main>a>.sub>.info>.right>.bottom{
+    position: absolute;
+    bottom: 0;
+}
+footer{
+    text-align: center;
+    background: rgb(230, 0, 18);
+    color: white;
+}
+footer i{
+    display: inline-block;
+}
+footer>.social>.icon{
+    text-align: center;
+    width: 80%;
+    height: 150px;
+    /* line-height: 150px; */
+    margin: 0 auto;
+    padding: 35px 0 35px 0;
+    font-size: 64px;
+    position: relative;
+    vertical-align: middle;
+}
+footer>.nav{
+    margin-bottom: 40px;
+}
+footer>.bottom{
+    background: rgb(230, 230, 230);
+    color: black;
+}
+footer>.bottom>.main{
+    width: 80%;
+    /* height: 120px; */
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+footer>.bottom>.main>.left{
+    /* width: 60%; */
+    text-align: left;
+    margin-bottom: 3px;
+}
+footer>.bottom>.main>.right{
+    /* width: 40%; */
+    text-align: right;
+}
+@media screen and (min-width:1280px) and (max-width:1599px) {
+    #menu{
+        position: fixed;
+        width: 100%;
+        height: 102px;
+        border-bottom: 2px solid rgb(230, 230, 230);
+        transition: all .5s;
+        z-index: 3;
+    }
+    #menu>ul{
+        font-size: 1.5vmax;
+        color: rgb(180, 180, 180);
+    }
+    #menu>ul>li{
+        z-index: 1;
+        /* position: relative; */
+    }
+    #menu>ul>li:hover>span{
+        width: 100%;
+    }
+    #menu>ul>.logo{
+        width: 15%;
+        height: 100px;
+        background: url(../자료/top.png) no-repeat 50%/90%,rgb(230, 0, 18);
+    }
+    #menu>ul>.console{
+        background: white;
+    }
+    #menu>ul>.soft{
+        background: white;
+    }
+    #menu>ul>.as{
+        background: white;
+    }
+    #menu>ul>.shop{
+        background: white;
+    }
+    #menu>ul>.search{
+        width: 10%;
+        background: white;
+    }
+    #menu>ul>a>.amiibo{
+        width: 14%;
+        height: 100px;
+        background: url(../자료/아미보.png)no-repeat 50% 45%/90%,white;
+    }
+    #menu>ul>a>.account{
+        width: 5%;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background: url(../자료/어카운트.png) no-repeat 50%/contain,rgb(230, 0, 18);
+    }
+}
+@media screen and (min-width:501px) and (max-width:1279px) {
+    #menu{
+        position: fixed;
+        width: 100%;
+        height: 102px;
+        border-bottom: 2px solid rgb(230, 230, 230);
+        transition: all .5s;
+        z-index: 3;
+    }
+    #menu>ul{
+        font-size: 1.5vmax;
+        color: rgb(180, 180, 180);
+    }
+    #menu>ul>li{
+        z-index: 1;
+        /* position: relative; */
+    }
+    #menu>ul>li>a,#menu>ul>li>p{
+        padding-left: 30px;
+    }
+    #menu>ul>li:hover>span{
+        width: 100%;
+    }
+    #menu>ul>.logo{
+        width: 15%;
+        height: 100px;
+        background: url(../자료/top.png) no-repeat 50%/90%,rgb(230, 0, 18);
+    }
+    #menu>ul>.console{
+        background: url(../자료/메뉴바/기기.png) no-repeat 50% 50%/50%,white;
+    }
+    #menu>ul>.console>a{
+        display: none;
+    }
+    #menu>ul>.soft{
+        background: url(../자료/메뉴바/소프트웨어.png) no-repeat 50% 50%/50%,white;
+    }
+    #menu>ul>.soft>a{
+        display: none;
+    }
+    #menu>ul>.as{
+        background: url(../자료/메뉴바/지원.png) no-repeat 50% 50%/50%,white;
+    }
+    #menu>ul>.as>a{
+        display: none;
+    }
+    #menu>ul>.shop{
+        background: url(../자료/메뉴바/쇼핑.png) no-repeat 50% 50%/50%,white;
+    }
+    #menu>ul>.shop>a{
+        display: none;
+    }
+    #menu>ul>.search{
+        width: 10%;
+        background: url(../자료/메뉴바/검색.png) no-repeat 50% 50%/50%,white;
+    }
+    #menu>ul>.search>p{
+        display: none;
+    }
+    #menu>ul>a>.amiibo{
+        width: 14%;
+        height: 100px;
+        background: url(../자료/아미보.png)no-repeat 50% 45%/90%,white;
+    }
+    #menu>ul>a>.account{
+        width: 5%;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background: url(../자료/어카운트.png) no-repeat 50%/contain,rgb(230, 0, 18);
+    }
+    footer>.social>.icon{
+        font-size: 5vmax;
+    }
+}
+@media screen and (max-width:500px) {
+    #menu{
+        position: fixed;
+        width: 100%;
+        height: 102px;
+        border-bottom: 2px solid rgb(230, 230, 230);
+        transition: all .5s;
+        z-index: 3;
+    }
+    #menu>ul{
+        font-size: 1.5vmax;
+        color: rgb(180, 180, 180);
+    }
+    #menu>ul>li{
+        z-index: 1;
+        /* position: relative; */
+    }
+    #menu>ul>.logo{
+        width: 75%;
+        height: 100px;
+        background: url(../자료/top.png) no-repeat 50%/90%,rgb(230, 0, 18);
+    }
+    #menu>ul>.console{
+        display: none;
+    }
+    #menu>ul>.soft{
+        display: none;
+    }
+    #menu>ul>.as{
+        display: none;
+    }
+    #menu>ul>.shop{
+        display: none;
+    }
+    #menu>ul>.search{
+        display: none;
+    }
+    #menu>ul>a>.amiibo{
+        display: none;
+    }
+    #menu>ul>a>.account{
+        width: 25%;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background: url(../자료/어카운트.png) no-repeat 50%/contain,rgb(230, 0, 18);
+    }
+    footer>.social>.icon{
+        font-size: 45px;
+    }
+    footer>.bottom>.main>.right{
+        text-align: left;
+    }
+}
+.bx-next,.bx-prev{
+    transition: none !important;
+}

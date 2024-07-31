@@ -1,0 +1,624 @@
+@charset "utf-8";
+
+
+/* 버튼 스타일*/
+.b_btn {
+    display: block;
+    box-sizing: border-box;
+    color: var(--b-color);
+    border: 2px solid var(--b-color);
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    line-height: 35px;
+    font-size: var(--font-size2);
+    /* transition: all 1s; */
+    transition-property: background;
+    transition-duration: 1s;
+}
+
+.w_btn {
+    display: block;
+    box-sizing: border-box;
+    color: var(--w-color);
+    border: 2px solid var(--w-color);
+    background: transparent;
+    border-radius: 5px;
+    height: 40px;
+    text-align: center;
+    line-height: 35px;
+    font-size: var(--font-size2);
+    transition: all 1s;
+}
+
+.w_btn:hover, .g_btn:hover {
+    text-decoration: underline;
+}
+
+.g_btn {
+    display: block;
+    box-sizing: border-box;
+    color: var(--w-color);
+    background: #00704a;
+    border-radius: 5px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: var(--font-size2);
+    transition: all 1s;
+}
+
+.y_btn {
+    display: block;
+    box-sizing: border-box;
+    color: #b87643;
+    border: 2px solid #b87643;
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    line-height: 35px;
+    font-size: var(--font-size2);
+    transition: all 1s;
+}
+
+
+/* 상단 */
+header {
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    z-index: 999;
+    background: var(--m-color);
+    border-top:2px solid var(--b-color);
+}
+
+aside {
+    width:140px;
+    height: 96px;
+    position: fixed;
+    right:265px;
+    top:16%;
+    z-index: 9999;
+}
+
+/* 비주얼 */
+.top_gong {
+    width: 100%;
+    height: 120px;
+}
+
+main {
+    width: 100%;
+    height: 610px;
+    border-top:2px solid var(--b-color);
+    box-sizing: border-box;
+    background: url("../images/25th_top_bg.png") no-repeat top center;
+    background-size: 100%;
+    position: relative;
+}
+
+.visual_area {
+    width:1400px;
+    position: relative;
+    margin:0 auto;
+}
+
+.visual_title {
+    float:left;
+    width: 25%;
+    text-align: center;
+}
+
+#slogan {
+    position: relative;
+    top:110px;
+    opacity: 0;
+}
+
+.slogan_btn {
+    position: relative;
+    left:31%;
+    top:140px;
+    opacity: 0;
+}
+
+.slogan_btn:hover {
+    background: #1e3932;
+    border: 2px solid #1e3932;
+    cursor: pointer;
+}
+
+.slogan_btn:hover a {
+    color: var(--w-color);
+    text-decoration: underline;
+}
+
+
+.visual {
+    float:left;
+    position: relative;
+    width: 60%;
+    height: 500px;
+    margin-top: 100px;
+    margin-left: 50px;
+   
+}
+
+.visual img {
+    position: absolute;
+}
+
+#drink1 {
+   top:0px;
+   left:0px; 
+   opacity: 0;
+}
+
+#drink2 {
+   top:0px;
+   left:200px; 
+   opacity: 0;
+}
+
+#drink3 {
+   top:0px;
+   left:400px; 
+   opacity: 0;
+}
+
+#drink4 {
+   top:60px;
+   left:650px; 
+   opacity: 0;
+}
+
+
+/* 리워드 */
+#board_area {
+    width: 100%;
+    position: relative; 
+    height: 62px;
+    line-height: 62px;
+} 
+
+#board_area div {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+#board_area div:nth-of-type(1) {
+    width: 50%;
+    float:left;
+    background: var(--b-color);
+    color: var(--w-color);
+}
+
+#board_area div:nth-of-type(1) h1 {
+    font-size: 17px;
+    font-weight: var(--font-700);
+    float:left;
+    position: absolute;
+    left:40%;
+}
+
+#board_area div:nth-of-type(1) .box {
+    float:left;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translateY(-50%);
+    height: 24px;
+    overflow: hidden;
+}
+
+#board_area div:nth-of-type(1) .box ul{
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#board_area div:nth-of-type(1) .box ul li{
+    position: relative;
+    background: black;
+    height: 24px;
+    line-height: 24px;
+}
+
+#board_area div:nth-of-type(1) img {
+    position: absolute;
+    left:93%;
+    top:20%;
+    width: 35px;
+}
+
+#board_area div:nth-of-type(2) {
+    float: right; 
+    background: var(--w-color);
+    color: var(--b-color);
+} 
+
+
+#board_area div:nth-of-type(2) h1 {
+    font-size: 17px;
+    font-weight: var(--font-700);
+    float:left;
+    position: absolute;
+    left:20%;
+}
+
+#board_area div:nth-of-type(2) img {
+    position: absolute;
+    left:50%;
+    top:20%;
+    width: 35px;
+}
+
+#reward_area {
+    width: 100%;
+    height: 240px;
+    background: #1e3932;
+    position: relative;
+    color:var(--w-color);
+}
+
+.reward {
+    width: 1100px;
+    position: relative;
+    margin: 0 auto;
+    top: 15px;
+}
+
+.rewards-logo {
+    float:left;
+    width: 170px;
+    margin-top: 20px;
+}
+
+.reward_text {
+    position: relative;
+    float:left;
+    top:30px;
+    left:50px;
+}
+
+.reward_text div {
+    width: 100%;
+}
+
+.reward_text span {
+    font-weight: var(--font-700);
+    text-shadow: 0px 0px 1px #fff;
+}
+
+.reward_text h2 {
+    font-size: 27px;
+}
+
+.reward_text div:nth-of-type(1) {
+    height: 80px;
+    padding-top: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+}
+
+.reward_text div:nth-of-type(1) p {
+    float: left;
+    font-size: 17px;
+    line-height: 1.2em;
+}
+
+.reward_text div:nth-of-type(1) ul {
+    float: right;
+}
+
+.reward_text div:nth-of-type(1)>ul>li {
+   float: left;
+}
+
+.reward_text div:nth-of-type(1)>ul>li:first-child {
+    margin-right: 10px;
+}
+
+.reward_text div:nth-of-type(2) {
+    height: 40px;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.reward_text div:nth-of-type(2) p {
+    font-size: 14px;
+    line-height: 1.2em;
+    float: left;
+}
+
+.join_btn {
+    width:100px;
+}
+
+.login_btn {
+    width:80px;
+}
+
+.card_btn {
+    width:220px;
+    float: left;
+    margin-left: 50px;
+}
+
+
+/* 배너들 */
+section:nth-of-type(2) {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    background: url("../images/25th_summer_bean_bg.jpg") no-repeat #f4f4f4 top center;
+}
+
+.banner_1 {
+    width: 950px;
+    margin: 0 auto;
+    position: relative;
+    
+}
+
+.summer_bean{
+    float: left;
+    margin-top: 100px;
+    position: relative;
+    left:-1000px;
+    opacity: 0;
+}
+
+.banner_1 div {
+    float: right;
+    position: relative;
+    margin-top: 120px;
+    right:-1000px;
+}
+
+.summer_btn{
+    margin-top: 40px;
+}
+
+.summer_btn:hover {
+    background: #282119;
+    border: 2px solid #282119;
+    cursor: pointer;
+}
+
+.summer_btn:hover a {
+    color: var(--w-color);
+    text-decoration: underline;
+}
+
+
+section:nth-of-type(3) {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url("../images/reserve_coffee_bg.png") no-repeat top center,
+    url("../images/reserve_bg.jpg") no-repeat top center;
+    
+   
+}
+
+.banner_2 {
+    width: 750px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.reserve_logo {
+    margin-top: 90px;
+}
+
+.reserve_btn {
+    position: relative;
+    margin-top: 20px;
+    left:17%;
+}
+
+.reserve_btn:hover {
+    background: #b87643;
+    border: 2px solid #b87643;
+    cursor: pointer;
+}
+
+.reserve_btn:hover a {
+    color: var(--w-color);
+    text-decoration: underline;
+}
+
+
+section:nth-of-type(4) {
+    width: 100%;
+    height: 800px;
+    position: relative;
+    background: url("../images/25th_summer_pick_bg.jpg") no-repeat center center fixed;
+    background-size: auto 90%;
+    background-position: bottom;
+}
+
+.banner_3 {
+    width:1500px;
+    margin:0 auto;
+    position: relative;
+}
+
+.fav_prod_txt {
+    float: left;
+    width:400px;
+    text-align: right;
+    margin-left: 100px;
+    position: relative;
+    top:150px;
+}
+
+.prod_txt01 {
+    position: relative;
+    left:-1000px;
+    opacity: 0;
+}
+
+.prod_txt02 {
+    margin-top: 50px;
+    position: relative;
+    left:-1000px;
+    opacity: 0;
+}
+
+.prod_btn{
+    width: 130px;
+    position: relative;
+    left:66%;
+    margin-top: 25px;
+    opacity: 0;
+}
+
+.prod_btn:hover {
+    background: var(--w-color);
+    border: 2px solid var(--w-color);
+    cursor: pointer;
+}
+
+.prod_btn:hover a {
+    color: var(--b-color);
+    text-decoration: underline;
+}
+
+
+.pick_img{
+    float: right;
+    position: relative;
+    top:70px;
+}
+
+section:nth-of-type(5) {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background: url("../images/ma_reserve_bg.png") no-repeat center bottom;
+}
+
+.ma_area {
+    width:950px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.ma_area_text{
+    position: absolute;
+    top:120px;
+    left:100px;
+    z-index:2;
+}
+
+
+.ma_reserve{
+    position: absolute;
+    top:0px;
+    right:0px;
+    z-index:1;
+    opacity: 0;
+}
+
+.ma_btn{
+    position: relative;
+    margin-top: 20px;
+    left:19%;
+}
+
+.ma_btn:hover {
+    background: var(--b-color);
+    border: 2px solid var(--b-color);
+    cursor: pointer;
+}
+
+.ma_btn:hover a {
+    color: var(--w-color);
+    text-decoration: underline;
+}
+
+
+section:nth-of-type(6) {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background: url("../images/store_bg.jpg") repeat-x center top;
+}
+
+.store_area {
+    width: 1100px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+    background: url("../images/store_exp_img03.png") no-repeat, 
+    url("../images/store_exp_img04.png") no-repeat;
+    background-position: 50% -23%, 100% 100%;
+}
+
+.store_left {
+    float: left;
+    position: relative;
+    width:450px;
+    opacity: 0;
+}
+
+.main_story_1 {
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index: 1;
+}
+
+.main_story_2 {
+    position: absolute;
+    top:150px;
+    left:250px;
+    z-index: 2;
+}
+
+.store_right {
+    float: right;
+    right:150px;
+    position: absolute;
+    width:374px;
+    top:90px;
+}
+
+.main_story_txt_1 {
+    position: absolute;
+    right:-1000px;
+    opacity: 0;
+}
+
+.main_story_txt_2 {
+    position: absolute;
+    right:-1000px;
+    top: 80px;
+    opacity: 0;
+}
+
+.store_btn {
+    position: relative;
+    margin-top: 200px;
+    right:-1000px;
+    opacity: 0;
+    /* transition: none; */
+}
+
+.store_btn:hover {
+    background: var(--b-color);
+    border: 2px solid var(--b-color);
+    cursor: pointer;
+}
+
+.store_btn:hover a {
+    color: var(--w-color);
+    text-decoration: underline;
+}
+
+

@@ -1,0 +1,56 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+    -webkit-user-drag: none;
+    touch-action: none;
+    user-select: none;
+}
+button{
+    cursor: none;
+}
+a{
+    cursor: none;
+}
+body{
+    font-family: "Josefin Sans","Jua", sans-serif;
+    -ms-overflow-style: none;
+    background: rgb(0, 0, 45);
+    cursor: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.left{
+    float: left;
+}
+.t_left{
+    text-align: left;
+}
+.right{
+    float: right;
+}
+.t_right{
+    text-align: right;
+}
+.clear::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.main{
+    position: relative;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}

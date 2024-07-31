@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="images/favicon_lamda.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/nav.css">
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all .25s;
+        }
+        ul{
+            list-style: none;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .clear::after{
+            display: block;
+            content: "";
+            clear: both;
+        }
+        .top{
+            position: relative;
+            width: 100%;
+            text-align: center;
+            /* border: 1px solid blue; */
+        }
+        .top::before{
+            content: "";
+            display: block;
+            padding-top: 7%;
+        }
+        .top>.box{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,0);
+            width: 60%;
+            height: 100%;
+            /* border: 1px solid red; */
+            font-size: 1.5vmax;
+        }
+        .top>.box>.left,.top>.box>.right{
+            position: relative;
+            width: 30%;
+            height: 40%;
+            /* border: 1px solid green; */
+        }
+        .top>.box>.middle{
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%,0);
+            width: 40%;
+            height: 100%;
+            /* border: 1px solid yellow; */
+            padding: 2%;
+        }
+        .top>.box>.middle>.logo{
+            width: 100%;
+            height: 100%;
+            background: url(images/밸브수정_밸브.svg) no-repeat center/contain;
+        }
+        .top>.box>.left li{
+            width: 20%;
+        }
+        /* .top>.box>.right>ul{
+            position: absolute;
+            right: 0;
+        } */
+        .top>.box>.right li{
+            width: 50%;
+            color: black;
+            font-weight: bold;
+            font-size: 1.6vmin;
+        }
+        .top>.box>.right li:not(:last-of-type){
+            border-right: 2px solid black;
+        }
+        .bottom{
+            position: relative;
+            width: 100%;
+            text-align: center;
+            /* border: 1px solid blue; */
+        }
+        .bottom::before{
+            content: "";
+            display: block;
+            padding-top: 3%;
+        }
+        .bottom>.nav{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,0);
+            width: 60%;
+            height: 100%;
+            /* border: 1px solid red; */
+            font-size: .9vmax;
+        }
+        .bottom>.nav>ul{
+            height: 100%;
+        }
+        .bottom>.nav li{
+            display: inline-block;
+            position: relative;
+            top: 50%;
+            /* bottom: 25%; */
+            transform: translate(0,-50%);
+            width: 14.28%;
+            /* height: 100%; */
+            vertical-align: middle;
+            font-weight: bold;
+            
+        }
+        .bottom>.nav .list{
+            display: none;
+        }
+        .bottom>.nav li>i{
+            font-weight: bold;
+        }
+        header{
+            width: 100%;
+            background: #f37b21;
+            box-shadow: 0px 1px 5px gray;
+        }
+        section{
+            width: 100%;
+            background: url(images/하프라이프\ 알릭스.webp) no-repeat center/cover;
+        }
+        section>.main{
+            width: 70%;
+            /* border: 1px solid red; */
+            margin: 0 auto;
+        }
+        section>.main>div::after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            box-sizing: border-box;
+            border: 0vmax solid #F74843;
+            transition: all .5s;
+        }
+        section>.main>div:hover::after{
+            border: 1vmax solid #F74843;
+        }
+        section>.main>div{
+            position: relative;
+            width: 100%;
+            text-align: center;
+            /* border: 1px solid blue; */
+        }
+        section>.main>div::before{
+            content: "";
+            display: block;
+            padding-top: 30%;
+        }
+        section>.main>div>p,section>.main>div>iframe{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 1vmax;
+            color: white;
+        }
+        section>.main>.mob::before,section>.main>.sw::before{
+            padding-top: 90%;
+        }
+        section>.main>.mob,section>.main>.sw{
+            width: 33.33%;
+        }
+        section>.main>div:nth-of-type(1){
+            background: url(images/하프라이프.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(2){
+            background: url(images/하프라이프\ 알릭스.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(3){
+            background: url(images/포탈.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(4){
+            background: url(images/카운터스트라이크.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(5){
+            background: url(images/포탈2.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(6){
+            background: url(images/카스글옵.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(7){
+            background: url(images/레프트4데드.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(8){
+            background: url(images/하프라이프2.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(9){
+            background: url(images/도타2.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(10){
+            background: url(images/팀포2.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(11){
+            background: url(images/게리모드.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(12){
+            background: url(images/도타체스.webp) no-repeat center/cover;
+        }
+        section>.main>div:nth-of-type(13){
+            background: url(images/카스2.webp) no-repeat center/cover;
+        }
+        footer{
+            position: relative;
+            width: 100%;
+            background: black;
+            text-align: center;
+            color: gray;
+        }
+        footer::before{
+            content: "";
+            display: block;
+            padding-top: 20%;
+        }
+        footer>.main{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,0);
+            width: 50%;
+            height: 100%;
+            /* border: 2px solid red; */
+        }
+        footer>.main>.logo{
+            width: 80%;
+            height: 50%;
+            margin: 0 auto;
+            background: url(images/밸브수정_밸브.svg)no-repeat center/60%;
+            /* border: 1px solid blue; */
+        }
+        footer>.main>p{
+            font-size: .7vmax;
+        }
+        footer>.main>.text1{
+            margin-bottom: 5%;
+        }
+        @media screen and (max-width:1280px) {
+            section>.main{
+                width: 100%;
+            }
+        }
+        @media screen and (max-width:500px){
+            .top::before{
+                padding-top: 15%;
+            }
+            .bottom::before{
+                padding-top: 0%;
+            }
+            .top>.box>.left{
+                display: none;
+            }
+            .top>.box>.right{
+                display: none;
+            }
+            .bottom>.nav li{
+                font-size: 1.5vmax;
+            }
+            .bottom>.nav li:not(.right,.list){
+                display: none;
+            }
+            .bottom>.nav .list{
+                display: inline-block;
+                transform: translate(-70px,-45px);
+            }
+            .bottom>.nav .right{
+                transform: translate(70px,-45px);
+            }
+            .del{
+                display: none;
+            }
+            section>.main>.sw {
+                width: 100%;
+            }
+            section>.main>div::before{
+                padding-top: 120%;
+            }
+            section>.main>.mob::before{
+                padding-top: 130%;
+            }
+            section>.main>.sw::before,section>.main>.bottom::before{
+                padding-top: 40%;
+            }
+            section>.main>.mob{
+                width: 50%;
+            }
+            section>.main>div>p{
+                font-size: 2vmax;
+            }
+            footer>.main>.logo{
+                height: 40%;
+            }
+            footer::before{
+                content: "";
+                display: block;
+                padding-top: 40%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="RADEON.html"><img src="images/암드_라데온.svg"></a>
+        <a href="CGV.html"><img src="images/CGV로고.svg"></a>
+    </nav>
+    <header>
+        <div class="top">
+            <div class="box clear">
+                <div class="left">
+                    <ul class="clear">
+                        <li class="left"><i class="fa-brands fa-instagram"></i></li>
+                        <li class="left"><i class="fa-brands fa-facebook-f"></i></li>
+                        <li class="left"><i class="fa-brands fa-twitter"></i></li>
+                        <li class="left"><i class="fa-brands fa-youtube"></i></li>
+                        <li class="left"><i class="fa-brands fa-pinterest-p"></i></li>
+                    </ul>
+                </div>
+                <div class="middle">
+                    <div class="logo"></div>
+                </div>
+                <div class="right">
+                    <ul class="clear">
+                        <li class="left">SIDE MENU</li>
+                        <li class="left">SUBSCRIBE</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="nav">
+                <ul class="clear">
+                    <li class="left list"><i class="fa-solid fa-bars"></i></li>
+                    <li class="left">HALF-LIFE</li>
+                    <li class="left">PORTAL</li>
+                    <li class="left">COUNTER STRIKE</li>
+                    <li class="left">LEFT4 DEAD</li>
+                    <li class="left">TEAM FORTRESS</li>
+                    <li class="left">A L Y X</li>
+                    <li class="right"><i class="fa-brands fa-sistrix"></i></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="main clear">
+            <div class="head left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="mob del left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="mob left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="mob left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="head left">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/O2W0N3uKXmo?si=xsZuLfPMnUnsF8Zp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="mob del left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="mob left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="mob left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="head left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="mob left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="mob left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="sw left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+            <div class="head bottom left">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="main">
+            <div class="logo"></div>
+            <p class="text1">We make games, Steam, and hardware. Join us.
+                <br>We aren't a typical company—which is why you're here, right? As a flat company without hierarchy and job titles, we don't usually hire for specific roles. (Though we sometimes do!) Opportunities at Valve run broad and deep. We're always hiring highly experienced collaborators who are the best at what they do, across the following
+            </p>
+            <p class="text2">개인정보 처리방침</p>
+        </div>
+    </footer>
+</body>
+</html>

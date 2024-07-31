@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            color: inherit;
+        }
+        body{
+            -ms-overflow-style: none;
+        }
+
+        ::-webkit-scrollbar {
+        display: none;
+        }
+        img{
+            border: none;
+        }
+        #back section{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .fix{
+            position: fixed;
+            z-index: 10;
+        }
+        #logo{
+            width: 150px;
+            height: 100px;
+            background: url(portfolio/아이콘.png)no-repeat center/contain;
+            top: 30px;
+            left: 75px;
+        }
+        #scroll{
+            font-size: 64px;
+            color: red;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 20px;
+            opacity: 0;
+        }
+        #up{
+            font-size: 64px;
+            color: red;
+            right: 50px;
+            bottom: 20px;
+            display: none;
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+        }
+        #title .bg{
+            background: url(portfolio/타이틀.png)no-repeat center/cover;
+            filter: brightness(50%);
+            transition: all .5s;
+        }
+        /* #title:hover .bg{
+            filter: brightness(100%);
+        } */
+        #title .text{
+            color: white;
+            position: absolute;
+            left: 13%;
+            top: 250px;
+            text-shadow: 2px 1px 9px black;
+        }
+        .text h1{
+            font-size: 3vw;
+        }
+        .text h2{
+            font-size: 2vw;
+        }
+        .text h3{
+            font-size: 1.5vw;
+        }
+        .text h4{
+            font-size: 1vw;
+        }
+        .main{
+            position: relative;
+            width: 80%;
+            height: 100%;
+            margin: 0 auto;
+            /* border: 2px solid red; */
+        }
+        #back{
+            position: relative;
+        }
+        #back>#bg{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgb(255, 165, 165);
+        }
+        #s1 img{
+            position: absolute;
+            transform: translate(-50%,-50%);
+            width: 18%;
+            border-radius: 25px;
+            box-shadow: 2px 2px 10px black;
+        }
+        #s1 .i1{
+            z-index: 5;
+            left: 37%;
+            top: 45%;
+        }
+        #s1 .i2{
+            z-index: 1;
+            left: 25%;
+            top: 58%;
+            filter: brightness(80%);
+        }
+        /* #s1 .i3, #s1 .i4, #s1 .i5{
+            left: 25%;
+            top: 50%;
+            display: none;
+        } */
+        .red{
+            color: red;
+        }
+        .big{
+            font-size: 1.5em;
+        }
+        #s1 .text{
+            position: absolute;
+            width: 50%;
+            left: 50%;
+            top: 40%;
+        }
+        #s2 img{
+            position: absolute;
+            transform: translate(-50%,-50%);
+            width: 18%;
+            border-radius: 25px;
+            box-shadow: 2px 2px 10px black;
+        }
+        #s2 .text{
+            position: absolute;
+            width: 50%;
+            left: 0;
+            top: 40%;
+        }
+        #s2 .i1{
+            z-index: 10;
+            top: 50%;
+            left: 50%;
+        }
+        #s2 .i2{
+            z-index: 10;
+            top: 50%;
+            left: 70%;
+        }
+        #s2 .i3{
+            z-index: 10;
+            top: 50%;
+            left: 90%;
+        }
+        #s2 .i4{
+            z-index: 1;
+            top: 60%;
+            left: 50%;
+            filter: brightness(80%);
+        }
+        #s2 .i5{
+            z-index: 1;
+            top: 60%;
+            left: 70%;
+            filter: brightness(80%);
+        }
+        #s2 .i6{
+            z-index: 1;
+            top: 60%;
+            left: 90%;
+            filter: brightness(80%);
+        }
+        #s3 .text{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 40%;
+        }
+        #s3 img{
+            width: 50%;
+            position: absolute;
+        }
+        #s3 .i1{
+            left: 0;
+            top: 0%;
+            transition: all 1s;
+        }
+        #s3 .i1:hover{
+            top: -74.5%;
+        }
+        #s3 .i2{
+            display: none;
+            left: 0;
+            top: 0;
+            transition: all 1s;
+        }
+        #s3 .i2:hover{
+            top: -74.5%;
+        }
+        #s4 img,#s5 img,#s6 img,#s7 img,#s8 img{
+            position: absolute;
+            transform: translate(-50%,-50%);
+            width: 25%;
+            border-radius: 25px;
+            box-shadow: 2px 2px 10px black;
+        }
+        #s4 .text,#s5 .text,#s7 .text,#s8 .text{
+            position: absolute;
+            width: 50%;
+            right: 0;
+            top: 45%;
+        }
+        #s4 .i1,#s5 .i1,#s7 .i1,#s8 .i1,#s8 .i2{
+            border-radius: 33px;
+            left: 30%;
+            top: 50%;
+        }
+        #s6 .i1{
+            left: 20%;
+            top: 50%;
+        }
+        #s6 .i2{
+            left: 50%;
+            top: 50%;
+        }
+        #s6 .text{
+            position: absolute;
+            width: 30%;
+            right: 0;
+            top: 50%;
+        }
+        #s8 .i2{
+            display: none;
+        }
+        section#mockup{
+            position: relative;
+            /* height: 500vh; */
+            text-align: center;
+        }
+        section#mockup img{
+            width: 80%;
+        }
+    </style>
+    <script>
+        $(function(){
+            var wheel=true
+            $("html,body").stop().animate({
+                scrollTop:0
+            },function(){
+                wheel=false
+            })
+           
+            $("#title").mouseover(function(){
+                $("#title").children(".bg").css({
+                    filter:" brightness(100%)"
+                })
+            })
+            $("#title").mouseleave(function(){
+                $("#title").children(".bg").css({
+                    filter:" brightness(50%)"
+                })
+            })
+            $("#title").trigger('mouseover')
+
+            var step=0
+            var web=$(window).height()
+            console.log($("#back section:last").index()-1)
+            console.log(web)
+            console.log(wheel)
+            $("#back").on("mousewheel", function(event,delta){
+                if(delta>0){ //마우스힐을 올렸을때
+                    if(wheel==false){
+                        if(step!=0){
+                            wheel=true
+                            step--
+                            console.log(step)
+                            console.log(web)
+                            console.log(wheel)
+                            $("html,body").stop().animate({
+                                scrollTop:step*web
+                            },function(){
+                                wheel=false
+                            })
+                        }else{
+                            step=0
+                            wheel=false
+                        }
+                    }
+                } else if(delta<0){ //마우스 휠을 내렸을때
+                    if(wheel==false){
+                        if(step<$("#back section:last").index()){
+                            wheel=true
+                            step++
+                            console.log(step)
+                            console.log(web)
+                            console.log(wheel)
+                            $("html,body").stop().animate({
+                                scrollTop:step*web
+                            },function(){
+                                wheel=false
+                                if(step==$("#back section:last").index()-1){
+                                    // $("#s8 .i1").fadeOut()
+                                    $("#s8 .i2").fadeIn(1000,function(){
+                                        $("#s8 .i1").fadeOut()
+                                    })
+                                }
+                                if(step==$("#back section:last").index()){
+                                    footer=true
+                                }
+                            })
+                        }else{
+                            step=$("#back section:last").index()-1
+                            wheel=false
+                        }
+                    }
+                }
+            })
+            var footer=false
+            $(window).on("mousewheel", function(event,delta){
+                if(delta>0&&footer==true){
+                    if($(window).scrollTop()<$("#mockup").offset().top){
+                        footer=false
+                        wheel=true
+                        step=$("#back section:last").index()-1
+                        $("html,body").stop().animate({
+                            scrollTop:step*web
+                        },function(){
+                            wheel=false
+                        })
+                    }
+                }else if(delta<0){
+                    if($(window).scrollTop()>=$("#mockup").offset().top){
+                        footer=true
+                    }
+                }
+            })
+            $(window).scroll(function(){
+                if($(window).scrollTop()>=$("#mockup").offset().top){
+                    $("#logo").fadeOut()
+                }else{
+                    $("#logo").fadeIn()
+                }
+            })
+            $("#s3 .i1").click(function(){
+                $("#s3 .i2").fadeIn()
+                $(this).fadeOut(1000)
+            })
+            $("#s3 .i2").click(function(){
+                $("#s3 .i1").fadeIn()
+                $(this).fadeOut(1000)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="logo" class="fix"></div>
+    <div id="scroll" class="fix"><i class="fa-solid fa-angles-down"></i></div>
+    <div id="up" class="fix"><i class="fa-solid fa-caret-up"></i></div>
+    <div id="back">
+        <div id="bg"></div>
+        <section id="title">
+            <div class="bg"></div>
+            <div class="text">
+                <h1>자취생의 필수템 구구구!</h1>
+                <h3>UX/UI디자인 | 장대선, 권소라, 이혜숙 팀작업</h3>
+            </div>
+        </section>
+        <section id="s1">
+            <div class="main">
+                <img class="i1" src="portfolio/title.png">
+                <img class="i2" src="portfolio/메인.png">
+                <div class="text">
+                    <h2><span class="red big">구구구</span> 자취생을 위한 정보 어플</h2>
+                    <br>
+                    <h3>자취에 대한 걱정은 이제 그만!</h3>
+                    <br>
+                    <h4>자취생에게 필요한 필수 정보를 사람들과 공유하며, 쉽게 찾아 볼 수 있도록 소통 창구를 쉽고 간편하게 제공해주는 커뮤니티 어플리케이션</h4>
+                    <br>
+                    <p>요리부터 인테리어까지 자취 커뮤니티의 모든 것!</p>
+                </div>
+            </div>
+        </section>
+        <section id="s2">
+            <div class="main">
+                <img class="i1" src="portfolio/커뮤니티.png">
+                <img class="i2" src="portfolio/쇼핑몰.png">
+                <img class="i3" src="portfolio/상점.png">
+                <img class="i4" src="portfolio/레시피.png">
+                <img class="i5" src="portfolio/부동산.png">
+                <img class="i6" src="portfolio/이벤트.png">
+                <div class="text">
+                    <h2><span class="red big">구구구</span> 컨텐츠</h2>
+                    <br>
+                    <p>자취생들에게 필요한 레시피, 자취방등도 쉽게 찾아볼 수 있습니다.</p>
+                    <br>
+                    <p>그리고 제휴 사이트와의 이벤트를 통해 다양한 혜택도 누릴 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+        <section id="s3">
+            <div class="main">
+                <img class="i1" src="portfolio/커뮤니티.png">
+                <img class="i2" src="portfolio/커뮤니티_상세페이지.png">
+                <div class="text">
+                    <h2><span class="red big">구구구</span> Community Page</h2>
+                    <br>
+                    <p>자취생들의 이야기를 자유롭게 쓸 수 있는 게시판</p>
+                    <br>
+                    <p>다양한 정보와 소식들을 나눌 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+        <section id="s4">
+            <div class="main">
+                <img class="i1" src="portfolio/쇼핑몰.png">
+                <div class="text">
+                    <h2><span class="red big">구구구</span> Shopping Page</h2>
+                    <br>
+                    <p>자취생들에게 필요한 제품 가장 많이 검색되는 제품들을 보여줍니다.</p>
+                    <br>
+                    <p>제휴된 사이트를 통해 제품을 제공합니다.</p>
+                </div>
+            </div>
+        </section>
+        <section id="s5">
+            <div class="main">
+                <img class="i1" src="portfolio/상점.png">
+                <div class="text">
+                    <h2><span class="red big">구구구</span> Store Page</h2>
+                    <br>
+                    <p>위치를 기반으로 가까운 음식점이나 편의점같은 가게의 정보를 제공합니다.</p>
+                </div>
+            </div>
+        </section>
+        <section id="s6">
+            <div class="main">
+                <img class="i1" src="portfolio/레시피.png">
+                <img class="i2" src="portfolio/레시피상세페이지.png">
+                <div class="text">
+                    <h2><span class="red big">구구구</span> Recipe Page</h2>
+                    <br>
+                    <p>다양한 레시피들과 레시피에 필요한 재료를 쉽게 찾을 수 있습니다.</p>
+                    <br>
+                    <p>자취생을 위한 레시피로 다양한 요리를 할 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+        <section id="s7">
+            <div class="main">
+                <img class="i1" src="portfolio/부동산.png">
+                <div class="text">
+                    <h2><span class="red big">구구구</span> Studio Page</h2>
+                    <br>
+                    <p>자취방 원룸 월세방을 빠르게 찾아볼 수 있습니다.</p>
+                    <br>
+                    <p>인증된 장소만 정보로 제공됩니다.</p>
+                </div>
+            </div>
+        </section>
+        <section id="s8">
+            <div class="main">
+                <img class="i1" src="portfolio/이벤트 첫광고.png">
+                <img class="i2" src="portfolio/이벤트.png">
+                <div class="text">
+                    <h2><span class="red big">구구구</span> Event Page</h2>
+                    <br>
+                    <p>다양한 이벤트로 자취에 어려워하는 사람도 참여할 수 있습니다.</p>
+                    <br>
+                    <p>다양한 제품이나 쿠폰 제휴된 곳의 이벤트도 찾아 볼 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- <section id="mockup">
+        <img src="portfolio/목업main.png">
+    </section> -->
+</body>
+</html>

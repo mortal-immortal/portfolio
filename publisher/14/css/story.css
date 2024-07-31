@@ -1,0 +1,335 @@
+@charset "utf-8";
+
+#sub_title {
+    width: 1100px;
+    margin:0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.sub_title_green {
+    display: block;
+    color:var(--green-color);
+    font-style:italic;
+    font-size:var(--font-size5);
+    margin-bottom: 20px;
+}
+
+.sub_title_ygreen {
+    display: block;
+    color:var(--ygreen-color);
+    font-style:italic;
+    font-size:var(--font-size5);
+    margin-bottom: 20px;
+}
+
+.sub_title_s {
+    font-size:var(--font-size4);
+    color:var(--b-color);
+    font-weight: var(--font-700);
+    margin-bottom: 20px;
+}
+
+.sub_title_ys {
+    font-size:20px;
+    color:var(--ygreen-color);
+    font-weight: var(--font-700);
+    margin-bottom: 20px;
+}
+
+
+section {
+    width: 100%;
+}
+
+.width_1100 {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.width_100 {
+    width:100%;
+    background: var(--g-color);
+}
+
+.section_gong {
+    padding-top: 50px;
+}
+
+.section_gong2 {
+    margin-top: 50px;
+}
+
+.section_gong3 {
+    margin-top: 100px;
+}
+
+.coffeeCultivation {
+    width: 100%;
+    overflow: hidden;
+}
+
+.info_img01 {
+    float:left;
+    margin-right: 20px;
+}
+
+.info_img02 {
+    float:right;
+    margin-left: 20px;
+}
+
+.cultivation_text {
+    float:left;
+}
+
+
+.bigImg01 {
+    position: relative;
+    z-index: 1;
+}
+
+.bigImg02 {
+    float:left;
+    position: relative;
+    top:-5px;
+    z-index: 2;
+}
+
+.coffeeObtain {
+    float:left;
+}
+
+.coffeeBlending_img01 {
+    position: absolute;
+    top:0;
+    right:0;
+}
+
+.coffeeBlending_height {
+    height: 550px;
+}
+
+.b_bg {
+    background: var(--b-color);
+    color: var(--w-color);
+}
+
+.b_bg_gong {
+    margin-top: 150px;
+    margin-left: 30px;
+}
+
+.bigImg_bg {
+    position: absolute;
+    right:150px;
+    top:350px;
+    z-index: 2;
+}
+
+.youtube {
+    float: left;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.sub_title_y {
+    color:#e2d9c2;
+    font-size:18px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.cf_more_btn02 {
+    margin-top: 20px;
+}
+
+.story_bottom_list {
+    width: 100%;
+    height: 350px;
+    padding-top: 50px;
+}
+
+.story_bottom_list li {
+    float: left;
+}
+
+.story_bottom_list li div {
+    width: 350px;
+    height: 150px;
+}
+
+.story_bottom_list li:nth-of-type(1) div {
+    background: url('../story_image/story_bottom_list01.jpg') no-repeat top center;
+    background-size: 100%;
+    position: relative;
+}
+
+.story_bottom_list li:nth-of-type(1) div::before {
+    content: "은은하고 부드러운 맛 Subtle & Mellow";
+    background: #9b704d;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    text-align: left;
+    color: var(--w-color);
+    font-size: 16px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.story_bottom_list li:nth-of-type(2) div {
+    background: url('../story_image/story_bottom_list02.jpg') no-repeat top center;
+    background-size: 100%;
+    position: relative;
+    margin: 0 20px 0 20px;
+}
+
+
+.story_bottom_list li:nth-of-type(2) div::before {
+    content: "부드럽고 균형 잡힌 맛 Smooth & Balanced";
+    background: #924c2e;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    text-align: left;
+    color: var(--w-color);
+    font-size: 16px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+
+.story_bottom_list li:nth-of-type(3) div {
+    background: url('../story_image/story_bottom_list03.jpg') no-repeat top center;
+    background-size: 100%;
+    position: relative;
+}
+
+.story_bottom_list li:nth-of-type(3) div::before {
+    content: "진하고 강한 맛 Bold & Robust";
+    background: #4f2c1d;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    text-align: left;
+    color: var(--w-color);
+    font-size: 16px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.story_bottom_list li h3 {
+    font-weight: var(--font-700);
+    text-shadow: 1px 0px 0px rgba(0, 0, 0, 1);
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+
+.story_bottom_list p {
+    margin-top: 20px;
+}
+
+.tle_decafe {
+    margin-bottom: 30px;
+}
+
+.ico_q {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.decafeCo {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.decafeCo li{
+    width: 50%;
+    float: left;
+}
+
+.decafeCo li p{
+    margin-left: 50px; 
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.decafe_num{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #9ac23b;
+    color: var(--w-color);
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50px;
+    position: absolute; 
+    top:0px;
+
+}
+
+.decafe_text {
+    display: inline-block;
+    position: relative; 
+    top:0px;
+    margin-left: 30px;
+}
+
+.sub_list{
+    position: relative;
+    margin: 0 auto;
+    width: 1100px;
+    height: 90px;
+}
+
+.sub_list li{
+    cursor: pointer;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: normal;
+    color: #444;
+    background: #fff;
+    border: 1px solid #ddd;
+    width: 25%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    float: left;
+}
+.sub_list li:hover{
+    text-decoration: underline #444;
+}
+.sub_list li:not(:last-child){
+    border-right: none;
+}
+.sub_list li.on{
+    background: #006633;
+    color: #fff;
+    border: none;
+}
+.sub_list li.on:hover{
+    text-decoration: underline #fff;
+}
+section {
+    display: none;
+}
+section.on {
+    display: block;
+}

@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all .25s;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .clear::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        ul{
+            list-style: none;
+        }
+        h1{
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        h2{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        p{
+            font-size: .8vmax;
+            margin-bottom: 8px;
+        }
+        header{
+            width: 15%;
+            height: 100vh;
+            background: white;
+            border-right: 8px solid blue;
+            float: left;
+            text-align: center;
+            position: relative;
+        }
+        section{
+            float: right;
+            max-width: 1720px;
+            width: 85%;
+            /* border: 1px solid red; */
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        .footer{
+            /* border: 1px solid red; */
+            width: 60%;
+            margin: 0 auto;
+        }
+        .footer>.bottom{
+            width: 80%;
+            height: 20px;
+            margin: 0 auto;
+            line-height: 20px;
+        }
+        .footer>.bottom>i{
+            line-height: 20px;
+        }
+        .footer>.bottom>i:first-of-type{
+            float: left;
+        }
+        .footer>.bottom>i:last-of-type{
+            float: right;
+        }
+        header>*{
+            position: absolute;
+        }
+        header>img{
+            width: 80%;
+            /* top: 5%; */
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+        header>ul{
+            /* top: 15%; */
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%,0);
+            text-align: left;
+            width: 60%;
+            margin: 0 auto;
+        }
+        header>ul>li{
+            margin-bottom: 20%;
+            font-size: 1vmax;
+            font-weight: bold;
+        }
+        header>.footer{
+            /* top: 40%; */
+            bottom: 5%;
+            right: 50%;
+            transform: translate(50%,0);
+        }
+        .st{
+            position: relative;
+        }
+        .shield{
+            position: absolute;
+            width: 2vmax;
+            top: 50%;
+            left: 40%;
+            transform: translate(0,-50%);
+        }
+        nav{
+            width: 100%;
+            height: 5vh;
+            background: black;
+            color: white;
+            line-height: 5vh;
+            padding-right: 80px;
+        }
+        nav>#menu>li{
+            margin-left: 40px;
+        }
+        article{
+            width: 100%;
+            height: 95vh;
+            background: black;
+        }
+        .img1{
+            width: 100%;
+            font-size: 128px;
+            font-weight: bold;
+            color: white;
+            position: relative;
+            text-align: right;
+        }
+        .img1>p{
+            width: 100%;
+            font-size: 128px;
+            position: absolute;
+            margin-bottom: 0;
+            bottom: 0;
+            right: 0;
+            transition: all .5s;
+        }
+        .img1:hover>p{
+            opacity: 0;
+        }
+        .img1::after{
+            width: 100%;
+            position: absolute;
+            content: "Assemble";
+            bottom: 0;
+            right: 0;
+            transition: all .5s;
+            opacity: 0;
+        }
+        .img1:hover::after{
+            opacity: 1;
+        }
+        article>div:nth-of-type(1){
+            width: 60%;
+            height: 49.999%;
+            background: url(자료/컴파운드.webp) no-repeat;
+        }
+        article>div:nth-of-type(2){
+            width: 40%;
+            height: 25%;
+            background: white;
+        }
+        article>div:nth-of-type(3){
+            width: 20%;
+            height: 25%;
+            background: rgb(255, 145, 145);
+        }
+        article>div:nth-of-type(4){
+            width: 20%;
+            height: 25%;
+            background: url(자료/아이언맨.webp)no-repeat 0/cover;
+        }
+        article>div:nth-of-type(5){
+            width: 20%;
+            height: 25%;
+            background: url(자료/캡틴.webp)no-repeat 0/cover;
+            /* transition: all 1s ease-out; */
+        }
+        article>div:nth-of-type(6){
+            width: 40%;
+            height: 25%;
+            background: rgb(145, 145, 255);
+        }
+        article>div:nth-of-type(7){
+            width: 20%;
+            height: 25%;
+            background: url(자료/토르.webp)no-repeat 0/cover;
+        }
+        article>div:nth-of-type(8){
+            width: 20%;
+            height: 25%;
+            background: rgb(92, 63, 255);
+        }
+        article>div:nth-of-type(9){
+            width: 40%;
+            height: 25%;
+        }
+        article>div:nth-of-type(10){
+            width: 20%;
+            height: 25%;
+            background: url(자료/헐크.webp)no-repeat 0/cover;
+        }
+        article>div:nth-of-type(11){
+            width: 20%;
+            height: 25%;
+            background: green;
+        }
+        article>div:nth-of-type(12){
+            width: 20%;
+            height: 25%;
+            background: url(자료/스파이더맨.webp)no-repeat 0/cover;
+        }
+        article>div:nth-of-type(2),article>div:nth-of-type(3),article>div:nth-of-type(6),article>div:nth-of-type(8),article>div:nth-of-type(11){
+            padding: 1vmax;
+        }
+        .img5{
+            background: url(자료/어벤져스1.png)no-repeat 0/cover;
+            transition: background 1s;
+        }
+        .img5:hover{
+            background: url(자료/어벤져스2.png)no-repeat 0/cover;
+            transition: background 1s;
+        }
+        .iron::after{
+            content: "I am Iron Man. 나는 아이언맨이다.";
+            font-size: .8vmax;
+            font-weight: bold;
+            opacity: 0;
+            transition: .5s all;
+        }
+        .iron:hover::after{
+            opacity: 1;
+        }
+        .cap::after{
+            content: "I can do this all day. 하루 종일 할 수도 있어.";
+            font-size: .8vmax;
+            font-weight: bold;
+            opacity: 0;
+            transition: .5s all;
+        }
+        .cap:hover::after{
+            opacity: 1;
+        }
+        .thor::after{
+            content: "Because that's what heroes do. 왜냐면 그게 영웅이 하는 일이니까.";
+            font-size: .8vmax;
+            font-weight: bold;
+            opacity: 0;
+            transition: .5s all;
+        }
+        .thor:hover::after{
+            opacity: 1;
+        }
+        .hulk::after{
+            content: "We have a Hulk.우리에겐 헐크가 있지.";
+            font-size: .8vmax;
+            font-weight: bold;
+            opacity: 0;
+            transition: .5s all;
+        }
+        .hulk:hover::after{
+            opacity: 1;
+        }
+        @media screen and (min-width:1280px) and (max-width:1599px) {
+            header{
+                width: 100%;
+                height: 10vh;
+                background: white;
+                border:none;
+                float: none;
+                text-align: center;
+                position: relative;
+            }
+            header>*{
+                position: absolute;
+                float: left;
+            }
+            header>img{
+                width: 115px;
+                height: 115px;
+                top: 50%;
+                left: 5%;
+                transform: translate(0,-50%);
+            }
+            header>ul{
+                /* top: 15%; */
+                top: 50%;
+                left: 30%;
+                transform: translate(0,-50%);
+                text-align: left;
+                width: 60%;
+                margin: 0 auto;
+            }
+            header>ul>li{
+                float: left;
+                margin-right: 30px;
+                margin-bottom: 0;
+                font-size: 1vmax;
+                font-weight: bold;
+            }
+            header>.footer{
+                position: absolute;
+                right: 5%;
+                top:50%;
+                transform: translate(0,-50%);
+                width: 160px;
+                margin: 0;
+            }
+            .footer>.bottom{
+                width: 80%;
+                height: 20px;
+                margin: 0 auto;
+                line-height: 20px;
+            }
+            .footer>.bottom>i{
+                line-height: 20px;
+            }
+            .footer>.bottom>i:first-of-type{
+                float: left;
+            }
+            .footer>.bottom>i:last-of-type{
+                float: right;
+            }
+            .st{
+                position: relative;
+            }
+            .shield{
+                position: absolute;
+                width: 2vmax;
+                top: 50%;
+                left: 35px;
+                transform: translate(0,-50%);
+            }
+            section{
+                float: right;
+                max-width: 1600px;
+                width: 100%;
+                /* border: 1px solid red; */
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            nav{
+                width: 100%;
+                height: 5vh;
+                background: black;
+                color: white;
+                line-height: 5vh;
+                padding-right: 80px;
+            }
+            nav>#menu>li{
+                margin-left: 40px;
+            }
+            article{
+                width: 100%;
+                height: 85vh;
+                background: black;
+            }
+            .img1{
+                width: 100%;
+                font-size: 128px;
+                font-weight: bold;
+                color: white;
+                position: relative;
+            }
+            .img1>p{
+                width: 100%;
+                font-size: 128px;
+                position: absolute;
+                margin-bottom: 0;
+                bottom: 0;
+                right: 0;
+                transition: all .5s;
+            }
+            .img1:hover>p{
+                opacity: 0;
+            }
+            .img1::after{
+                width: 100%;
+                position: absolute;
+                content: "Assemble";
+                bottom: 0;
+                right: 0;
+                transition: all .5s;
+                opacity: 0;
+            }
+            .img1:hover::after{
+                opacity: 1;
+            }
+        }
+        @media screen and (min-width:1024px) and (max-width:1279px) {
+            header{
+                width: 100%;
+                height: 10vh;
+                background: white;
+                border:none;
+                float: none;
+                text-align: center;
+                position: relative;
+            }
+            header>*{
+                position: absolute;
+                float: left;
+            }
+            header>img{
+                width: 115px;
+                height: 115px;
+                top: 50%;
+                left: 5%;
+                transform: translate(0,-50%);
+            }
+            header>ul{
+                /* top: 15%; */
+                top: 50%;
+                left: 30%;
+                transform: translate(0,-50%);
+                text-align: left;
+                width: 60%;
+                margin: 0 auto;
+            }
+            header>ul>li{
+                float: left;
+                margin-right: 30px;
+                margin-bottom: 0;
+                font-size: 1vmax;
+                font-weight: bold;
+            }
+            header>.footer{
+                position: absolute;
+                right: 5%;
+                top:50%;
+                transform: translate(0,-50%);
+                width: 160px;
+                margin: 0;
+            }
+            .footer>.bottom{
+                width: 80%;
+                height: 20px;
+                margin: 0 auto;
+                line-height: 20px;
+            }
+            .footer>.bottom>i{
+                line-height: 20px;
+            }
+            .footer>.bottom>i:first-of-type{
+                float: left;
+            }
+            .footer>.bottom>i:last-of-type{
+                float: right;
+            }
+            .st{
+                position: relative;
+            }
+            .shield{
+                position: absolute;
+                width: 2vmax;
+                top: 50%;
+                left: 35px;
+                transform: translate(0,-50%);
+            }
+            section{
+                float: right;
+                max-width: 1279px;
+                width: 100%;
+                /* border: 1px solid red; */
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            nav{
+                width: 100%;
+                height: 5vh;
+                background: black;
+                color: white;
+                line-height: 5vh;
+                padding-right: 80px;
+            }
+            nav>#menu>li{
+                margin-left: 40px;
+            }
+            article{
+                width: 100%;
+                height: 85vh;
+                background: black;
+            }
+            .img1{
+                width: 100%;
+                font-size: 128px;
+                font-weight: bold;
+                color: white;
+                position: relative;
+            }
+            .img1>p{
+                width: 100%;
+                font-size: 128px;
+                position: absolute;
+                margin-bottom: 0;
+                bottom: 0;
+                right: 0;
+                transition: all .5s;
+            }
+            .img1:hover>p{
+                opacity: 0;
+            }
+            .img1::after{
+                width: 100%;
+                position: absolute;
+                content: "Assemble";
+                bottom: 0;
+                right: 0;
+                transition: all .5s;
+                opacity: 0;
+            }
+            .img1:hover::after{
+                opacity: 1;
+            }
+            article>div:nth-of-type(1){
+                width: 75%;
+                height: 39.99%;
+            }
+            article>div:nth-of-type(2),article>div:nth-of-type(3),article>div:nth-of-type(4),article>div:nth-of-type(5),article>div:nth-of-type(8),
+            article>div:nth-of-type(9),article>div:nth-of-type(11),
+            article>div:nth-of-type(12){
+                width: 24.999%;
+                height: 20%;
+            }
+            article>div:nth-of-type(6),article>div:nth-of-type(7),article>div:nth-of-type(10){
+                width: 49.999%;
+                height: 19.999%;
+            }
+        }
+        @media screen and (min-width:780px) and (max-width:1023px) {
+            p{
+                font-size: 1vmax;
+                margin-bottom: 8px;
+            }
+            header{
+                width: 100%;
+                height: 10vh;
+                background: white;
+                border:none;
+                float: none;
+                text-align: center;
+                position: relative;
+            }
+            header>*{
+                position: absolute;
+                float: left;
+            }
+            header>img{
+                width: 115px;
+                height: 115px;
+                top: 50%;
+                left: 5%;
+                transform: translate(0,-50%);
+            }
+            header>ul{
+                /* top: 15%; */
+                top: 50%;
+                left: 30%;
+                transform: translate(0,-50%);
+                text-align: left;
+                width: 60%;
+                margin: 0 auto;
+            }
+            header>ul>li{
+                float: left;
+                margin-right: 30px;
+                margin-bottom: 0;
+                font-size: 1vmax;
+                font-weight: bold;
+            }
+            header>.footer{
+                position: absolute;
+                right: 5%;
+                top:50%;
+                transform: translate(0,-50%);
+                width: 160px;
+                margin: 0;
+            }
+            .footer>.bottom{
+                width: 80%;
+                height: 20px;
+                margin: 0 auto;
+                line-height: 20px;
+            }
+            .footer>.bottom>i{
+                line-height: 20px;
+            }
+            .footer>.bottom>i:first-of-type{
+                float: left;
+            }
+            .footer>.bottom>i:last-of-type{
+                float: right;
+            }
+            .st{
+                position: relative;
+            }
+            .shield{
+                position: absolute;
+                width: 2vmax;
+                top: 50%;
+                left: 35px;
+                transform: translate(0,-50%);
+            }
+            section{
+                float: right;
+                max-width: 1023px;
+                width: 100%;
+                /* border: 1px solid red; */
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            nav{
+                width: 100%;
+                height: 5vh;
+                background: black;
+                color: white;
+                line-height: 5vh;
+                padding-right: 80px;
+            }
+            nav>#menu>li{
+                margin-left: 40px;
+            }
+            article{
+                width: 100%;
+                height: 85vh;
+                background: black;
+            }
+            .img1{
+                width: 100%;
+                font-size: 128px;
+                font-weight: bold;
+                color: white;
+                position: relative;
+            }
+            .img1>p{
+                width: 100%;
+                font-size: 128px;
+                position: absolute;
+                margin-bottom: 0;
+                bottom: 0;
+                right: 0;
+                transition: all .5s;
+            }
+            .img1:hover>p{
+                opacity: 0;
+            }
+            .img1::after{
+                width: 100%;
+                position: absolute;
+                content: "Assemble";
+                bottom: 0;
+                right: 0;
+                transition: all .5s;
+                opacity: 0;
+            }
+            .img1:hover::after{
+                opacity: 1;
+            }
+            article>div:nth-of-type(4),article>div:nth-of-type(7),article>div:nth-of-type(10),article>div:nth-of-type(12){
+                display: none;
+            }
+            article>div:nth-of-type(1){
+                width: 100%;
+                height: 39.999%;
+            }
+            article>div:not(:nth-of-type(1)){
+                height: 20%;
+            }
+            article>div:nth-of-type(2),article>div:nth-of-type(6){
+                width: 66.66%;
+            }
+            article>div:nth-of-type(3),article>div:nth-of-type(5),
+            article>div:nth-of-type(8),
+            article>div:nth-of-type(9),
+            article>div:nth-of-type(11){
+                width: 33.33%;
+            }
+        }
+        @media screen and (min-width:640px) and (max-width:779px) {
+            p{
+                font-size: 1vmax;
+                margin-bottom: 8px;
+            }
+            header{
+                width: 100%;
+                height: 10vh;
+                background: white;
+                border:none;
+                float: none;
+                text-align: center;
+                position: relative;
+            }
+            header>*{
+                position: absolute;
+                float: left;
+            }
+            header>img{
+                width: 115px;
+                height: 115px;
+                top: 50%;
+                left: 5%;
+                transform: translate(0,-50%);
+            }
+            header>ul{
+                /* top: 15%; */
+                top: 50%;
+                left: 30%;
+                transform: translate(0,-50%);
+                text-align: left;
+                width: 60%;
+                margin: 0 auto;
+            }
+            header>ul>li{
+                float: left;
+                margin-right: 30px;
+                margin-bottom: 0;
+                font-size: 1vmax;
+                font-weight: bold;
+            }
+            header>.footer{
+                display: none;
+            }
+            .footer>.bottom{
+                width: 80%;
+                height: 20px;
+                margin: 0 auto;
+                line-height: 20px;
+            }
+            .footer>.bottom>i{
+                line-height: 20px;
+            }
+            .footer>.bottom>i:first-of-type{
+                float: left;
+            }
+            .footer>.bottom>i:last-of-type{
+                float: right;
+            }
+            .st{
+                position: relative;
+            }
+            .shield{
+                position: absolute;
+                width: 2vmax;
+                top: 50%;
+                left: 35px;
+                transform: translate(0,-50%);
+            }
+            section{
+                float: right;
+                max-width: 779px;
+                width: 100%;
+                /* border: 1px solid red; */
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            nav{
+                width: 100%;
+                height: 5vh;
+                background: black;
+                color: white;
+                line-height: 5vh;
+                padding: 0;
+            }
+            #menu{
+                float: left;
+            }
+            nav>#menu>li{
+                margin-left: 30px;
+            }
+            article{
+                width: 100%;
+                height: 85vh;
+                background: black;
+            }
+            .img1{
+                width: 100%;
+                font-size: 128px;
+                font-weight: bold;
+                color: white;
+                position: relative;
+            }
+            .img1>p{
+                width: 100%;
+                font-size: 128px;
+                position: absolute;
+                margin-bottom: 0;
+                bottom: 0;
+                right: 0;
+                transition: all .5s;
+            }
+            .img1:hover>p{
+                opacity: 0;
+            }
+            .img1::after{
+                width: 100%;
+                position: absolute;
+                content: "Assemble";
+                bottom: 0;
+                right: 0;
+                transition: all .5s;
+                opacity: 0;
+            }
+            .img1:hover::after{
+                opacity: 1;
+            }
+            article>div:nth-of-type(3),article>div:nth-of-type(4),article>div:nth-of-type(9),article>div:nth-of-type(12){
+                display: none;
+            }
+            article>div:nth-of-type(1){
+                height: 33.333%;
+            }
+            article>div:nth-of-type(1),article>div:nth-of-type(2){
+                width: 100%;
+            }
+            article>div:not(:nth-of-type(1)){
+                height: 16.666%;
+            }
+            article>div:not(:nth-of-type(1),:nth-of-type(2)){
+                width: 50%;
+            }
+            article>div:nth-of-type(7),article>div:nth-of-type(10){
+                float: right;
+            }
+        }
+        @media screen and (min-width:501px) and (max-width:639px) {
+            p{
+                font-size: 1vmax;
+                margin-bottom: 8px;
+            }
+            header{
+                width: 100%;
+                height: 15vh;
+                background: white;
+                border:none;
+                float: none;
+                text-align: center;
+                position: relative;
+            }
+            header>*{
+                position: absolute;
+                /* float: left; */
+            }
+            header>img{
+                width: 115px;
+                height: 115px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+            header>ul{
+                /* top: 15%; */
+                top: 50%;
+                left: 0;
+                transform: translate(0,-50%);
+                text-align: left;
+                width: 100%;
+                margin: 0 auto;
+            }
+            header>ul>li{
+                position: absolute;
+                float: left;
+                margin-right: 30px;
+                margin-bottom: 0;
+                font-size: 1.25vmax;
+                font-weight: bold;
+            }
+            header>ul>li:nth-of-type(1){
+                left: 2%;
+            }
+            header>ul>li:nth-of-type(2){
+                left: 18%;
+            }
+            header>ul>li:nth-of-type(3){
+                right: 15%;
+            }
+            header>ul>li:nth-of-type(4){
+                position: absolute;
+                right: 2%;
+            }
+            header>.footer{
+                display: none;
+            }
+            .footer>.bottom{
+                width: 80%;
+                height: 20px;
+                margin: 0 auto;
+                line-height: 20px;
+            }
+            .footer>.bottom>i{
+                line-height: 20px;
+            }
+            .footer>.bottom>i:first-of-type{
+                float: left;
+            }
+            .footer>.bottom>i:last-of-type{
+                float: right;
+            }
+            .st{
+                position: relative;
+            }
+            .shield{
+                position: absolute;
+                width: 2vmax;
+                top: 50%;
+                left: 35px;
+                transform: translate(0,-50%);
+            }
+            section{
+                float: right;
+                max-width: 639px;
+                width: 100%;
+                /* border: 1px solid red; */
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            nav{
+                display: none;
+            }
+            #menu{
+                float: left;
+            }
+            nav>#menu>li{
+                margin-left: 30px;
+            }
+            article{
+                width: 100%;
+                height: 85vh;
+                background: black;
+            }
+            .img1{
+                width: 100%;
+                font-size: 104px;
+                font-weight: bold;
+                color: white;
+                position: relative;
+            }
+            .img1>p{
+                width: 100%;
+                font-size: 104px;
+                position: absolute;
+                margin-bottom: 0;
+                bottom: 0;
+                right: 0;
+                transition: all .5s;
+            }
+            .img1:hover>p{
+                opacity: 0;
+            }
+            .img1::after{
+                width: 100%;
+                position: absolute;
+                content: "Assemble";
+                bottom: 0;
+                right: 0;
+                transition: all .5s;
+                opacity: 0;
+            }
+            .img1:hover::after{
+                opacity: 1;
+            }
+            article>div:nth-of-type(3),article>div:nth-of-type(4),article>div:nth-of-type(9),article>div:nth-of-type(12){
+                display: none;
+            }
+            article>div:nth-of-type(1){
+                height: 33.333%;
+            }
+            article>div:nth-of-type(1),article>div:nth-of-type(2){
+                width: 100%;
+            }
+            article>div:not(:nth-of-type(1)){
+                height: 16.666%;
+            }
+            article>div:not(:nth-of-type(1),:nth-of-type(2)){
+                width: 50%;
+            }
+            article>div:nth-of-type(7),article>div:nth-of-type(10){
+                float: right;
+            }
+        }
+        @media screen and (max-width:500px) {
+            body{
+                width: 100%;
+                height: 100vh;
+                background: url(자료/어벤져스타워.webp) no-repeat 50%/auto 100%;
+            }
+            p{
+                font-size: 2vmax;
+                margin-bottom: 8px;
+            }
+            header{
+                width: 100%;
+                height: 100%;
+                background: none;
+                border:none;
+                float: none;
+                text-align: center;
+                position: relative;
+            }
+            header>*{
+                position: absolute;
+                /* float: left; */
+            }
+            header>img{
+                width: 115px;
+                height: 115px;
+                top: 10%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+            header>ul{
+                /* top: 15%; */
+                top: 50%;
+                left: 0;
+                transform: translate(0,-50%);
+                text-align: left;
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+            }
+            header>ul>li{
+                position: absolute;
+                float: left;
+                margin-right: 30px;
+                margin-bottom: 0;
+                font-size: 2vmax;
+                font-weight: bold;
+                left: 50%;
+                transform: translate(-50%,0);
+                background: rgba(255, 255, 255, 0.75);
+                text-align: center;
+                width: 200px;
+                height: 50px;
+                line-height: 50px;
+                border-radius: 15px;
+            }
+            header>ul>li:nth-of-type(1){
+                top: 20%;
+            }
+            header>ul>li:nth-of-type(2){
+                top: 30%;
+            }
+            header>ul>li:nth-of-type(3){
+                top: 40%;
+            }
+            header>ul>li:nth-of-type(4){
+                position: absolute;
+                top: 50%;
+            }
+            header>.footer{
+                display: none;
+            }
+            .footer>.bottom{
+                width: 80%;
+                height: 20px;
+                margin: 0 auto;
+                line-height: 20px;
+            }
+            .footer>.bottom>i{
+                line-height: 20px;
+            }
+            .footer>.bottom>i:first-of-type{
+                float: left;
+            }
+            .footer>.bottom>i:last-of-type{
+                float: right;
+            }
+            .st{
+                position: relative;
+            }
+            .shield{
+                position: absolute;
+                width: 4vmax;
+                top: 50%;
+                left: 15%;
+                transform: translate(0,-50%);
+            }
+            section{
+                display: none;
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            nav{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="자료/로고.png" alt="">
+        <ul>
+            <li><a href="#">어벤져스 타워</a></li>
+            <li><a href="#">어벤져스 컴파운드</a></li>
+            <li><a href="#">헬리케리어</a></li>
+            <li class="st"><a href="#">쉴드 <img class="shield" src="자료/쉴드.webp" alt=""></a></li>
+        </ul>
+        <div class="footer">
+            <div class="top">ABOUT | CONTACT</div>
+            <div class="bottom">
+                <i class="fa-solid fa-flag-usa"></i>
+                <i class="fa-solid fa-helmet-un"></i>
+                <i class="fa-solid fa-building-columns"></i>
+            </div>
+        </div>
+    </header>
+    <section>
+        <nav>
+            <ul id="menu" class="right clear">
+                <li class="left"><a href="#">어벤져스 멤버</a></li>
+                <li class="left"><a href="#">어벤져스 면회 신청</a></li>
+                <li class="left"><a href="#">어벤져스 갤러리</a></li>
+                <li class="left"><a href="#">어벤져스 역사관</a></li>
+            </ul>
+        </nav>
+        <article class="clear">
+            <div class="left img1">
+                <p>Avengers</p>
+            </div>
+            <div class="left">
+                <h1>어벤져스 컴파운드</h1>
+                <p>어벤져스 본부</p>
+                <p>신규 멤버의 교육 양성의 장소이자</p>
+                <p>어벤져스 멤버의 거점</p>
+            </div>
+            <div class="left iron">
+                <h1>아이언맨</h1>
+                <p>A visionary, A genius, ensuring freedom around the globe.</p>
+                <p>선구자, 천재, 전세계에 자유를 선사하는 자.</p>
+            </div>
+            <div class="left img2"></div>
+            <div class="left img3"></div>
+            <div class="left cap">
+                <h1>캡틴 아메리카</h1>
+                <h2>어벤져스 리더</h2>
+                <p>A symbol to the nation, A hero to the world.</p>
+                <p>국가의 상징이자 세계의 영웅.</p>
+            </div>
+            <div class="left img4"></div>
+            <div class="left thor">
+                <h1>토르</h1>
+                <p>A beacon of hope, shining out across the stars</p>
+                <p>꺼지지 않고 우주를 지켜보는 희망의 등대</p>
+            </div>
+            <div class="left img5"></div>
+            <div class="left img6"></div>
+            <div class="left hulk">
+                <h1>헐크</h1>
+                <p>That's my secret, Cap. I'm always angry.</p>
+                <p>그게 내 비밀이에요, 캡틴. 난 언제나 화나 있죠.</p>
+            </div>
+            <div class="left img7"></div>
+        </article>
+    </section>
+</body>
+</html>

@@ -1,0 +1,211 @@
+@charset "utf-8";
+@media screen and (max-width:500px){
+    /* *{
+        -webkit-user-drag: auto;
+        touch-action: auto;
+        user-select: auto;
+    } */
+    #menu i{
+        font-size: 64px;
+    }
+    #menu li{
+        /* line-height: 112px; */
+        width: 50%;
+        font-size: 42px;
+    }
+    #title_bg .bg{
+       font-size: 110px;
+       line-height: 100px;
+       /* height: 20%; */
+    }
+    #title_main{
+        font-size: 64px;
+    }
+    #guide img{
+        width: 5%;
+    }
+    #top{
+        right: 5px !important;
+        bottom: 30px !important;
+    }
+    #main .logo{
+        left: 50%;
+        top: 42%;
+        width: 250px;
+        height: 220px;
+    }
+    #main .bg{
+        width: 250%;
+        top: 50%;
+    }
+    #main .t_text{
+        font-size: 24px;
+        left: -120%;
+        bottom: 43%;
+    }
+    #main .t_text h1{
+        font-size: 64px;
+    }
+    #main .t_text .t5{
+        top: 260px;
+    }
+    #main .n_text{
+        font-size: 26px;
+    }
+    #main .n_text h4{
+        font-size: 48px;
+    }
+    #about_me .main>div{
+        font-size: 64px;
+    }
+    #about_me .title{
+        font-size: 72px;
+        bottom: 3%;
+        top:inherit;
+        pointer-events: none;
+    }
+    #about_me .photo img{
+        bottom: -67px;
+    }
+    #about_me .main>div{
+        left: 0;
+        text-align: left;
+        scale: 1;
+    }
+    #about_me .main>div .box{
+        width: 100%;
+    }
+    #about_me .main>div .text{
+        font-size: 24px;
+    }
+    #about_me .main .skill .text>div:nth-child(odd)>p{
+        text-align: right;
+        padding-top: 10px;
+    }
+    #about_me .main .skill .text>div:nth-child(even)>p{
+        padding-top: 50px;
+        line-height: 50px;
+    }
+    #about_me .main .skill .text>div span{
+        width: 75%;
+    }
+    #about_me .main .skill .text>div:nth-child(odd) span{
+        left: 105%;
+        top: 12px;
+    }
+    #about_me .main .skill .text>div:nth-child(even) span{
+        left: -80%;
+        top: 60px;
+    }
+    #design .title{
+        font-size: 72px;
+        bottom: 3%;
+        top:inherit;
+    }
+    #design .main{
+        pointer-events: none;
+    }
+    #design .main .card{
+        pointer-events: all;
+    }
+    #design .main .card .img{
+        height: 20%;
+        top: 55%;
+    }
+    #design .main .card:nth-of-type(1) .img:hover{
+        scale: 1;
+        left: -5%;
+        transform: perspective(240px) rotateY(0deg) translateZ(100px);
+    }
+    #design .main .card .info{
+        width: 150%;
+        top: 15%;
+    }
+    #design .main .card .info .n_text{
+        margin-bottom: 5px;
+    }
+    #design .main .card .info .n_text .stroke,#design .main .card .info .n_text .fill{
+        font-size: 124px;
+    }
+    #design .main .card .info .text p{
+        font-size: 18px;
+    }
+    #design .main .info .text button{
+        bottom: 30%;
+    }
+    #design .main .card .info .tool{
+        height: 40px;
+        bottom: 130px;
+        left: 90px;
+    }
+    #publisher{
+        -webkit-user-drag: auto;
+        touch-action: auto;
+        user-select: auto;
+    }
+    #publisher .title{
+        font-size: 58px;
+        bottom: 3%;
+        top:inherit;
+    }
+    #publisher>.main{
+        width: 100%;
+        height: 85%;
+    }
+    #publisher .img .img_box{
+        left: -40%;
+    }
+    #publisher .img .img_box .box{
+        width: 180px;
+        height: 90px;
+        left:0;
+        top:-40%;
+    }
+    #publisher .img img{
+        width: 180px;
+        border-radius: 10px;
+    }
+    #publisher .img .img_box .box .text{
+        /* height: 0; */
+        display: none;
+    }
+    #publisher .img .img_box .box:hover .text{
+        top: 60%;
+        opacity: 1;
+        display: block;
+    }
+    #publisher .big_f .main{
+        left: 37%;
+        top: 50%;
+        width: 30%;
+    }
+    #publisher .vue{
+        bottom: -10%;
+    }
+    #contact #card{
+        width: 405px;
+        height: 225px;
+    }
+    #contact #card_back{
+        width: 405px;
+        height: 225px;
+    }
+    #card .bg .box, #card_back .bg .box{
+        width: 602px;
+        height: 344px;
+    }
+    #card .bg .box>div, #card_back .bg .box>div{
+        width: 86px;
+        height: 86px;
+    }
+    #card_back .content .work{
+        font-size: 64px;
+        top: 25%;
+    }
+    #card_back .content .name{
+        top: 55%;
+    }
+    #publisher .folder_number{
+        right: 9%;
+    }
+}

@@ -1,0 +1,153 @@
+@charset "utf-8";
+
+#contact{
+    background: linear-gradient(to top,#0160ba,rgb(0, 0, 55));
+}
+
+#contact .main{
+    z-index: 1;
+    left: 0;
+}
+
+#contact #card{
+    position: absolute;
+    z-index: 2;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    width: 810px;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 15px;
+    outline: 15px solid rgba(255, 255, 255, 0.15);
+    scale: 1;
+    rotate: 0deg;
+    transition: transform .5s linear;
+    /* display: none; */
+}
+#card .logo{
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    width: 25%;
+}
+#card .front,#card .bg,#card_back .bg,#card_back .content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#card .front{
+    pointer-events: none;
+    z-index: 1;
+    background: url(../image/box/card.svg)no-repeat center/cover;
+    scale: 1.2;
+    transition: scale .9s;
+}
+#card:hover .front{
+    scale: 1;
+}
+#card .bg,#card_back .bg{
+    z-index: 0;
+    background: linear-gradient(to left,rgb(0, 0, 55) ,rgb(5, 5, 105));
+    overflow: hidden;
+}
+#card .bg .box,#card_back .bg .box{
+    position: absolute;
+    width: 903px;
+    height: 516px;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+#card:hover .bg .box,#card_back:hover .bg .box{
+    opacity: .25;
+}
+#card .bg .box>div,#card_back .bg .box>div{
+    width: 129px;
+    height: 129px;
+    float: left;
+    border: 0.25px solid #0e0ed8;
+    background: transparent;
+    transition: background 1.5s;
+}
+#card .bg .box>div:hover,#card_back .bg .box>div:hover{
+    background: #050569;
+    box-shadow: inset 0px 0px 10px #0e0ed8;
+}
+
+#contact #card_back{
+    position: absolute;
+    z-index: 1;
+    transform: translate(-50%,-50%) rotateX(-90deg);
+    /* transform: translate(-50%,-50%); */
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    width: 810px;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 15px;
+    outline: 15px solid rgba(255, 255, 255, 0.15);
+    scale: 1;
+    rotate: 0deg;
+    transition: transform .5s linear;
+}
+#card_back .logo{
+    position: absolute;
+    z-index: 2;
+    width: 15%;
+    left: 5%;
+    top: 10%;
+}
+#card_back .content{
+    pointer-events: none;
+    z-index: 1;
+    color: white;
+    font-size: 24px;
+}
+#card_back .content>div{
+    position: absolute;
+}
+#card_back .content .work{
+    font-size: 72px;
+    top: 40%;
+    right: 5%;
+}
+#card_back .content .name{
+    font-size: 42px;
+    top: 60%;
+    right: 5%;
+}
+#card_back .content .email{
+    left: 5%;
+    top: 75%;
+}
+#card_back .content .mobile{
+    left: 5%;
+    top: 85%;
+}
+
+#contact .bubble{
+    z-index: 2;
+    position: absolute;
+    width: 50px;
+    left: 0%;
+    bottom: 40%;
+    scale: 1;
+}
+
+#contact .text{
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    bottom: 30%;
+    color: white;
+    opacity: 0;
+}

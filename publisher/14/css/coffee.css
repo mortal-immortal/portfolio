@@ -1,0 +1,286 @@
+@charset "utf-8";
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+section{
+    width: 100%;
+}
+section .main{
+    position: relative;
+    width: 1100px;
+    margin: 0 auto;
+}
+section .top{
+    width: 1100px;
+    height: 91px;
+    margin: 0 auto;
+    position: relative;
+}
+section .top h2{
+    font: bold 36px Avenir, Arial, georgia;
+    color: #222222;
+    padding-top: 30px;
+    position: relative;
+}
+section .top ul{
+    position: absolute;
+    right: 0;
+    top: 60px;
+    color: #666;
+}
+section .top li{
+    display: inline-block;
+    font-size: 12px;
+}
+section .division{
+    padding: 30px 30px 0 30px;
+    border: 1px solid #ddd;
+    position: relative;
+    border-radius: 3px;
+    margin-bottom: 40px;
+}
+section .division .size_mid{
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+section .division .btn{
+    position: absolute;
+    right: 30px;
+    top: 17px;
+    cursor: pointer;
+}
+section .division .btm{
+    border-top: 1px solid #ddd;
+    padding: 30px 0;
+    position: relative;
+}
+
+section .division .btm .list ul{
+    padding-bottom: 18px;
+}
+section .division .btm .list li{
+    cursor: pointer;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    width: 200px;
+    background: #f4f4f1;
+    color: #222;
+    margin-right: 10px;
+}
+section .division .btm .list li:not(.on):hover{
+    text-decoration: underline #222;
+}
+section .division .btm .list li.on{
+    background: #006633;
+    color: #fff;
+}
+section .check li{
+    font-size: 12px;
+    color: #666;
+    float: left;
+    margin-right: 30px;
+    font-weight: normal;
+}
+section .check li .c_box,section .select .list .c_box{
+    vertical-align: sub;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url(../coffee_image/ck_icon.jpg);
+}
+section .check li .c_box.on,section .select .list .c_box.on{
+    background: url(../coffee_image/ck_icon_on.jpg);
+}
+section .check li input,section .select .list input{
+    height: 12px;
+    width: 12px;
+    box-sizing: content-box;
+    vertical-align: top;
+    border-radius: 0;
+    opacity: 0;
+}
+
+section .select{
+    position: relative;
+    width: 1100px;
+    height: 80px;
+    margin: 0 auto;
+}
+section .select>div{
+    background: white;
+    width: 249px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 23px;
+}
+section .select>div>span{
+    cursor: pointer;
+}
+section .select .sub{
+    position: absolute;
+    right: 0;
+    width: 248px;
+    cursor: pointer;
+    padding-right: 10px;
+    height: 40px;
+    background: url(../coffee_image/sbox_arrow_down.png) 96% center no-repeat #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-indent: 10px;
+    text-align: left;
+    font-size: 16px;
+    color: #444;
+    overflow: hidden;
+}
+section .select span{
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    font-size: 14px;
+    color: #444;
+}
+section .select .list{
+    width: 246px;
+    height: 81px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: 39px;
+    background: #fff;
+    display: none;
+}
+section .select .list>div{
+    position: relative;
+    height: 40px;
+    font-size: 14px;
+}
+section .select .list>div:not(:last-child){
+    border-bottom: 1px solid #ddd;
+}
+section .select .list>div>*{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section .select .list>div .c_box{
+    left: 10px;
+}
+section .select .list>div img{
+    left: 28px;
+}
+section .select .list>div span{
+    left: 53px;
+    letter-spacing : -1.5px;
+}
+
+section>.info{
+    position: relative;
+}
+section>.info .info_box{
+    position: relative;
+    display: none;
+}
+section>.info .info_box.on{
+    position: relative;
+    display: block;
+}
+section>.info .box{
+    position: relative;
+}
+section>.info .top{
+    position: relative;
+    width: 1100px;
+    height: 58px;
+    background: #f4f4f2;
+    margin-bottom: 20px;
+}
+section>.info .top img{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section>.info .top span{
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    cursor: pointer;
+}
+
+section>.info .list{
+    position: relative;
+    margin-bottom: 40px;
+    overflow: auto;
+    overflow-y: hidden;
+}
+section>.info .list ul{
+    margin: 0 auto;
+    width: 1120px;
+    position: relative;
+    left: -10px;
+    top: -10px;
+}
+section>.info .list li{
+    width: 260px;
+    float: left;
+    margin: 10px;
+    position: relative;
+}
+section>.info .list li img{
+    position: relative;
+    z-index: 1;
+    transition: all 1s;
+    width: 100%;
+    cursor: pointer;
+}
+section>.info .list li img:hover{
+    scale: 1.1;
+}
+section>.info .list li p{
+    position: relative;
+    z-index: 10;
+    font-size: 14px;
+    color: #444;
+    margin: -31px;
+    height: 54px;
+    line-height: 54px;
+    text-align: center;
+    background: #fff;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    letter-spacing : -1.5px;
+}
+section>.info .list li.new::after{
+    content: "";
+    left: 10px;
+    bottom: 60px;
+    display: block;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    background: url(../coffee_image/icon_new.png);
+}
+.icon_arrow {
+    vertical-align: middle;
+}

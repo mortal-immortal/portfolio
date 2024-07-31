@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+aside{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: rgb(255, 210, 0);
+    overflow: hidden;
+}
+.ds_main{
+    position: relative;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+}
+.ds_aside_logo{
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+    width: 50%;
+    height: 50%;
+    background: url(../ds_images/로고.svg)no-repeat center/contain;
+    font-size: 200px;
+    line-height: 700px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+.ds_aside_chara{
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+    border-radius: 50%;
+    width: 700px;
+    height: 700px;
+    background: url(../ds_images/MMs___New_Character.webp) no-repeat center/cover;
+    border: 5px solid brown;
+}
+.ds_aside_chara .ds_ball{
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    line-height: 44px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px  rgba(0, 0, 0, 1), -2px -2px 5px rgba(0, 0, 0, 0.75) inset, 2px 2px 5px  rgba(255, 255, 255, 0.5) inset;
+}
+.ds_ball:nth-of-type(1){
+    background: red;
+    left: -50px;
+    
+}
+.ds_ball:nth-of-type(2){
+    background: orange;
+    left: 50px;
+    top: 100px;
+    
+}
+.ds_ball:nth-of-type(3){
+    background: silver;
+    right: -10px;
+    top: 200px;
+    
+}
+.ds_ball:nth-of-type(4){
+    background: rgb(48, 48, 197);
+    right: 80px;
+    top: 50px;
+    
+}
+.ds_left{
+    float: left;
+}
+.ds_right{
+    float: right;
+}
+.ds_clear::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.ds_aside_bottom{
+    position: absolute;
+    z-index: 20;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    padding-left: 80px;
+    /* opacity: 0; */
+}
+.ds_aside_bottom img{
+    position: relative;
+    bottom: -100%;
+    width: auto;
+    height: 150%;
+    display: block;
+}
+footer{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+footer .ds_top{
+    margin-top: 7.5%;
+    width: 100%;
+    height: 62.5%;
+}
+footer .ds_top .ds_main{
+    border-bottom: 2px solid #4e1306;
+    color: #4e1306;
+    transition: all 1s;
+    background: url(../ds_images/footer.webp) no-repeat center/0%;
+}
+footer .ds_top .ds_main p{
+    position: absolute;
+    bottom: 10px;
+}
+footer .ds_bottom{
+    width: 100%;
+    height: 25%;
+    background: rgb(255, 210, 0);
+    color: 4E1306;
+}
+footer .ds_bottom .ds_main{
+    border-top: 3px solid #4e1306;
+    color: #4e1306;
+}
+footer .ds_bottom ul{
+    position: relative;
+    top: 10px;
+    width: 100%;
+}
+footer .ds_bottom .ds_main>ul>li{
+    width: 20%;
+    margin-right: 5%;
+    font-size: 32px;
+    font-weight: bold;
+}
+footer .ds_bottom ul>li ul>li{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+footer .ds_bottom .ds_icon li{
+    width: 20%;
+    text-align: center;
+    font-size: 48px;
+}
+#section2{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: rgb(255, 210, 0);
+    overflow: hidden;
+}
+#section2 .group{
+    z-index: 10;
+}
+.ds_redline{
+    position: absolute;
+    width: 20px;
+    height: 1000px;
+    background: red;
+}
+.ds_redline1{
+    left: 5%;
+}
+.ds_redline2{
+    right: 5%;
+}
+#section3{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: rgb(255, 210, 0);
+    overflow: hidden;
+}
+#section3 div{
+    position: absolute;
+    width: 250%;
+    height: 50%;
+}
+#section3 .ds_top{
+    top: 0;
+    left: -110%;
+}
+#section3 .ds_bottom{
+    bottom: 0;
+    right: -110%;
+}
+#section3 img{
+    width: 350px;
+    position: relative;
+    top: 12%;
+}
+.test{
+    position: fixed;
+    z-index: 100;
+    font-size: 64px;
+}

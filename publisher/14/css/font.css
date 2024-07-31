@@ -1,0 +1,149 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+import 부분에 절대 주석문 넣지말기, 한글 안 나옴
+/* 영문폰트 */
+.roboto {font-family: 'Roboto', sans-serif;}
+.oswald {font-family: 'Oswald', sans-serif;}
+.montserrat {font-family: 'Montserrat', sans-serif;}
+.rowdies {font-family: 'Rowdies', cursive;}
+.Rubli_bubbles{font-family: 'Rubik Bubbles', cursive;}
+.seymour_one{font-family: 'Seymour One', sans-serif;}
+.Open_sans{font-family: 'Open Sans', sans-serif;}
+.lato{font-family: 'Lato', sans-serif;}
+.moon_dance{font-family: 'Moon Dance', cursive;}
+.merriweather{font-family: 'Merriweather', serif;}
+.nunito{font-family: 'Roboto Slab', serif;}
+.roboto_slab{font-family: 'Roboto Slab', serif;}
+.ubuntu {font-family: 'Ubuntu', sans-serif;}
+.noto_sans{font-family: 'Noto Sans', sans-serif;}
+.raleway {font-family: 'Raleway', sans-serif;}
+.roboto_mono{font-family: 'Roboto Mono', monospace;}
+.inter{font-family: 'Inter', sans-serif;}
+.source_sans_pro{font-family: 'Source Sans Pro', sans-serif;}
+.roboto_condensed{font-family: 'Roboto Condensed', sans-serif;}
+.monoton{font-family: 'monoton', sans-serif ;}
+
+
+
+
+/* 한글폰트 */
+.notosanskr {font-family: 'Noto Sans KR', sans-serif;}
+.nanumgothic {font-family: 'Nanum Gothic', sans-serif;}
+.eastseadokdo {font-family: 'East Sea Dokdo', cursive;}
+.nanummyeongjo {font-family: 'Nanum Myeongjo', serif;}
+.yeonseong {font-family: 'Yeon Sung', cursive;}
+.GothicA1 {font-family: 'Gothic A1', sans-serif;}
+.notoserifkorean {font-family: 'Noto Serif KR', serif;}
+.NanumGothicCoding {font-family: 'Nanum Gothic Coding', monospace;}
+.NanumPenScript {font-family: 'Black Han Sans', sans-serif;}
+.blackhansans {font-family: 'Black Han Sans', sans-serif;}
+.do_hyeon{font-family: 'Do Hyeon', sans-serif;}
+.jua {font-family: 'Jua', sans-serif;}
+.nanum_brush_script{font-family: 'Nanum Brush Script', cursive;}
+.dongle{font-family: 'Dongle', sans-serif;}
+.gugi{font-family: 'Gugi', cursive;}
+
+
+
+
+/* 공통 */
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+    src: url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 300;
+    src: url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+    src: url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('https://fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+}
+
+.nanumbarungothic * {
+font-family: 'NanumBarunGothic', sans-serif;
+}
+
+
+
+
+:root{
+    --w-color:#ffffff;
+    --b-color:#000000;
+    --m-color:#f6f5ef;
+    --g-color:#f4f4f2;
+    --green-color:#006633;
+
+    --font-300:300;
+    --font-400:400;
+    --font-700:700;
+    --font-size1:1em;
+    --font-size2:0.9em;
+    --font-size3:1.1em;
+    --font-size4:1.3em;
+    --font-size5:1.4em;
+  } 
+  
+  body, h1, h2, h3, h4, h5, h6, input, textarea, select {
+      font-family: 'NanumBarunGothic', '맑은 고딕', HelveticaNeue, DroidSans, Sans-serif, Helvetica;
+      font-style: normal;
+  }
+  
+  body {
+      font-size:var(--font-size2);
+      font-optical-sizing: auto;
+      font-weight: var(--font-300);
+      font-style: normal;
+      color:#444444;
+      line-height: 1.5em;
+      overflow-x: hidden;
+  }
+
+

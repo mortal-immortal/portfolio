@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+    <title>JangDaeSun</title>
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/guide.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/design.css">
+    <link rel="stylesheet" href="css/publisher.css">
+    <link rel="stylesheet" href="css/contact.css">
+
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <script src="js/main.js"></script>
+
+    <style>
+        @font-face {
+            font-family: 'MonoplexKRWide-Bold';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-wide@1.0/MonoplexKRWide-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+        #cursor{
+            display: none;
+            position: absolute;
+            z-index: 25;
+            width: 25px;
+            height: 25px;
+            pointer-events: none;
+        }
+        #cursor div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        #cursor .c1{
+            background: rgb(247, 102, 139);
+            z-index: 1;
+            /* left: 50%;
+            top: 50%; */
+            top: 467px;
+            left: 678px;
+            transform: translate(-50%,-50%);
+        }
+        #cursor .c2{
+            background: rgb(0, 0, 0);
+            box-sizing: content-box;
+            border: 1px solid black;
+            z-index: 2;
+            top: 453.5px;
+            left: 664.5px;
+        }
+        #cursor .c3{
+            background: rgb(40, 244, 254);
+            z-index: 0;
+            top: 454.5px;
+            left: 665.5px;
+        }
+        #top{
+            position: fixed;
+            z-index: 20;
+            right: 82px;
+            bottom: 82px;
+            font-size: 26px;
+            line-height: 82px;
+            text-align: center;
+            color: white;
+            background: orangered;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="title">
+        <div id="title_bg" class="clear">
+            <div class="bg s1 left t_left">Photoshop & Illustrator</div>
+            <div class="bg s2 right t_right">InDesign & After Effects</div>
+            <div class="bg s3 left t_left">HTML & CSS & JavaScript</div>
+            <div class="bg s4 right t_right">Vue.js & React & Figma</div>
+        </div>
+        <div id="title_main">
+            <span>P</span><span>U</span><span>B</span><span>L</span><span>I</span><span>S</span><span>H</span><span>E</span><span>R</span>
+        </div>
+    </div>
+    <div id="cursor">
+        <div class="c1"></div>
+        <div class="c2"></div>
+        <div class="c3"></div>
+    </div>
+    <div id="guide">
+        <img src="image/box/hand2.svg" alt="hand">
+    </div>
+    <nav id="menu">
+        <ul>
+            <li>MAIN</li>
+            <li>ABOUT</li>
+            <li>DESIGN</li>
+            <li>PUBLISHING</li>
+            <li>CONTACT</li>
+        </ul>
+        <i class="fa-solid fa-xmark"></i>
+    </nav>
+    <div id="top"><p>TOP</p></div>
+    <section id="main">
+        <div class="bg"><span></span></div>
+        <div class="main">
+            <div class="logo shadow">
+                <img src="image/logo_back.svg" alt="logo">
+                <img class="f_logo cC" src="image/logo_c.svg" alt="logo">
+                <img class="f_logo cM" src="image/logo_m.svg" alt="logo">
+                <img class="f_logo cY" src="image/logo_y.svg" alt="logo">
+            </div>
+            <div class="n_text">
+                <div class="line">
+                    <p>Web designer</p>
+                    <h4>Jang Dae Sun</h4>
+                </div>
+                <div class="text">
+                    <p>Web designer</p>
+                    <h4>Jang Dae Sun</h4>
+                </div>
+            </div>
+            <div class="t_text">
+                <div class="line">
+                    <h1 class="t1">WEB</h1>
+                    <h1 class="t2">DESIGN</h1>
+                    <h1 class="t3">PORTFOLIO</h1>
+                    <p class="t4">2024.</p>
+                    <p class="t5">OPTIMIZATION RESOLUTION | PC : 1920 PX | MOBILE : 500 PX</p>
+                </div>
+                <div class="text">
+                    <h1 class="t1">WEB</h1>
+                    <h1 class="t2">DESIGN</h1>
+                    <h1 class="t3">PORTFOLIO</h1>
+                </div>
+            </div>
+        </div>
+        <div class="note"><p>※전사이트 직접 코딩했습니다.</p></div>
+    </section>
+    <section id="about_me">
+        <div class="photo"><img src="image/pic.png" alt="#"></div>
+        <div class="title">
+            <span>A</span><span>B</span><span>O</span><span>U</span><span>T</span> <span>M</span><span>E</span>
+        </div>
+        <div class="main">
+            <div class="history">
+                <div class="box">
+                    <div class="n_text"><p>HISTORY</p></div>
+                    <div class="text">
+                        <p>2023 백석예술대학교 시각디자인학과 졸업</p>
+                        <p>2021 병장 만기 전역</p>
+                        <p>2018 서울디자인고등학교 시각디자인과 졸업</p>
+                        <p>2016 청소년디자인전람회 공익광고 부분 입상</p>
+                    </div>
+                </div>
+            </div>
+            <div class="license">
+                <div class="box">
+                    <div class="n_text"><p>LIECENSE</p></div>
+                    <div class="text">
+                        <p>2024 웹디자인 실기 합격</p>
+                        <p>2017 컴퓨터 그래픽스운용기능사</p>
+                        <p>2015 GTQ 1급</p>
+                        <p>2015 ITQ 한글파워포인트(한쇼) C등급</p>
+                        <p>2015 ITQ 아래한글 A등급</p>
+                        <p>2022 2종보통운전면허</p>
+                    </div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="box">
+                    <div class="n_text"><p>SKILL</p></div>
+                    <div class="text clear">
+                        <div class="left"><p>Photoshop</p><span class="ps"><div class="bar">85</div></span></div>
+                        <div class="left"><p>Illustrator</p><span class="ai"><div class="bar">90</div></span></div>
+                        <br><br>
+                        <div class="left"><p>InDesign</p><span class="id"><div class="bar">50</div></span></div>
+                        <div class="left"><p>After Effects</p><span class="ae"><div class="bar">45</div></span></div>
+                        <br><br>
+                        <div class="left"><p>HTML & CSS</p><span class="hc"><div class="bar">100</div></span></div>
+                        <div class="left"><p>jQuery</p><span class="js"><div class="bar">80</div></span></div>
+                        <br><br>
+                        <div class="left"><p>Vue.js & React</p><span class="vr"><div class="bar">50</div></span></div>
+                        <div class="left"><p>Figma</p><span class="fg"><div class="bar">80</div></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="design">
+        <div class="title">
+            <span>D</span><span>E</span><span>S</span><span>I</span><span>G</span><span>N</span>
+        </div>
+        <div class="main">
+            <div class="card front">
+                <div class="img">
+                    <img src="image/design/d1.png" alt="design1">
+                    <img class="btm" src="image/design/d1_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">구해줘 지구</text>
+                            <text class="fill" x="-140%" y="80%">구해줘 지구</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            환경을 알리는 카드뉴스
+                            <br>플라스틱 사용량이 늘어나면서 사용 후 방치된 플라스틱이 생태계, 해양생물, 인간 등에 큰 영향을 미치고 있습니다.
+                            <br>이런 위험성을 알리기 위해 카드뉴스를 제작했습니다.
+                        </p>
+                        <a href="design/1/card.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/ai.svg" alt="ps">
+                    </div>
+                </div>
+            </div>
+            <div class="card front">
+                <div class="img">
+                    <img src="image/design/d2.png" alt="design2">
+                    <img class="btm" src="image/design/d2_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">빈티지 포스터</text>
+                            <text class="fill" x="-140%" y="80%">빈티지 포스터</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            올드한 느낌의 빈티지 포스터
+                        </p>
+                        <a href="design/2/tron.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/ai.svg" alt="ai">
+                        <img src="image/tool/ps.svg" alt="ps">
+                    </div>
+                </div>
+            </div>
+            <div class="card front">
+                <div class="img">
+                    <img src="image/design/d3.png" alt="design3">
+                    <img class="btm" src="image/design/d3_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">구구구</text>
+                            <text class="fill" x="-140%" y="80%">구구구</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            자취생을 위한 모바일 어플입니다.
+                            <br>자취생들을 위한 커뮤니티 제품 정보와 자취 레시피 그리고 자취방을 쉽게 찾아볼 수 있는 어플입니다.
+                        </p>
+                        <a href="design/3/index-gugugu.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/figma.svg" alt="figma">
+                        <img src="image/tool/ai.svg" alt="ai">
+                    </div>
+                </div>
+            </div>
+            <div class="card front">
+                <div class="img">
+                    <img src="image/design/d4.png" alt="design4">
+                    <img class="btm" src="image/design/d4_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">마인크래프트 리디자인</text>
+                            <text class="fill" x="-140%" y="80%">마인크래프트 리디자인</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            기존의 마인크래프트 사이트를 피그마로 리디자인 했습니다.
+                            전체화면 모바일 타블렛 비율로 3개 제작했습니다.
+                        </p>
+                        <a href="design/4/index.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/figma.svg" alt="figma">
+                    </div>
+                </div>
+            </div>
+            <div class="card front">
+                <div class="img">
+                    <img src="image/design/d5.png" alt="design5">
+                    <img class="btm" src="image/design/d5_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">시즌 팝업</text>
+                            <text class="fill" x="-140%" y="80%">시즌 팝업</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            여름 이미지에 맞춰 시원한 느낌으로 스플래툰을 홍보하는 팝업 광고를 제작했습니다.
+                            <br>기본 이미지를 베이스로 각각 시즌에 맞추는 디자인을 제작했습니다.
+                        </p>
+                        <a href="design/5/index.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/ps.svg" alt="ps">
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="image/design/d6.png" alt="design6">
+                    <img class="btm" src="image/design/d6_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">데드풀과 울버린 배너</text>
+                            <text class="fill" x="-140%" y="80%">데드풀과 울버린 배너</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            데드풀과 울버린 영화의 배너 광고를 디자인했습니다.
+                            <br>데드풀과 울버린의 느낌을 주기 위해 각각 총알자국과 칼자국으로 포인트를 줬습니다.
+                        </p>
+                        <a href="design/6/index.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/ps.svg" alt="ps">
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="image/design/d7.png" alt="design6">
+                    <img class="btm" src="image/design/d7_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">파노라마 필름</text>
+                            <text class="fill" x="-140%" y="80%">파노라마 필름</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            영화 배급사의 로고를 디자인했습니다.
+                            <br>단 한명의 관객을 위한 영화관이라는 느낌으로 제작했습니다.
+                        </p>
+                        <a href="design/7/logo.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/ai.svg" alt="ai">
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="image/design/d8.png" alt="design6">
+                    <img class="btm" src="image/design/d8_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">스파이더맨</text>
+                            <text class="fill" x="-140%" y="80%">스파이더맨</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            스파이더맨을 활용한 혼합 미디어를 디자인했습니다.
+                            <br>스파이더맨의 상징 심볼인 거미와 스파이더맨의 갈등과 본인 자체 그리고 수많은 스파이더맨을 활용해 연출했습니다.
+                        </p>
+                        <a href="design/8/index.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/ps.svg" alt="ps">
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="image/design/d9.png" alt="design9">
+                    <img class="btm" src="image/design/d9_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">먹태깡</text>
+                            <text class="fill" x="-140%" y="80%">먹태깡</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            먹태깡의 상세페이지를 디자인했습니다.
+                            <br>
+                            먹태깡이 주력으로 내세우는 포인트를 강조해 제작했습니다.
+                        </p>
+                        <a href="design/9/index.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/ps.svg" alt="ps">
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="image/design/d10.png" alt="design10">
+                    <img class="btm" src="image/design/d10_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">Libera Me From Hell</text>
+                            <text class="fill" x="-140%" y="80%">Libera Me From Hell</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            OST의 cd자켓을 디자인햇습니다.
+                            <br>
+                            지하에서 부터 은하를 넘는 스케일의 임펙트를 보여주는 이미지를 구상했습니다.
+                        </p>
+                        <a href="design/10/index.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/ps.svg" alt="ps">
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="image/design/d12.png" alt="design12">
+                    <img class="btm" src="image/design/d12_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">라프텔 쿠폰</text>
+                            <text class="fill" x="-140%" y="80%">라프텔 쿠폰</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            라프텔 사이트의 이미지를 재구상해 어울릴 만한 쿠폰을 디자인했습니다.
+                        </p>
+                        <a href="design/12/index.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/ai.svg" alt="ai">
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="image/design/d13.png" alt="design13">
+                    <img class="btm" src="image/design/d13_btm.png" alt="bottom">
+                </div>
+                <div class="info">
+                    <div class="n_text">
+                        <svg width=460 height=60 viewBox="0 0 400 200">
+                            <text class="stroke" x="-140%" y="80%">KILLER</text>
+                            <text class="fill" x="-140%" y="80%">KILLER</text>
+                        </svg>
+                    </div>
+                    <div class="text">
+                        <p>
+                            킬러라는 이미지로 월페이퍼를 디자인했습니다.
+                        </p>
+                        <a href="design/13/index.html" target="_blank"><button><p>버튼</p></button></a>
+                    </div>
+                    <div class="tool">
+                        <img src="image/tool/ai.svg" alt="ai">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg">
+            <div class="top"></div>
+            <div class="btm"></div>
+        </div>
+    </section>
+    <section id="publisher">
+        <div class="title">
+            <span>P</span><span>U</span><span>B</span><span>L</span><span>I</span><span>S</span><span>H</span><span>I</span><span>N</span><span>G</span>
+        </div>
+        <div class="main">
+            <div class="check">
+                <img class="front" src="image/box/check.png" alt="check">
+                <div class="bg">
+                    <img class="img_show" src="image/box/check.png" alt="#">
+                </div>
+            </div>
+            <div class="f_open"></div>
+            <div class="folder">
+                <img src="image/box/folder.svg" alt="folder">
+            </div>
+            <div class="big_f">
+                <img class="bg" src="image/box/folder_open.svg" alt="folder">
+                <div class="main">
+                    <ul class="clear">
+                        <li class="pf1" >
+                            <img src="image/publisher/p1.png" alt="#">
+                        </li>
+                        <li class="pf2" >
+                            <img src="image/publisher/p2.png" alt="#">
+                        </li>
+                        <li class="pf3" >
+                            <img src="image/publisher/p3.png" alt="#">
+                        </li>
+                        <li class="pf4" >
+                            <img src="image/publisher/p4.png" alt="#">
+                        </li>
+                        <li class="pf5" >
+                            <img src="image/publisher/p5.png" alt="#">
+                        </li>
+                        <li class="pf6" >
+                            <img src="image/publisher/p6.png" alt="#">
+                        </li>
+                        <li class="pf7" >
+                            <img src="image/publisher/p7.png" alt="#">
+                        </li>
+                        <li class="pf8" >
+                            <img src="image/publisher/p8.png" alt="#">
+                        </li>
+                        <li class="pf9" >
+                            <img src="image/publisher/p9.png" alt="#">
+                        </li>
+                        <li class="pf10" >
+                            <img src="image/publisher/p10.png" alt="#">
+                        </li>
+                        <li class="pf11" >
+                            <img src="image/publisher/p11.png" alt="#">
+                        </li>
+                        <li class="pf12" >
+                            <img src="image/publisher/p12.png" alt="#">
+                        </li>
+                        <li class="pf13" >
+                            <img src="image/publisher/p13.png" alt="#">
+                        </li>
+                        <li class="pf14" >
+                            <img src="image/publisher/p14.png" alt="#">
+                        </li>
+                        <li class="pf15" >
+                            <img src="image/publisher/p15.png" alt="#">
+                        </li>
+                        <li class="pf16" >
+                            <img src="image/publisher/p16.png" alt="#">
+                        </li>
+                        <li class="pf17" >
+                            <img src="image/publisher/p17.png" alt="#">
+                        </li>
+                        <li class="pf18" >
+                            <img src="image/publisher/p18.png" alt="#">
+                        </li>
+                        <li class="pf19" >
+                            <img src="image/publisher/p1.png" alt="#">
+                        </li>
+                        <li class="pf20" >
+                            <img src="image/publisher/p20.png" alt="#">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="folder_number">
+                <p>0</p>
+            </div>
+            <div class="img">
+                <div class="img_box ib1">
+                    <div class="p1 box">
+                        <img src="image/publisher/p1.png" alt="publisher1">
+                        <div class="text">
+                            <h1>Distant Horizone</h1>
+                            <p>비디오 자동재생을 활용한 사이트</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib2">
+                    <div class="p2 box">
+                        <img src="image/publisher/p2.png" alt="publisher2">
+                        <div class="text">
+                            <h1>어벤져스</h1>
+                            <p>반응형 웹사이트로 6단계로 맞춘 사이트</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib3">
+                    <div class="p3 box">
+                        <img src="image/publisher/p3.png" alt="publisher3">
+                        <div class="text">
+                            <h1>FAKER</h1>
+                            <p>mouseover 와 mouseout 활용해 영상을 재생하는 사이트</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib4">
+                    <div class="p4 box">
+                        <img src="image/publisher/p4.png" alt="publisher4">
+                        <div class="text">
+                            <h1>아시아나 에어라인</h1>
+                            <p>현재 시각과 자동반복되는 이미지를 페이지마다 변화주는 사이트</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib5">
+                    <div class="p5 box">
+                        <img src="image/publisher/p5.png" alt="publisher5">
+                        <div class="text">
+                            <h1>STUDIO KINGDOM</h1>
+                            <p>mousemove를 활용해 마우스로 영상이 흘러가는 사이트</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib6">
+                    <div class="p6 box">
+                        <img src="image/publisher/p6.png" alt="publisher6">
+                        <div class="text">
+                            <h1>Pokémon</h1>
+                            <p>스크롤로 위아래가 아닌 앞뒤로 이동하는 사이트</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib7">
+                    <div class="p7 box">
+                        <img src="image/publisher/p7.png" alt="publisher7">
+                        <div class="text">
+                            <h1>Disney</h1>
+                            <p>메뉴 이동시 회전 효과로 이미지가 전환되는 사이트</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib8">
+                    <div class="p8 box">
+                        <img src="image/publisher/p8.png" alt="publisher8">
+                        <div class="text">
+                            <h1>BESAME</h1>
+                            <p>스크롤로 페이지를 지정위치로 이동하는 사이트</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib9">
+                    <div class="p9 box">
+                        <img src="image/publisher/p9.png" alt="publisher9">
+                        <div class="text">
+                            <h1>Nike</h1>
+                            <p>
+                                왼쪽에서 오른쪽으로 스크롤되는 사이트
+                                <br>각제품의 이름을 클릭해서 세부정보를 확대 해줍니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib10">
+                    <div class="p10 box">
+                        <img src="image/publisher/p10.png" alt="publisher10">
+                        <div class="text">
+                            <h1>칠성사이다 리디자인</h1>
+                            <p>
+                                Hover시 다양한 효과와 :befer :after를 활용한
+                                <br>플러그인 추가로 슬라이드 메뉴를 적용했습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib11">
+                    <div class="p11 box">
+                        <img src="image/publisher/p11.png" alt="publisher11">
+                        <div class="text">
+                            <h1>CGV / VALVE / RADEON</h1>
+                            <p>flex를 활용한 반응형 사이트</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib12">
+                    <div class="p12 box">
+                        <img src="image/publisher/p12.png" alt="publisher12">
+                        <div class="text">
+                            <h1>m&m's</h1>
+                            <p>
+                                효과 위주의 사이트
+                                <br>scrollTop를 이용해 효과를 보여주도록 적용했습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib13">
+                    <div class="p13 box">
+                        <img src="image/publisher/p13.png" alt="publisher13">
+                        <div class="text">
+                            <h1>한국닌텐도 리디자인</h1>
+                            <p>플러그인과 함께 반응형 사이트로 제작했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib14">
+                    <div class="p14 box">
+                        <img src="image/publisher/p14.png" alt="publisher14">
+                        <div class="text">
+                            <h1>스타벅스 클론코딩</h1>
+                            <p>메인화면과 메뉴의 커피, 커피 이야기를 클론코딩했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib15">
+                    <div class="p15 box">
+                        <img src="image/publisher/p15.png" alt="publisher15">
+                        <div class="text">
+                            <h1>중앙일보 디지털스페셜 클론코딩</h1>
+                            <p>스크롤시 화면 전환을 구현했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib16">
+                    <div class="p16 box">
+                        <img src="image/publisher/p16.png" alt="publisher16">
+                        <div class="text">
+                            <h1>풀무원 클론코딩</h1>
+                            <p>풀무원의 메인화면을 클론코딩했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib17">
+                    <div class="p17 box">
+                        <img src="image/publisher/p17.png" alt="publisher17">
+                        <div class="text">
+                            <h1>일룸</h1>
+                            <p>일룸 모바일 메인화면과 메뉴를 제작했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib18">
+                    <div class="p18 box">
+                        <img src="image/publisher/p18.png" alt="publisher18">
+                        <div class="text">
+                            <h1>카카오페이 클론코딩</h1>
+                            <p>스크롤에 맞춰 내용이 나오게 구현했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib19">
+                    <div class="p19 box">
+                        <img src="image/publisher/p19.png" alt="publisher19">
+                        <div class="text">
+                            <h1>할리스 클론코딩</h1>
+                            <p>할리스의 메인화면을 클론코딩했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="img_box ib20">
+                    <div class="p20 box">
+                        <img src="image/publisher/p20.png" alt="publisher20">
+                        <div class="text">
+                            <h1>카페미미미 클론코딩</h1>
+                            <p>카페미미미의 메인화면을 클론코딩했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vue">
+                <a href="https://mortal-immortal.github.io/">
+                    <img src="image/tool/vue.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="main">
+            <div id="card">
+                <img class="logo" src="image/logo.svg" alt="#">
+                <div class="front"></div>
+                <div class="bg">
+                    <div class="box">
+                        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    </div>
+                </div>
+                <div class="text">
+                    <i class="fa-solid fa-chevron-up"></i>
+                    <br>
+                    <p>CLICK</p>
+                </div>
+            </div>
+            <div id="card_back">
+                <img class="logo" src="image/logo.svg" alt="#">
+                <div class="content">
+                    <div class="work"><p>퍼블리셔</p></div>
+                    <div class="name"><p>장대선</p></div>
+                    <div class="email"><p>E-mail. : djthesun@naver.com</p></div>
+                    <div class="mobile"><p>Phone. : 010-2387-5939</p></div>
+                </div>
+                <div class="bg">
+                    <div class="box">
+                        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <img class="bubble" src="/image/box/bubble.svg" alt="#"> -->
+         <!-- 감사인사 하고 콘텍 추가 -->
+    </section>
+</body>
+</html>

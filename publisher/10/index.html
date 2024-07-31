@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
+    <!-- jQuery library -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- bxSlider Javascript file -->
+    <script src="js/jquery.bxslider.js"></script>
+    <script src="js/modernizr.custom.63321.js"></script>
+    <script src="js/jquery.catslider.js"></script>
+    <script>
+        $(function() {
+
+            $( '#mi-slider' ).catslider();
+
+        });
+    </script>
+    <script>
+        $(document).ready(function(){ /*문서가 다 로드되고 나서 읽어준다.*/
+            $('.bxslider').bxSlider({
+            mode: 'horizontal', // 가로, 세로
+            moveSlides: 1, //슬라이드 이동시 개수
+            slideMargin: 40,//슬라이드 사이여백
+            infiniteLoop: true, //반복
+            // slideWidth: 1920,
+            // sliderHeight:200,
+            // slideWidth: 660,//슬라이드 너비
+            // sliderHeight:200,//슬라이드 높이
+            minSlides: 1, //슬라이드 최소 노출개수
+            maxSlides: 1, //슬라이드 최대 노출개수
+            speed: 800, //스피드
+            controls:false, //이전, 다음 버튼 노출
+            auto:false, //자동실행여부
+            pause:1200,  //자동 실행전환 사이의 시간설정
+            pager:true, //동그라미 버튼 노출 여부
+            autoHover:false //호버시 애니메이션 정지여부
+            });
+        });
+    </script>
+    <style>
+        body,p{
+            margin: 0;
+            padding: 0;
+        }
+        .clear::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        /* div,li{
+            border: 1px solid red;
+        } */
+        header{
+            width: 100%;
+            position: fixed;
+            z-index: 10;
+            background: white;
+        }
+        header>.top{
+            background: green;
+            height: 40px;
+            position: relative;
+        }
+        header>.bottom{
+            /* border: 1px solid red; */
+            height: 50px;
+            overflow: hidden;
+            transition: all 1s;
+        }
+        header>.bottom:hover{
+            height: 210px;
+        }
+        .w{
+            color: white;
+            font-weight: bold;
+        }
+        .sign1{
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translate(0,-50%);
+        }
+        .sign2{
+            position: absolute;
+            right: 20%;
+            top: 50%;
+            transform: translate(0,-50%);
+        }
+        header>.bottom>.box1{
+            width: 24%;
+            height: 50px;
+            position: relative;
+        }
+        header>.bottom>.box1>img{
+            /* height: 100%; */
+            width: 60%;
+            min-width: 250px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0,-50%);
+        }
+        header>.bottom>.box2{
+            width: 75%;
+            /* height: 100px; */
+            position: relative;
+        }
+        ul,li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        header>.bottom>.box2>ul>li{
+            float: left;
+            width: 16.3%;
+            height: 50px;
+            text-align: center;
+            font-weight: bold;
+            line-height: 50px;
+        }
+        header>.bottom>.box2>ul>li:hover{
+            color: red;
+        }
+        header>.bottom>.box2>ul>li::before{
+            opacity: 0;
+            transition: all 1s;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            left: 0;
+            bottom: 0;
+        }
+        header>.bottom>.box2>ul>li:hover::before{
+            background: red;
+            opacity: 1;
+        }
+        header>.bottom>.box2>ul>li>ul>li{
+            width: 100%;
+            clear: both;
+            height: 40px;
+            line-height: 40px;
+            font-size: 17px;
+            color: black;
+        }
+        header>.bottom>.box2>ul>li>ul>li:hover{
+            background: gray;
+            color: white;
+        }
+        #border{
+            height: 90px;
+        }
+        section{
+            z-index: -1;
+        }
+        .bxslider>li>img{
+            width: 100%;
+        }
+        section>.container{
+            background: url(images/content/produce_bg.png) no-repeat 50%/cover;
+            margin-bottom: 25px;
+        }
+        section>.container>.main{
+            font-weight: bold;
+        }
+        #mi-slider>ul>li h4{
+            font-weight: bold;
+        }
+        .volunteer{
+            height: 250px;
+            background: url(images/content/business_bg4.jpg);
+        }
+        .gula{
+            height: 75px;
+            line-height: 75px;
+            text-align: center;
+        }
+        section>.volunteer>.glist{
+            width: 70%;
+            height: 150px;
+            margin: 0 auto;
+        }
+        section>.volunteer>.glist>div{
+            width: 23.5%;
+            height: 100%;
+            /* border: 1px solid red; */
+            position: relative;
+            overflow: hidden;
+        }
+        section>.volunteer>.glist>div::before{
+            content: "";
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.4);
+            left: 0;
+            bottom: -30px;
+            transition: all 1s;
+        }
+        section>.volunteer>.glist>div:hover::before{
+            bottom: 0;
+        }
+        section>.volunteer>.glist>div:not(:last-of-type){
+            margin-right: 2%;
+        }
+        section>.volunteer>.glist>div:nth-of-type(1){
+            background: url(images/content/business_1.PNG) no-repeat 50%;
+            background-size: cover;
+        }
+        section>.volunteer>.glist>div:nth-of-type(1)::before{
+            content: "윤리경영";
+        }
+        section>.volunteer>.glist>div:nth-of-type(2){
+            background: url(images/content/business_2.jpg) no-repeat 50%;
+            background-size: cover;
+        }
+        section>.volunteer>.glist>div:nth-of-type(2)::before{
+            content: "환경경영";
+        }
+        section>.volunteer>.glist>div:nth-of-type(3){
+            background: url(images/content/business_3.jpg) no-repeat 50%;
+            background-size: cover;
+        }
+        section>.volunteer>.glist>div:nth-of-type(3)::before{
+            content: "사회공헌";
+        }
+        section>.volunteer>.glist>div:nth-of-type(4){
+            background: url(images/content/business_4.jpg) no-repeat 50%;
+            background-size: cover;
+        }
+        section>.volunteer>.glist>div:nth-of-type(4)::before{
+            content: "공정거래";
+        }
+        aside{
+            position: relative;
+        }
+        aside>.event{
+            position: relative;
+            width: 55%;
+            /* height: 500px; */
+            /* border: 1px solid red; */
+            margin: 0 auto;
+            margin-bottom: 25px;
+        }
+        aside>.event>div{
+            width: 49%;
+            text-align: center;
+            position: relative;
+        }
+        aside>.event>div>div{
+            width: 100%;
+            height: 333px;
+            position: relative;
+        }
+        aside>.event>div>div::before{
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            /* box-sizing: border-box; */
+            border: 0px solid green;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: all .25s;
+        }
+        aside>.event>div>div:hover:before{
+            border: 10px solid green;
+        }
+        aside>.event>div>h1{
+            height: 50px;
+            line-height: 50px;
+            background: url(images/content/more.jpg) no-repeat 100% 50%;
+        }
+        aside>.event>div:nth-of-type(1)>div>.img{
+            width: 100%;
+            height: 100%;
+            background: url(images/content/event_1.jpg);
+            background-size: cover;
+        }
+        aside>.event>div:nth-of-type(2)>div>.img{
+            width: 100%;
+            height: 100%;
+            background: url(images/content/newprd_1.JPG);
+            background-size: cover;
+        }
+        aside>.new{
+            width: 60%;
+            height: 460px;
+            box-shadow: 0px 0px 6px 1px gray;
+            margin: 0 auto;
+            padding: 10px;
+            padding-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        aside>.new>h1{
+            background: url(images/content/more.jpg) no-repeat 100% 100%;
+            border-bottom: 3px solid red;
+            height: 40px;
+            line-height: 40px;
+            /* margin-bottom: 100px; */
+        }
+        aside>.new>.box{
+            position: relative;
+            width: 100%;
+            height: 160px;
+            margin-top: 100px;
+        }
+        aside>.new>.box>div{
+            width: 18.4%;
+            height: 252px;
+            /* border: 1px solid red; */
+            position: relative;
+            margin: 0 auto;
+        }
+        aside>.new>.box>div:not(:last-of-type){
+            margin-right: 2%;
+        }
+        aside>.new>.box>div>div{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        aside>.new>.box>div>h4{
+            position: relative;
+            bottom: -100%;
+        }
+        aside>.new>.box>div>div>img{
+            position: relative;
+            width: 100%;
+            transition: all 1s;
+        }
+        aside>.new>.box>div>div>img:hover{
+            transform: scale(110%);
+        }
+        aside>.commu{
+            width: 60%;
+            margin: 0 auto;
+            margin-bottom: 25px;
+        }
+        aside>.commu>h1{
+            text-align: center;
+            font-size: 1.5em;
+        }
+        aside>.commu>.site{
+            position: relative;
+            width: 95%;
+            height: 600px;
+            margin: 0 auto;
+        }
+        aside>.commu>.site>div{
+            width: 275px;
+            height: 275px;
+            position: absolute;
+            overflow: hidden;
+        }
+        aside>.commu>.site>div::after{
+            content: "더보기";
+            position: absolute;
+            width: 60%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+            border: 1px solid white;
+            opacity: 0;
+            transition: all .5s;
+        }
+        aside>.commu>.site>div:hover:after{
+            opacity: 1;
+        }
+        aside>.commu>.site>div:nth-of-type(1){
+            background: url(images/content/community_1.JPG) no-repeat;
+            background-size: cover;
+            top: 0;
+            left: 0;
+        }
+        aside>.commu>.site>div:nth-of-type(2){
+            background: url(images/content/community_4.jpg) no-repeat;
+            background-size: cover;
+            top: 0;
+            right: 0;
+        }
+        aside>.commu>.site>div:nth-of-type(3){
+            background: url(images/content/community_2.jpg) no-repeat;
+            background-size: cover;
+            bottom: 0;
+            left: 0;
+        }
+        aside>.commu>.site>div:nth-of-type(4){
+            background: url(images/content/community_5.jpg) no-repeat;
+            background-size: cover;
+            bottom: 0;
+            right: 0;
+        }
+        aside>.commu>.site>div:nth-of-type(5){
+            width: 450px;
+            height: 450px;
+            background: url(images/content/community_3.jpg) no-repeat;
+            background-size: cover;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        aside>.commu>.site>div::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 128, 0, 0.5);
+            transition: all .5s;
+        }
+        aside>.commu>.site>div:nth-of-type(1)::before{
+            top: -100%;
+            left: 0;
+        }
+        aside>.commu>.site>div:nth-of-type(1):hover:before{
+            top: 0;
+        }
+        aside>.commu>.site>div:nth-of-type(2)::before{
+            left: 0;
+            bottom: -100%;
+        }
+        aside>.commu>.site>div:nth-of-type(2):hover:before{
+            bottom: 0;
+        }
+        aside>.commu>.site>div:nth-of-type(3)::before{
+            top: 0;
+            left: -100%;
+        }
+        aside>.commu>.site>div:nth-of-type(3):hover:before{
+            left: 0;
+        }
+        aside>.commu>.site>div:nth-of-type(4)::before{
+            top: 0;
+            right: -100%;
+        }
+        aside>.commu>.site>div:nth-of-type(4):hover:before{
+            right: 0;
+        }
+        aside>.commu>.site>div:nth-of-type(5)::before{
+            width: 200%;
+            height: 200%;
+            top: 0;
+            left: -200%;
+            transform: skewX(45deg);
+        }
+        aside>.commu>.site>div:nth-of-type(5):hover:before{
+            left: 0;
+        }
+        aside>.commu>.site>div:not(:nth-of-type(4))>.img{
+            position: absolute;
+            background: url(images/content/icon.png) no-repeat;
+            width: 50px;
+            height: 50px;
+            top: 0;
+            right: 0;
+        }
+        aside>.commu>.site>div:nth-of-type(1)>.img{
+            background-position: -70px -125px;
+        }
+        aside>.commu>.site>div:nth-of-type(2)>.img{
+            background-position: -70px -125px;
+        }
+        aside>.commu>.site>div:nth-of-type(3)>.img{
+            background-position: -10px -125px;
+        }
+        aside>.commu>.site>div:nth-of-type(5)>.img{
+            background-position: -135px -125px;
+        }
+        footer{
+            width: 100%;
+            /* height: 500px; */
+            /* border: 1px solid blue; */
+        }
+        footer>.sns{
+            width: 42%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        footer>.sns>div:first-of-type{
+            height: 50px;
+            line-height: 50px;
+            margin-right: 25px;
+        }
+        footer>.sns>div:not(:first-of-type){
+            margin-right: 10px;
+            width: 50px;
+            height: 50px;
+            transition: all 1s;
+            filter : grayscale(100%)
+        }
+        footer>.sns>div:not(:first-of-type):hover{
+            filter : grayscale(0)
+        }
+        footer>.sns>div:nth-of-type(2){
+            background: url(images/content/icon.png) no-repeat -10px -5px;
+        }
+        footer>.sns>div:nth-of-type(3){
+            background: url(images/content/icon.png) no-repeat -68px -5px;
+        }
+        footer>.sns>div:nth-of-type(4){
+            background: url(images/content/icon.png) no-repeat -130px -5px;
+        }
+        footer>.sns>div:nth-of-type(5){
+            background: url(images/content/icon.png) no-repeat -190px -5px;
+        }
+        footer>.as{
+            margin: 0 auto;
+            background: gray;
+            padding: 10px;
+            /* height: 100px; */
+        }
+        footer>.as>.box{
+            width: 50%;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+        }
+        footer>.as>.box>div{
+            width: 33%;
+            text-align: left;
+        }
+        footer>.as>.box>div>.img{
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+        footer>.as>.box>div>div{
+            width: 65%;
+            padding-top: 4%;
+        }
+        footer>.as>.box>div>div>h4{
+            color: white;
+        }
+        footer>.as>.box>div:nth-of-type(1)>.img{
+            background: url(images/foot/service1.png) no-repeat 50%/cover;
+        }
+        footer>.as>.box>div:nth-of-type(2)>.img{
+            background: url(images/foot/service2.png) no-repeat 50%/cover;
+        }
+        footer>.as>.box>div:nth-of-type(3)>.img{
+            background: url(images/foot/service3.png) no-repeat 50%/cover;
+        }
+        footer>.info{
+            background: rgb(50, 50, 50);
+            color: white;
+            /* height: 500px; */
+        }
+        footer>.info>.box{
+            width: 55%;
+            margin: 0 auto;
+        }
+        footer>.info>.box>.img{
+            width: 30%;
+            height: 200px;
+            background: url(images/foot/footter_rogo.png) no-repeat 0 0 /60%;
+        }
+        footer>.info>.box>.text{
+            width: 70%;
+        }
+        footer>.info>.box>.text>.top{
+            margin-bottom: 60px;
+        }
+        footer>.info>.box>.text>.top>h4{
+            margin-right: 60px;
+            margin-top: 20px;
+        }
+        footer>.info>.box>.text>.bottom{
+            width: 52%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top">
+            <p class="sign1 w">로그인</p>
+            <p class="sign2 w">회원가입</p>
+        </div>
+        <div class="bottom clear">
+            <div class="left box1">
+                <img src="images/top/rogo.png" alt="logo">
+            </div>
+            <div class="left box2">
+                <ul class="clear">
+                    <li>
+                        기업소개
+                        <ul>
+                            <li>소개</li>
+                            <li>CEO인사말</li>
+                            <li>비전</li>
+                            <li>연혁</li>
+                        </ul>
+                    </li>
+                    <li>맑은경영
+                        <ul>
+                            <li>윤리경영</li>
+                            <li>품질/환경경영</li>
+                            <li>사회공헌</li>
+                        </ul>
+                    </li>
+                    <li>
+                        제품정보
+                        <ul>
+                            <li>신제품 정보</li>
+                            <li>음료브랜드</li>
+                        </ul>
+                    </li>
+                    <li>
+                        홍보센터
+                        <ul>
+                            <li>홍보관</li>
+                            <li>홍보자료실</li>
+                            <li>롯데칠성뉴스</li>
+                        </ul>
+                    </li>
+                    <li>
+                        인재채용
+                        <ul>
+                            <li>채용공고</li>
+                            <li>온라인 입사지원</li>
+                        </ul>
+                    </li>
+                    <li>
+                        고객지원
+                        <ul>
+                            <li>고객센터</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div id="border"></div>
+    <section>
+        <ul class="bxslider">
+            <li><img src="images/main/visual_1.jpg" /></li>
+            <li><img src="images/main/visual_2.jpg" /></li>
+            <li><img src="images/main/visual_3.jpg" /></li>
+            <li><img src="images/main/visual_4.jpg" /></li>
+            <li><img src="images/main/visual_5.jpg" /></li>
+        </ul>
+        <div class="container">	
+			<div class="main">
+				<div id="mi-slider" class="mi-slider">
+					<ul>
+						<li><a href="#"><img src="images/content/soda1.png" alt="img01"><h4>사이다</h4></a></li>
+						<li><a href="#"><img src="images/content/soda6.png" alt="img02"><h4>밀키스</h4></a></li>
+						<li><a href="#"><img src="images/content/soda4.png" alt="img03"><h4>미란다</h4></a></li>
+						<li><a href="#"><img src="images/content/soda10.png" alt="img04"><h4>칠성스트롱</h4></a></li>
+						<li><a href="#"><img src="images/content/soda9.png" alt="img04"><h4>트레비</h4></a></li>
+					</ul>
+					<ul>
+						<li><a href="#"><img src="images/content/juice1.png" alt="img05"><h4>포켓몬</h4></a></li>
+						<li><a href="#"><img src="images/content/juice5.png" alt="img06"><h4>오렌지주스</h4></a></li>
+						<li><a href="#"><img src="images/content/juice6.png" alt="img07"><h4>포도주스</h4></a></li>
+						<li><a href="#"><img src="images/content/juice9.png" alt="img08"><h4>딸기라떼</h4></a></li>
+					</ul>
+					<ul>
+						<li><a href="#"><img src="images/content/coffee1.png" alt="img09"><h4>칸타타</h4></a></li>
+						<li><a href="#"><img src="images/content/coffee3.png" alt="img10"><h4>콜레컨트롤</h4></a></li>
+						<li><a href="#"><img src="images/content/coffee5.png" alt="img11"><h4>칸타타콜드브루</h4></a></li>
+						<li><a href="#"><img src="images/content/coffee8.png" alt="let it be"><h4>렛잇비black</h4></a></li>
+					</ul>
+					<ul>
+						<li><a href="#"><img src="images/content/tea1.png" alt="img12"><h4>초가을우엉차</h4></a></li>
+						<li><a href="#"><img src="images/content/tea3.png" alt="img13"><h4>옥수수수염차</h4></a></li>
+						<li><a href="#"><img src="images/content/tea5.png" alt="img14"><h4>실론티콜드브루</h4></a></li>
+						<li><a href="#"><img src="images/content/tea6.png" alt="img15"><h4>아침헛개</h4></a></li>
+						<li><a href="#"><img src="images/content/tea2.png" alt="img16"><h4>황금보리</h4></a></li>
+					</ul>
+					<nav>
+						<a href="#">탄산</a>
+						<a href="#">주스</a>
+						<a href="#">커피</a>
+						<a href="#">차</a>
+					</nav>
+				</div>
+			</div>
+		</div><!-- /container -->
+        <div class="volunteer">
+            <p class="w gula">롯데칠성은 지속가능한 가치를 추구합니다.</p>
+            <div class="glist clear">
+                <div class="left"></div>
+                <div class="left"></div>
+                <div class="left"></div>
+                <div class="left"></div>
+            </div>
+        </div>
+    </section>
+    <aside>
+        <div class="event clear">
+            <div class="left">
+                <h1>이벤트</h1>
+                <div>
+                    <div class="img"></div>
+                </div>
+            </div>
+            <div class="right">
+                <h1>신제품</h1>
+                <div>
+                    <div class="img"></div>
+                </div>
+            </div>
+        </div>
+        <div class="new clear">
+            <h1>롯데칠성 뉴스</h1>
+            <div class="box">
+                <div class="left">
+                    <div>
+                        <img src="images/content/pnews_1.JPG" alt="">
+                    </div>
+                    <h4>전국천사무료급식소에 임직원들이 모든 '나눔저금통'성금 전달</h4>
+                </div>
+                <div class="left">
+                    <div>
+                        <img src="images/content/pnews_2.JPG" alt="">
+                    </div>
+                    <h4>추운 겨울철에 얼어붙은 몸과 마음을 녹여주는 온장음료 인기</h4>
+                </div>
+                <div class="left">
+                    <div>
+                        <img src="images/content/pnews_3.PNG" alt="">
+                    </div>
+                    <h4>프리미엄 원두캔커피 1등 브랜드 '칸타타'출시 11년만에 누적...</h4>
+                </div>
+                <div class="left">
+                    <div>
+                        <img src="images/content/pnews_5.png" alt="">
+                    </div>
+                    <h4>대한민국 1위 종합음료기업인 롯데칠성에서 미래의 높은 가...</h4>
+                </div>
+                <div class="left">
+                    <div>
+                        <img src="images/content/pnews_4.JPG" alt="">
+                    </div>
+                    <h4>피카츄가 들어간 깜찍한 사이즈의 아이시스8.0 200ml 페트병...</h4>
+                </div>
+            </div>
+        </div>
+        <div class="commu">
+            <h1>롯데칠성 커뮤니티</h1>
+            <div class="site">
+                <div>
+                    <div class="img"></div>
+                </div>
+                <div>
+                    <div class="img"></div>
+                </div>
+                <div>
+                    <div class="img"></div>
+                </div>
+                <div>
+                    <div class="img"></div>
+                </div>
+                <div class="big">
+                    <div class="img"></div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <footer>
+        <div class="sns clear">
+            <div class="left">
+                <h1>롯데칠성의 더많은 소식을 SNS로 만나보세요 !</h1>
+            </div>
+            <div class="left"></div>
+            <div class="left"></div>
+            <div class="left"></div>
+            <div class="left"></div>
+        </div>
+        <div class="as clear">
+            <div class="box clear">
+                <div class="left clear">
+                    <div class="left img"></div>
+                    <div class="left">
+                        <h2>채용안내</h2>
+                        <h4>적극적이고 노력하는 인재를 중요시합니다.</h4>
+                    </div>
+                </div>
+                <div class="left">
+                    <div class="left img"></div>
+                    <div class="left">
+                        <h2>업체등록</h2>
+                        <h4>업체제휴절차를 안내합니다.</h4>
+                    </div>
+                </div>
+                <div class="left">
+                    <div class="left img"></div>
+                    <div class="left">
+                        <h2>고객문의</h2>
+                        <h4>롯데칠성음료(주)공장은 여러분을 환영합니다.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info clear">
+            <div class="box clear">
+                <div class="left img"></div>
+                <div class="left text">
+                    <div class="top clear">
+                        <h4 class="left">이용약관</h4>
+                        <h4 class="left">개인정보처리방침</h4>
+                        <h4 class="left">공장견학</h4>
+                    </div>
+                    <div class="bottom">
+                        <h4>본사: 서울특별시 송파구 올림픽로 269, 롯데캐슬 4,5층 TEL : 02-3497-9114 / 대표이사 : 이영구 COPYRIGHT@ 2010 LOTTE CHIL SUNG BEVERAGE CO LTD.ALL RIGHTS RESERVED</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
