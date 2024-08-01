@@ -28,7 +28,7 @@
         #back section{
             position: relative;
             width: 100%;
-            height: 100vh;
+            height: 50vh;
             overflow: hidden;
         }
         .fix{
@@ -255,6 +255,12 @@
         section#mockup img{
             width: 80%;
         }
+        #box{
+            display: flex;
+        }
+        #box>*{
+            width: 50%;
+        }
     </style>
     <script>
         $(function(){
@@ -264,7 +270,7 @@
             },function(){
                 wheel=false
             })
-           
+            console.log($("#back section:has(:last)").index())
             $("#title").mouseover(function(){
                 $("#title").children(".bg").css({
                     filter:" brightness(100%)"
@@ -278,8 +284,8 @@
             $("#title").trigger('mouseover')
 
             var step=0
-            var web=$(window).height()
-            console.log($("#back section:last").index()-1)
+            var web=$(window).height()/2
+            console.log($("#back section:last").index())
             console.log(web)
             console.log(wheel)
             $("#back").on("mousewheel", function(event,delta){
@@ -303,7 +309,7 @@
                     }
                 } else if(delta<0){ //마우스 휠을 내렸을때
                     if(wheel==false){
-                        if(step<$("#back section:last").index()){
+                        if(step<$("#back section:last").index()+2){
                             wheel=true
                             step++
                             console.log(step)
@@ -313,49 +319,23 @@
                                 scrollTop:step*web
                             },function(){
                                 wheel=false
-                                if(step==$("#back section:last").index()-1){
-                                    // $("#s8 .i1").fadeOut()
+                                if(step==$("#back section:last").index()+2){
                                     $("#s8 .i2").fadeIn(1000,function(){
                                         $("#s8 .i1").fadeOut()
                                     })
                                 }
-                                if(step==$("#back section:last").index()){
+                                if(step==$("#back section:last").index()+3){
                                     footer=true
                                 }
                             })
                         }else{
-                            step=$("#back section:last").index()-1
+                            step=$("#back section:last").index()+2
                             wheel=false
                         }
                     }
                 }
             })
             var footer=false
-            $(window).on("mousewheel", function(event,delta){
-                if(delta>0&&footer==true){
-                    if($(window).scrollTop()<$("#mockup").offset().top){
-                        footer=false
-                        wheel=true
-                        step=$("#back section:last").index()-1
-                        $("html,body").stop().animate({
-                            scrollTop:step*web
-                        },function(){
-                            wheel=false
-                        })
-                    }
-                }else if(delta<0){
-                    if($(window).scrollTop()>=$("#mockup").offset().top){
-                        footer=true
-                    }
-                }
-            })
-            $(window).scroll(function(){
-                if($(window).scrollTop()>=$("#mockup").offset().top){
-                    $("#logo").fadeOut()
-                }else{
-                    $("#logo").fadeIn()
-                }
-            })
             $("#s3 .i1").click(function(){
                 $("#s3 .i2").fadeIn()
                 $(this).fadeOut(1000)
@@ -371,120 +351,123 @@
     <div id="logo" class="fix"></div>
     <div id="scroll" class="fix"><i class="fa-solid fa-angles-down"></i></div>
     <div id="up" class="fix"><i class="fa-solid fa-caret-up"></i></div>
-    <div id="back">
-        <div id="bg"></div>
-        <section id="title">
-            <div class="bg"></div>
-            <div class="text">
-                <h1>자취생의 필수템 구구구!</h1>
-                <h3>UX/UI디자인 | 장대선, 권소라, 이혜숙 팀작업</h3>
-            </div>
-        </section>
-        <section id="s1">
-            <div class="main">
-                <img class="i1" src="portfolio/title.png">
-                <img class="i2" src="portfolio/메인.png">
+    <div id="box">
+        <div id="back">
+            <div id="bg"></div>
+            <section id="title">
+                <div class="bg"></div>
                 <div class="text">
-                    <h2><span class="red big">구구구</span> 자취생을 위한 정보 어플</h2>
-                    <br>
-                    <h3>자취에 대한 걱정은 이제 그만!</h3>
-                    <br>
-                    <h4>자취생에게 필요한 필수 정보를 사람들과 공유하며, 쉽게 찾아 볼 수 있도록 소통 창구를 쉽고 간편하게 제공해주는 커뮤니티 어플리케이션</h4>
-                    <br>
-                    <p>요리부터 인테리어까지 자취 커뮤니티의 모든 것!</p>
+                    <h1>자취생의 필수템 구구구!</h1>
+                    <h3>UX/UI디자인 | 장대선, 권소라, 이혜숙 팀작업</h3>
                 </div>
-            </div>
-        </section>
-        <section id="s2">
-            <div class="main">
-                <img class="i1" src="portfolio/커뮤니티.png">
-                <img class="i2" src="portfolio/쇼핑몰.png">
-                <img class="i3" src="portfolio/상점.png">
-                <img class="i4" src="portfolio/레시피.png">
-                <img class="i5" src="portfolio/부동산.png">
-                <img class="i6" src="portfolio/이벤트.png">
-                <div class="text">
-                    <h2><span class="red big">구구구</span> 컨텐츠</h2>
-                    <br>
-                    <p>자취생들에게 필요한 레시피, 자취방등도 쉽게 찾아볼 수 있습니다.</p>
-                    <br>
-                    <p>그리고 제휴 사이트와의 이벤트를 통해 다양한 혜택도 누릴 수 있습니다.</p>
+            </section>
+            <section id="s1">
+                <div class="main">
+                    <img class="i1" src="portfolio/title.png">
+                    <img class="i2" src="portfolio/메인.png">
+                    <div class="text">
+                        <h2><span class="red big">구구구</span> 자취생을 위한 정보 어플</h2>
+                        <br>
+                        <h3>자취에 대한 걱정은 이제 그만!</h3>
+                        <br>
+                        <h4>자취생에게 필요한 필수 정보를 사람들과 공유하며, 쉽게 찾아 볼 수 있도록 소통 창구를 쉽고 간편하게 제공해주는 커뮤니티 어플리케이션</h4>
+                        <br>
+                        <p>요리부터 인테리어까지 자취 커뮤니티의 모든 것!</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section id="s3">
-            <div class="main">
-                <img class="i1" src="portfolio/커뮤니티.png">
-                <img class="i2" src="portfolio/커뮤니티_상세페이지.png">
-                <div class="text">
-                    <h2><span class="red big">구구구</span> Community Page</h2>
-                    <br>
-                    <p>자취생들의 이야기를 자유롭게 쓸 수 있는 게시판</p>
-                    <br>
-                    <p>다양한 정보와 소식들을 나눌 수 있습니다.</p>
+            </section>
+            <section id="s2">
+                <div class="main">
+                    <img class="i1" src="portfolio/커뮤니티.png">
+                    <img class="i2" src="portfolio/쇼핑몰.png">
+                    <img class="i3" src="portfolio/상점.png">
+                    <img class="i4" src="portfolio/레시피.png">
+                    <img class="i5" src="portfolio/부동산.png">
+                    <img class="i6" src="portfolio/이벤트.png">
+                    <div class="text">
+                        <h2><span class="red big">구구구</span> 컨텐츠</h2>
+                        <br>
+                        <p>자취생들에게 필요한 레시피, 자취방등도 쉽게 찾아볼 수 있습니다.</p>
+                        <br>
+                        <p>그리고 제휴 사이트와의 이벤트를 통해 다양한 혜택도 누릴 수 있습니다.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section id="s4">
-            <div class="main">
-                <img class="i1" src="portfolio/쇼핑몰.png">
-                <div class="text">
-                    <h2><span class="red big">구구구</span> Shopping Page</h2>
-                    <br>
-                    <p>자취생들에게 필요한 제품 가장 많이 검색되는 제품들을 보여줍니다.</p>
-                    <br>
-                    <p>제휴된 사이트를 통해 제품을 제공합니다.</p>
+            </section>
+            <section id="s3">
+                <div class="main">
+                    <img class="i1" src="portfolio/커뮤니티.png">
+                    <img class="i2" src="portfolio/커뮤니티_상세페이지.png">
+                    <div class="text">
+                        <h2><span class="red big">구구구</span> Community Page</h2>
+                        <br>
+                        <p>자취생들의 이야기를 자유롭게 쓸 수 있는 게시판</p>
+                        <br>
+                        <p>다양한 정보와 소식들을 나눌 수 있습니다.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section id="s5">
-            <div class="main">
-                <img class="i1" src="portfolio/상점.png">
-                <div class="text">
-                    <h2><span class="red big">구구구</span> Store Page</h2>
-                    <br>
-                    <p>위치를 기반으로 가까운 음식점이나 편의점같은 가게의 정보를 제공합니다.</p>
+            </section>
+            <section id="s4">
+                <div class="main">
+                    <img class="i1" src="portfolio/쇼핑몰.png">
+                    <div class="text">
+                        <h2><span class="red big">구구구</span> Shopping Page</h2>
+                        <br>
+                        <p>자취생들에게 필요한 제품 가장 많이 검색되는 제품들을 보여줍니다.</p>
+                        <br>
+                        <p>제휴된 사이트를 통해 제품을 제공합니다.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section id="s6">
-            <div class="main">
-                <img class="i1" src="portfolio/레시피.png">
-                <img class="i2" src="portfolio/레시피상세페이지.png">
-                <div class="text">
-                    <h2><span class="red big">구구구</span> Recipe Page</h2>
-                    <br>
-                    <p>다양한 레시피들과 레시피에 필요한 재료를 쉽게 찾을 수 있습니다.</p>
-                    <br>
-                    <p>자취생을 위한 레시피로 다양한 요리를 할 수 있습니다.</p>
+            </section>
+            <section id="s5">
+                <div class="main">
+                    <img class="i1" src="portfolio/상점.png">
+                    <div class="text">
+                        <h2><span class="red big">구구구</span> Store Page</h2>
+                        <br>
+                        <p>위치를 기반으로 가까운 음식점이나 편의점같은 가게의 정보를 제공합니다.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section id="s7">
-            <div class="main">
-                <img class="i1" src="portfolio/부동산.png">
-                <div class="text">
-                    <h2><span class="red big">구구구</span> Studio Page</h2>
-                    <br>
-                    <p>자취방 원룸 월세방을 빠르게 찾아볼 수 있습니다.</p>
-                    <br>
-                    <p>인증된 장소만 정보로 제공됩니다.</p>
+            </section>
+            <section id="s6">
+                <div class="main">
+                    <img class="i1" src="portfolio/레시피.png">
+                    <img class="i2" src="portfolio/레시피상세페이지.png">
+                    <div class="text">
+                        <h2><span class="red big">구구구</span> Recipe Page</h2>
+                        <br>
+                        <p>다양한 레시피들과 레시피에 필요한 재료를 쉽게 찾을 수 있습니다.</p>
+                        <br>
+                        <p>자취생을 위한 레시피로 다양한 요리를 할 수 있습니다.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section id="s8">
-            <div class="main">
-                <img class="i1" src="portfolio/이벤트 첫광고.png">
-                <img class="i2" src="portfolio/이벤트.png">
-                <div class="text">
-                    <h2><span class="red big">구구구</span> Event Page</h2>
-                    <br>
-                    <p>다양한 이벤트로 자취에 어려워하는 사람도 참여할 수 있습니다.</p>
-                    <br>
-                    <p>다양한 제품이나 쿠폰 제휴된 곳의 이벤트도 찾아 볼 수 있습니다.</p>
+            </section>
+            <section id="s7">
+                <div class="main">
+                    <img class="i1" src="portfolio/부동산.png">
+                    <div class="text">
+                        <h2><span class="red big">구구구</span> Studio Page</h2>
+                        <br>
+                        <p>자취방 원룸 월세방을 빠르게 찾아볼 수 있습니다.</p>
+                        <br>
+                        <p>인증된 장소만 정보로 제공됩니다.</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            <section id="s8">
+                <div class="main">
+                    <img class="i1" src="portfolio/이벤트 첫광고.png">
+                    <img class="i2" src="portfolio/이벤트.png">
+                    <div class="text">
+                        <h2><span class="red big">구구구</span> Event Page</h2>
+                        <br>
+                        <p>다양한 이벤트로 자취에 어려워하는 사람도 참여할 수 있습니다.</p>
+                        <br>
+                        <p>다양한 제품이나 쿠폰 제휴된 곳의 이벤트도 찾아 볼 수 있습니다.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <img src="portfolio/목업.png">
     </div>
     <!-- <section id="mockup">
         <img src="portfolio/목업main.png">
