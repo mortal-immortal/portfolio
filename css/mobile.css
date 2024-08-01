@@ -1,10 +1,10 @@
 @charset "utf-8";
 @media screen and (max-width:500px){
-    /* *{
+    *{
         -webkit-user-drag: auto;
         touch-action: auto;
         user-select: auto;
-    } */
+    }
     #menu i{
         font-size: 64px;
     }
