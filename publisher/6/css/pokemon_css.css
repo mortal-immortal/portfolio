@@ -1,0 +1,330 @@
+@charset "UTF-8"; 
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+a{
+    outline: 0;
+    color: #555;
+}
+img{
+    border: 0;
+}
+body{
+    width: 100%;
+    min-width: 1400px;
+    height: 23000px;
+    font-family: Orbitron;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+.bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(../pic/배경.jpeg) no-repeat center center/cover;
+}
+
+h1{
+    position: fixed;
+    top: 50px;
+    left: 70px;
+    z-index: 2;
+}
+h1 img{
+    width: 250px;
+}
+
+.gnb{
+    position: fixed;
+    top: 50px;
+    right: 180px;
+    z-index: 2;
+}
+.gnb li{
+    float: left;
+    margin-left: 50px;
+}
+.gnb li a{
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    transform: scale(1);
+    opacity: .5;
+    transition: all .5s;
+}
+
+.gnb li a:hover{
+    transform: scale(1.5);
+    opacity: 1;
+}
+
+.sns{
+    color: white;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 2;
+}
+.sns li{
+    cursor: pointer;
+    float: left;
+    margin-left: 30px;
+}
+.sns li i{
+    font-size: 18px;
+    transform: scale(1);
+    opacity: .5;
+    transition: all .5s;
+}
+.sns li i:hover{
+    transform: scale(1.5);
+    opacity: 1;
+}
+
+.scrollNavi{
+    position: fixed;
+    left: 100px;
+    top: 300px;
+    z-index: 2;
+}
+.scrollNavi li{
+    position: relative;
+    width: 150px;
+    height: 35px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    perspective: 400px;
+    cursor: pointer;
+}
+.scrollNavi li h2{
+    font-family: "Black Han Sans", sans-serif;
+    position: relative;
+    font-weight: 400;
+    text-shadow: 0px 0px 2px black;
+    top: 8px;
+}
+.scrollNavi li span{
+    display: block;
+    width: 3%;
+    height: 100%;
+    position: absolute;
+    transform: skewX(-30deg);
+    box-shadow: 1px 1px 1px #000;
+    /* z-index: -1; */
+}
+.scrollNavi li.on span{
+    width: 100%;
+}
+.scrollNavi li:nth-child(1) span{
+    background: linear-gradient(to right, #ff1236, #1eaa2d)
+}
+.red{
+    color: #ff1236;
+}
+.green{
+    color: #1eaa2d;
+}
+.scrollNavi li:nth-child(2) span{
+    background: linear-gradient(to right, #fab401, #C6D0CF);
+}
+.gold{
+    color: #fab401;
+}
+.silver{
+    color: #C6D0CF;
+}
+.scrollNavi li:nth-child(3) span{
+    background: linear-gradient(to right, #e62930, #4b4ba1);
+}
+.ruby{
+    color: #e62930;
+}
+.sapphire{
+    color: #4b4ba1;
+}
+.scrollNavi li:nth-child(4) span{
+    background: linear-gradient(to right, #6a9acb, #cda3b9);
+}
+.diamond{
+    color: #6a9acb;
+}
+.pearl{
+    color: #cda3b9;
+}
+.scrollNavi li:nth-child(5) span{
+    background: linear-gradient(to right, #000, #888);
+}
+.black{
+    color: #222;
+}
+.white{
+    color: #ddd;
+}
+.copyright{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    font-family: arial;
+    font-size: 11px;
+    color: white;
+}
+.copyright>.copy{
+    position: relative;
+    float: right;
+    text-shadow: 0 0 3px black;
+    /* -webkit-text-stroke: 1px white; */
+}
+section{
+    width: 1200px;
+    height: 700px;
+    position: fixed;
+    left: 50%;
+    margin-left: -600px;
+    top: 50%;
+    margin-top: -350px;
+    perspective: 2300px;
+    z-index: 1;
+}
+section>article{
+    width: 1200px;
+    height: 700px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .5;
+    z-index: 8;
+}
+section>article.on{
+    opacity: 1;
+    z-index: 9;
+}
+section>article:nth-child(1){
+    transform: translateZ(0);
+}
+section>article:nth-child(2){
+    transform: translateZ(-5000px);
+}
+section>article:nth-child(3){
+    transform: translateZ(-10000px);
+}
+section>article:nth-child(4){
+    transform: translateZ(-15000px);
+}
+section>article:nth-child(5){
+    transform: translateZ(-20000px);
+}
+section>article>img{
+    position: absolute;
+}
+section>article>.obj1g{
+    width: 800px;
+    left: -175px;
+    bottom: 0;
+}
+section>article>.obj1c{
+    width: 300px;
+    right: 50px;
+    bottom: 0;
+}
+section>article>.obj2g{
+    width: 800px;
+    left: -175px;
+    bottom: -30px;
+}
+section>article>.obj2c{
+    width: 300px;
+    right: 50px;
+    bottom: 0;
+}
+section>article>.obj3g{
+    width: 1100px;
+    right: -175px;
+    bottom: 20px;
+}
+section>article>.obj3c{
+    width: 250px;
+    left: 50px;
+    bottom: 0;
+}
+section>article>.obj4g{
+    width: 1000px;
+    left: -175px;
+    bottom: 30px;
+}
+section>article>.obj4c{
+    width: 300px;
+    right: 50px;
+    bottom: 0;
+}
+section>article>.obj5g{
+    width: 1000px;
+    right: -175px;
+    bottom: 40px;
+}
+section>article>.obj5c{
+    width: 300px;
+    left: 50px;
+    bottom: 0;
+}
+section>article>p{
+    font-family: "Do Hyeon", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    width: 800px;
+    padding: 30px 60px;
+    opacity: 1;
+}
+section>article>p.back{
+    color: black;
+    text-shadow: 0 0 3px black;
+    -webkit-text-stroke: #000 3px;
+    z-index: 1;
+}
+section>article>p.front{
+    color: white;
+    z-index: 2;
+}
+
+section>article>p>span{
+    font-family: "Black Han Sans", sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    letter-spacing: 0;
+    line-height: 1.5;
+}
+section>article>p>span.and{
+    font-size: 24px;
+}
+section>article:nth-child(1) p{
+    bottom: 0;
+    left: -100px;
+}
+
+section>article:nth-child(2) p{
+    bottom: -25px;
+    left: -125px;
+}
+
+section>article:nth-child(3) p{
+    bottom: -35px;
+    right: -70px;
+}
+
+section>article:nth-child(4) p{
+    bottom: 370px;
+    left: -160px;
+}
+
+section>article:nth-child(5) p{
+    bottom: 0;
+    left: -100px;
+}

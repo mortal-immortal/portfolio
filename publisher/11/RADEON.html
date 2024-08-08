@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <style>
+        @font-face{
+            font-family: 'razer';
+            src: url(font/RazerF5.woff);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'razer';
+            transition: all .25s;
+        }
+        body{
+            background: rgb(20,20,20);
+            color: white;
+            font-size: 1vmax;
+        }
+        h1{
+            font-size: 4.2vmax;
+        }
+        h2{
+            font-size: 2vmax;
+            padding-left: 10px;
+            border-left: 1px solid red;
+            color: red;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .clear::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .box{
+            position: relative;
+        }
+        .top{
+            top: 0;
+        }
+        .bottom{
+            bottom: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        header{
+            position: relative;
+            width: 100%;
+            color: lightgray;
+            background: black;
+        }
+        header::before{
+            content: "";
+            display: block;
+            padding-top: 5%;
+        }
+        header>.main{
+            position: absolute;
+            width: 90%;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+        header>.main>.left{
+            width: 45%;
+            height: 100%;
+            position: relative;
+        }
+        header>.main>.left>img{
+            position: absolute;
+            top: 50%;
+            transform: translate(0,-50%);
+            width: 11%;
+        }
+        header>.main>.right{
+            position: relative;
+            width: 55%;
+            height: 100%;
+        }
+        header>.main>.right>ul{
+            position: absolute;
+            top: 50%;
+            transform: translate(0,-50%);
+            width: 100%;
+        }
+        header>.main>.right>ul>li{
+            width: 20%;
+        }
+        aside{
+            width: 100%;
+        }
+        aside>img{
+            width: 100%;
+            display: none;
+        }
+        aside>video{
+            width: 100%;
+        }
+        section{
+            width: 100%;
+            position: relative;
+        }
+        section>h1,section>h2{
+             margin-left: 5%;
+             margin-top: 15px;
+             margin-bottom: 15px;
+        }
+        section>.hard>.box{
+            width: 25%;
+            text-align: center;
+        }
+        section>.hard>.box>.top{
+            position: relative;
+            left: 10%;
+            width: 80%;
+            /* border: 1px solid red; */
+        }
+        section>.hard>.box>.top::before{
+            content: "";
+            display: block;
+            padding-top: 100%;
+        }
+        section>.hard>.box:nth-of-type(1)>.top{
+            background: url(images/rt1.avif)no-repeat center/cover;
+        }
+        section>.hard>.box:nth-of-type(2)>.top{
+            background: url(images/rt2.jpg)no-repeat center/cover;
+        }
+        section>.hard>.box:nth-of-type(3)>.top{
+            background: url(images/rt3.jpg)no-repeat center/cover;
+        }
+        section>.hard>.box:nth-of-type(4)>.top{
+            background: url(images/rt4.webp)no-repeat center/cover;
+        }
+        section>.hard>.box>.bottom{
+            margin-top: 20px;
+        }
+        section>.support{
+            width: 100%;
+        }
+        section>.support>div{
+            /* border: 1px solid red; */
+            width: 25%;
+        }
+        section>.support>div::before{
+            content: "";
+            display: block;
+            padding-top: 100%;
+        }
+        section>.support>div:nth-of-type(1){
+            background: url(images/rm1.avif) no-repeat center/cover;
+        }
+        section>.support>div:nth-of-type(2){
+            background: url(images/rm2.jpg) no-repeat center/cover;
+        }
+        section>.support>div:nth-of-type(3){
+            background: url(images/rm3.jpg) no-repeat center/cover;
+        }
+        section>.support>div:nth-of-type(4){
+            background: url(images/rm4.webp) no-repeat center/cover;
+        }
+        section>.support>div:nth-of-type(5){
+            background: url(images/rm5.jpg) no-repeat center/cover;
+        }
+        section>.support>div:nth-of-type(6){
+            background: url(images/rm6.jpg) no-repeat center/cover;
+        }
+        section>.support>div:nth-of-type(7){
+            background: url(images/rm7.jpg) no-repeat center/cover;
+        }
+        section>.support>div:nth-of-type(8){
+            background: url(images/rm8.jpg) no-repeat center/cover;
+        }
+        #new{
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+        section>.new{
+            width: 100%;
+        }
+        section>.new>.box{
+            width: 33.333%;
+        }
+        section>.new>.box>*{
+            margin: 0 5%;
+        }
+        section>.new>.box>.top{
+            width: 90%;
+            /* border: 1px solid red; */
+        }
+        section>.new>.box>.top::before{
+            content: "";
+            display: block;
+            padding-top: 100%;
+        }
+        section>.new>.box:nth-of-type(1)>.top{
+            background: url(images/rb1.avif) no-repeat center/cover;
+        }
+        section>.new>.box:nth-of-type(2)>.top{
+            background: url(images/rb2.jpg) no-repeat center/cover;
+        }
+        section>.new>.box:nth-of-type(3)>.top{
+            background: url(images/rb3.jpg) no-repeat center/cover;
+        }
+        section>.new>.box>.bottom{
+            margin-top: 2%;
+            margin-bottom: 15%;
+        }
+        @media screen and (min-width:1910px) {
+            section>#new{
+                width: 30%;
+                /* border: solid 1px red; */
+                margin: 0;
+                margin-top: 5%;
+                padding: 0;
+                float: left;
+                text-align: center;
+            }
+            section>.new{
+                margin-top: 5%;
+                width: 70%;
+                /* border: 1px solid red; */
+                float: left;
+            }
+        }
+        @media screen and (max-width:500px) {
+            aside>img{
+                display: block;
+            }
+            aside>video{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="CGV.html"><img src="images/CGV로고.svg"></a>
+        <a href="half-life_ALYX.html"><img src="images/밸브수정_밸브.svg"></a>
+    </nav>
+    <header>
+        <div class="main clear">
+            <div class="left">
+                <img src="images/암드_라데온_화이트.svg" alt="">
+            </div>
+            <div class="right">
+                <ul class="clear">
+                    <li class="left">PC</li>
+                    <li class="left">Console</li>
+                    <li class="left">Mobile</li>
+                    <li class="left">Lifestyle</li>
+                    <li class="left">Store</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <aside>
+        <img src="images/라데온.gif" alt="#">
+        <video src="images/라데온.mp4" autoplay loop muted></video>
+    </aside>
+    <section>
+        <h1 class="title">RADEON TeraScale ARCHITECTURE</h1>
+        <h2 class="subtitle">OUR MOST ADVANCED GAMING MOUSE YET</h2>
+        <ul class="hard clear">
+            <li class="box left">
+                <div class="top"></div>
+                <div class="bottom">
+                    LAPTOPS &
+                    <br>DESKTOPS
+                </div>
+            </li>
+            <li class="box left">
+                <div class="top"></div>
+                <div class="bottom">
+                    CONSOLE GAMING
+                </div>
+            </li>
+            <li class="box left">
+                <div class="top"></div>
+                <div class="bottom">
+                    ENGINEERDE FOR
+                    <br>THE GAME.
+                    <br>DESIGNED FOR LIFE
+                </div>
+            </li>
+            <li class="box left">
+                <div class="top"></div>
+                <div class="bottom">
+                    LIFESTYLE
+                </div>
+            </li>
+        </ul>
+        <h1 class="title">STORE</h1>
+        <div class="support clear">
+            <div class="left"></div>
+            <div class="left"></div>
+            <div class="left"></div>
+            <div class="left"></div>
+            <div class="left"></div>
+            <div class="left"></div>
+            <div class="left"></div>
+            <div class="left"></div>
+        </div>
+        <h1 id="new" class="title">NEW</h1>
+        <ul class="new clear">
+            <li class="box left">
+                <div class="top"></div>
+                <div class="bottom">
+                    LIFESTYLE ACCESSORIES AND APPAREL FOR THE GAMING COMMUNITY
+                </div>
+            </li>
+            <li class="box left">
+                <div class="top"></div>
+                <div class="bottom">
+                    BUILD THE PERFECT GAMING RIG FROM OUR SELECTION OF TOP-SHELF PC PARTS
+                </div>
+            </li>
+            <li class="box left">
+                <div class="top"></div>
+                <div class="bottom">
+                    GAMING AUDIO CONTROLLERS. AND ACCESSORIES FOR XBOX AND PLAYSTATION
+                </div>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            border: 0;
+        }
+        body{
+            width: 100%;
+            min-width: 1400px;
+            height: 4000px;
+            font-family:"";
+            background: #000;
+        }
+        h1{
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 5;
+        }
+        h1 img{
+            /* box-shadow: 5px 5px 3px #888; */
+            width: 350px;
+        }
+        #sns {
+            position: fixed;
+            top: 30px;
+            left: 60px
+        }
+        #sns li{
+            float: left;
+            margin-right: 30px;
+        }
+        #sns li i{
+            font-size: 25px;
+            color: #fff;
+            transition: all .5s;
+        }
+        #sns li:hover i{
+            transform: scale(1.5);
+            color: #888;
+        }
+        #navi{
+            position: fixed;
+            top: 50%;
+            left: 60px;
+            margin-top: -280px;
+        }
+        #navi li{
+            float: left;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            margin-top: 25px;
+            transition: all .5s;
+            cursor: pointer;
+            text-align: center;
+            margin-right: 20px;
+        }
+        #navi li:hover{
+            color: rgb(243, 81, 30);
+            display: block;
+            background-color: black;
+        }
+        #navi li.on{
+            color: rgb(243, 81, 30);
+        }
+
+        .txt{
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            margin-top: -80px;
+            font-size: 90px;
+            color: #fff;
+            text-align: right;
+            line-height: .5s;
+        }
+        .txt span{
+            color: #aaa;
+        }
+        .txt em{
+            font-family: arial;
+            font-size: 18px;
+            font-style: normal;
+            color: #888;
+            letter-spacing: 1px;
+        }
+        section{
+            position: fixed;
+            top: 55%;
+            left: 0;
+            margin-top: -250px;
+            width: 4600px;
+            height: 500px;
+        }
+        article{
+            position: relative;
+            top: 50%;
+            width: 180px;
+            height: 400px;
+            margin: 10px;
+            margin-top: -200px;
+            box-sizing: border-box;
+            float: left;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 3px 3px 3px #bbb;
+            overflow: hidden;
+            transition: all .7s;
+        }
+        article h2{
+            position: absolute;
+            top: 300px;
+            right: 0;
+            width: 100%;
+            height: 50px;
+            box-sizing: border-box;
+            padding-left: 20px;
+            background: rgb(243, 81, 30);
+            opacity: .4;
+            z-index: 2;
+            cursor: pointer;
+            transition: all .5s;
+        }
+        article:hover h2 {
+            opacity: 0.8;
+        }
+        article h2 a{
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 3.5;
+            color: white;
+            letter-spacing: 2px;
+            transition: all .5s;
+        }
+        article strong{
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 300px;
+            opacity: .4;
+            overflow: hidden;
+            text-align: center;
+            transition: all .5s;
+        }
+        article:hover strong{
+            opacity: 1;
+        }
+        article strong img{
+            height: 300px;
+            width: auto;
+        }
+        article p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            right: 0;
+            z-index: 1;
+            margin-top: 0;
+            width: 100%;
+            height: 0;
+            text-align: center;
+            overflow: hidden;
+            background: white;
+            opacity: 0;
+            transition: all .8s;
+        }
+        article p img{
+            width: auto;
+            height: 100%;
+        }
+        article em{
+            position: absolute;
+            bottom: 50px;
+            right: -300px;
+            z-index: 2;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 10px 20px;
+            background: black;
+            color: white;
+            opacity: .8;
+            transition: all 1s;
+        }
+        section span{
+            position: absolute;
+            top: 110px;
+            right: -300px;
+            z-index: 3;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .copyright{
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            font: 12px/1.5 arial;
+            letter-spacing: 4px;
+            color: #999;
+            text-align: center;
+        }
+        article.on{
+            width: 592px;
+            height: 592px;
+            margin-top: -250px;
+        }
+        article.on h2{
+            top: 100px;
+            height: 100px;
+            background: rgb(243, 81, 30);
+            opacity: .3;
+        }
+        article.on h2 a{
+            font-size: 30px;
+            color: white;
+        }
+        article.on strong{
+            opacity: 0;
+        }
+        article.on p{
+            height: 100%;
+            margin-top: 0px;
+            opacity: 1;
+        }
+        article.on em{
+            right: 20px;
+        }
+        article.on span{
+            right: 20px;
+        }
+    </style>
+    <script>
+        $(function(){
+            var numAc=$("article").size()
+            var widSec=200*numAc
+            var widTotal=widSec+600
+            $("section").width(widTotal)
+            $("body").height(widSec)
+            $("html,body").animate({
+                scrollTop:3000
+            },2000)
+            $(window).on("scroll",function(){
+                var scroll = $(this).scrollTop()
+                $("section").stop().animate({
+                    left:-scroll
+                },600)
+            })
+            $("article h2").on("click",function(e){
+                e.preventDefault()
+                var index=$(this).parent().index()
+                var src=$(this).children("a").attr("href")
+                var posAc=200*index
+                $("article").removeClass("on")
+                $(this).parent().addClass("on")
+                $("article p img").attr({
+                    "src":""
+                })
+                $(this).siblings("p").children("img").attr({
+                    "src":src
+                })
+                $("html, body").scrollTop(posAc)
+            })
+            $("span").on("click",function(){
+                $("article").removeClass("on")
+            })
+            $("#navi li").on("click",function(){
+                var i = $(this).index()
+                var posNavi=1000*i
+                $("#navi li, article").removeClass()
+                $(this).addClass("on")
+                $("html, body").scrollTop(posNavi)
+            })
+            $(window).scroll(function(){
+                var h = $(window).scrollTop()
+                console.log(h)
+                if(1000>h){
+                    $("#navi li").removeClass()
+                    $("#navi li:eq(0)").addClass("on")
+                }else if(2000>h){
+                    $("#navi li").removeClass()
+                    $("#navi li:eq(1)").addClass("on")
+                }else if(3000>h){
+                    $("#navi li").removeClass()
+                    $("#navi li:eq(2)").addClass("on")
+                }else if(4000>h){
+                    $("#navi li").removeClass()
+                    $("#navi li:eq(3)").addClass("on")
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>
+        <img src="nike/logo.png" alt="#">
+    </h1>
+    <ul id="sns">
+        <li><a href="#"><i class="fab fa-square-facebook"></i></a></li>
+        <li><a href="#"><i class="fab fa-square-x-twitter"></i></a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="#"><i class="fab fa-square-vimeo"></i></a></li>
+    </ul>
+    <ul id="navi">
+        <li>LIFESTYLE</li>
+        <li>JORDAN</li>
+        <li>RUNNING</li>
+        <li>SPORTS</li>
+    </ul>
+    <p class="txt">
+        WE SERVE ATHLETES*<br><span>Just Do It.</span> <br><em>Nike.</em>
+    </p>
+    <section>
+        <article>
+            <h2><a href="nike/라이프스타일1.png">나이키 에어맥스 플러스 프리미엄</a></h2>
+            <strong><img src="nike/라이프스타일1.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: FQ7331-001<br>229,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/라이프스타일2.png">나이키 에어맥스 플러스</a></h2>
+            <strong><img src="nike/라이프스타일2.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: FZ4776-100<br>219,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/라이프스타일3.png">나이키 덩크 하이 레트로 SE</a></h2>
+            <strong><img src="nike/라이프스타일3.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: FV6612-001<br>159,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/라이프스타일4.png">나이키 에어맥스 90 프리미엄</a></h2>
+            <strong><img src="nike/라이프스타일4.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: HF3449-100<br>169,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/라이프스타일5.png">나이키 P-6000</a></h2>
+            <strong><img src="nike/라이프스타일5.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: CD6404-018<br>129,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/조던1.png">에어 조던 4 RM</a></h2>
+            <strong><img src="nike/조던1.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: FQ7939-001<br>179,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/조던2.png">에어 조던 1 로우 G</a></h2>
+            <strong><img src="nike/조던2.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: DD9315-115<br>179,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/조던3.png">에어 조던 1 로우</a></h2>
+            <strong><img src="nike/조던3.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: DC0774-105<br>139,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/조던4.png">에어 조던 11 로우 Black and Varsity Royal</a></h2>
+            <strong><img src="nike/조던4.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>SKU: FV5104-004<br>229,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/조던5.png">에어 조던 1 하이 OG Artisanal Red</a></h2>
+            <strong><img src="nike/조던5.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>SKU: DZ5485-160<br>219,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/런닝1.png">나이키 인빈서블 3 블루프린트</a></h2>
+            <strong><img src="nike/런닝1.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: HJ6653-900<br>209,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/런닝2.png">나이키 페가수스 트레일 4 GORE-TEX</a></h2>
+            <strong><img src="nike/런닝2.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: DJ7926-008<br>189,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/런닝3.png">나이키 저니 런</a></h2>
+            <strong><img src="nike/런닝3.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: FN0228-102<br>119,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/런닝4.png">나이키 스트릭플라이</a></h2>
+            <strong><img src="nike/런닝4.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: DJ6566-700<br>189,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/런닝5.png">나이키 레볼루션 7</a></h2>
+            <strong><img src="nike/런닝5.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: FB2207-001<br>79,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/스포츠1.png">나이키 팬텀 GX 2 엘리트</a></h2>
+            <strong><img src="nike/스포츠1.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: FJ2559-600<br>299,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/스포츠2.png">나이키 티엠포 에메랄드 레전드 10 엘리트</a></h2>
+            <strong><img src="nike/스포츠2.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: FQ3247-300<br>289,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/스포츠3.png">사브리나 2 '코트 비전' EP</a></h2>
+            <strong><img src="nike/스포츠3.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: FZ1517-500<br>159,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/스포츠4.png">나이키 G.T. 컷 3 EP 블루프린트</a></h2>
+            <strong><img src="nike/스포츠4.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: HJ8205-100<br>229,000 원</em>
+            <span>close</span>
+        </article>
+        <article>
+            <h2><a href="nike/스포츠5.png">나이키 GP 챌린지 프로 프리미엄</a></h2>
+            <strong><img src="nike/스포츠5.png" alt="#"></strong>
+            <p><img src=""></p>
+            <em>스타일 번호: FQ7728-001<br>139,000 원</em>
+            <span>close</span>
+        </article>
+        <p class="copyright">&copy; 2024 NIKE, Inc. All Rights Reserved</p>
+    </section>
+</body>
+</html>

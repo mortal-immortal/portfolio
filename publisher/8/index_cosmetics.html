@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Viga&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Trad:wght@100..400&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- <script src="js/jquery-1.10.1.min.js"></script> -->
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            color: inherit;
+        }
+
+        a {
+            color: #555;
+            font-family: 'Viga', sans-serif;
+        }
+
+        img {
+            border: 0;
+        }
+
+        h1 {
+            position: fixed;
+            top: 50px;
+            left: 50px;
+            z-index: 10;
+        }
+
+        h1>img {
+            width: 150px;
+        }
+
+        .sns {
+            position: fixed;
+            top: 40px;
+            right: 50px;
+            z-index: 14;
+        }
+
+        .sns li {
+            float: left;
+            margin-left: 20px;
+        }
+
+        .sns li i {
+            font-size: 20px;
+            color: #202823;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+            opacity: 0.9;
+            transition: all .4s;
+            margin-right: 10px;
+        }
+
+        .sns li i:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .list {
+            position: fixed;
+            top: 50%;
+            left: 10px;
+            margin-top: -50px;
+            z-index: 13;
+        }
+
+        .list a {
+            display: block;
+            width: 200px;
+            height: 60px;
+            font-size: 14px;
+            color: black;
+            text-align: right;
+            overflow: hidden;
+            border-top: 1px dotted #111;
+            opacity: .8;
+            transition: .4s;
+        }
+
+        .list li:hover a,
+        .list li.on a {
+            font-size: 24px;
+            opacity: 1;
+        }
+
+        .list li:nth-child(1):hover a{
+            color: red;
+            border-color: #000;
+        }
+        .list li:nth-child(2):hover a{
+            color: red;
+            border-color: #000;
+        }
+        .list li:nth-child(3):hover a{
+            color: red;
+            border-color: #000;
+        }
+        .list li:nth-child(4):hover a{
+            color: red;
+            border-color: #000;
+        }
+        .list li:nth-child(1).on a{
+            color: red;
+            border-color: #000;
+        }
+        .list li:nth-child(2).on a{
+            color: red;
+            border-color: #000;
+        }
+        .list li:nth-child(3).on a{
+            color: red;
+            border-color: #000;
+        }
+        .list li:nth-child(4).on a{
+            color: red;
+            border-color: #000;
+        }
+
+        section {
+            width: 100%;
+            height: 700px;
+            position: relative;
+            background-size: cover;
+            background-position: right center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        section:nth-child(1){
+            background-image: url(pic/main.png);
+        }
+        section:nth-child(2){
+            background-image: url(pic/s2.webp);
+        }
+        section:nth-child(3){
+            background-image: url(pic/s3.webp);
+        }
+        section:nth-child(4){
+            background-image: url(pic/s4.jpg);
+        }
+
+        article{
+            position: absolute;
+            top: 5%;
+            left: 300px;
+            z-index: 11;
+        }
+
+        article p {
+            position: relative;
+            z-index: 10;
+            font-size: 72px;
+            letter-spacing: 2px;
+            line-height: 1;
+            font-weight: bold;
+            font-family: "Playwrite US Trad", cursive;
+        }
+        article span {
+            font-size: 18px;
+            font-family: 'Viga', sans-serif;
+            display: inline-block;
+            width: 550px;
+            text-shadow: 1px 2px 3px #fff;
+            margin-top: 45px;
+            margin-left: 30px;
+            letter-spacing: 3px;
+        }
+        section:nth-of-type(1) p {
+            margin-top: 400px;
+            color: #000;
+            text-shadow: 4px 4px 1px gray;
+        }
+        section:nth-of-type(2) p {
+            margin-top: 470px;
+            color: #fff;
+            text-shadow: 4px 4px 1px gray;
+        }
+        section:nth-of-type(2) span {
+            color: #fff;
+            text-shadow: 2px 2px 1px gray;
+        }
+        section:nth-of-type(3) p {
+            color: red;
+            text-shadow: 4px 4px 1px white;
+            margin-top: 600px;
+        }
+        section:nth-of-type(3) span {
+            color: #fff;
+            text-shadow: 2px 2px 1px gray;
+        }
+        section:nth-of-type(4) p {
+            margin-top: 255px;
+            color: #000;
+            text-shadow: 4px 4px 1px gray;
+            margin-left: -20px;
+        }
+        section span{
+            color: red;
+        }
+        section:nth-child(4) span {
+            color: #000;
+            margin-left: -10px;
+        }
+        .p11 {
+            position: absolute;
+            width: 20%;
+            right: 20px;
+            bottom: -100px;
+            z-index: 2;
+        }
+        .p12 {
+            width: 110%;
+            position: absolute;
+            right:-130px;
+            bottom:-140px;
+            z-index: 1;
+        }
+        .p21 {
+            width: 80%;
+            position: absolute;
+            right:140px;
+            bottom:100px;
+            opacity: .7;
+        }
+        .p22 {
+            width: 110%;
+            position: absolute;
+            right:-90px;
+            bottom:-120px;
+            opacity: .7;
+        }
+        .p31 {
+            width: 100%;
+            position: absolute;
+            right: 0px;
+            bottom: -485px;
+            opacity: .7;
+        }
+        .p41 {
+            width: 110%;
+            position: absolute; bottom: 0;
+            opacity: .4;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("html,body").stop().animate({
+                scrollTop:0
+            },1000)
+            var h = $(window).height()  //h에 브라우저 높이값 저장
+            $("section").height(h)      //h에 저장한 높이값만큼 section의 높이 설정
+            $(window).on("resize",function(){   //브라우저가 리사이즈 될때 마다 작동
+                var h = $(window).height()      //h 변수 다시 저장
+                $("section").height(h)          //브라우저 높이값 다시 장
+            })
+
+            $("section").on("mousemove",function(e){//section에서 마우스를 움직이면 작동
+                var posX= e.pageX   //변수 posX에 마수 커서의 x축 위치 저장
+                var posY= e.pageY   //변수 posX에 마수 커서의 x축 위치 저장
+
+                //첫 번째 박스의 이미지 위치값을 마우스 커서의 위치값과 연동
+                $(".p11").css({
+                    right:20-(posX/30),
+                    bottom:-100-(posY/30)
+                })
+                $(".p12").css({
+                    right:-130+(posX/20),
+                    bottom:-140+(posY/20)
+                })
+                // $(".p13").css({
+                //     right:60+(posX/20),
+                //     top:180+(posY/20)
+                // })
+                $(".p21").css({
+                    right:140-(posX/30),
+                    bottom:100-(posY/30)
+                })
+                $(".p22").css({
+                    right:-90+(posX/40),
+                    bottom:-120-(posY/40)
+                })
+                $(".p31").css({
+                    right:30-(posX/30),
+                    bottom:-455-(posY/30)
+                })
+                $(".p41").css({
+                    right:20-(posX/30),
+                    bottom:-120-(posY/30)
+                })
+            })
+            var moving = false
+            $("#menu li").on("click",function(e){   //메뉴 버튼 클릭 시
+                e.preventDefault()
+                var h = $(window).height()          //변수 h에 브라우저 높이 저장
+                var i = $(this).index()             //변수 i에 눌른 li 순서 저장
+                moving = true
+                wheel=false
+                var nowTop = i*h    //높이*메뉴 순서값으로 스크롤 위치 저장
+                $("html,body").stop().animate({
+                    scrollTop:nowTop
+                },1400,function(){
+                    moving = false
+                    wheel=false
+                }) //해당 위치로 이동
+            })
+            $(window).on("scroll",function(){       //브라우저를 스크롤 했을때 작동
+                var h = $(window).height()          //h에 높이 저장
+                var scroll = $(window).scrollTop()  //scroll 변수에 스크롤탑 저장
+                // for(var i=0; i<$("#menu li:last-child").index()+1; i++){
+                for(var i=0; i<5; i++){
+                    if(scroll>=h*i && scroll< h*(i+1)){
+                        $("#menu li").removeClass("on");
+                        $("#menu li").eq(i).addClass("on");
+                    }
+                }
+                
+            })
+            var wheel=false
+            //section에서 마우스 휠을 하면 작동
+            $("section").on("mousewheel",function(e,delta){
+                    // console.log($(window).scrollTop())
+                    // console.log(moving)
+                    if(moving==false){
+                        if($(window).scrollTop()!=0&&delta>0 && wheel==false){        //마우스 휠을 올릴때
+                            wheel=true
+                            var prev = $(this).prev().offset().top
+                            //변수 prev에 현재 휠을 움직인 section에서 이전 section의 top 위치 저장
+                            $('html,body').stop().animate({
+                                scrollTop:prev
+                            },1400,"easeOutBounce",function(){
+                                wheel=false
+                            })
+                        }else if ($(window).scrollTop()!=$("section:last").offset().top&&delta<0  && wheel==false){ //마우스 휠을 내렸을때
+                            wheel=true
+                            var next = $(this).next().offset().top
+                            //변수 next에 현재 휠을 움직인 section에서 다음 section의 top 위치 저장
+                            $('html,body').stop().animate({
+                                scrollTop:next
+                            },1400,"easeOutBounce",function(){
+                                wheel=false
+                            })
+                        }
+                    }
+                })
+            
+        })
+    </script>
+</head>
+
+<body>
+    <h1 class="logo"><img src="pic/logo.png"></h1>
+    <ul id="menu" class="list">
+        <li class="on"><a href="#">Pack your Bags</a></li>
+        <li><a href="#">Celebrate 20 Years of Bésame</a></li>
+        <li><a href="#">Bésame Cosmetics lipstick</a></li>
+        <li><a href="#">How to 100 Years</a></li>
+    </ul>
+    <ul class="sns">
+        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-x-twitter"></i></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+    </ul>
+    <div id="wrap">
+        <section>
+            <article>
+                <p>Pack your Bags</p>
+                <span>GET A TRAVEL LIP BRUSH WITH YOUR <br>
+                LIPSTICK PURCHASE FOR JUST $2 ($16 VALUE)</span>
+            </article>
+            <img class="p11" src="pic/s1_sub.png">
+            <img class="p12" src="pic/s1_bg.png">
+        </section>
+        <section>
+            <article>
+                <p>Celebrate 20 Years
+                    <br> of Bésame</p>
+                <span>Shop Our Vintage-Inspired Beauty Exclusives</span>
+            </article>
+            <img class="p21" src="pic/s2_sub.png">
+            <img class="p22" src="pic/s2_bg.png">
+        </section>
+        <section>
+            <article>
+                <p>Bésame Cosmetics lipstick</p>
+                <span>At Bésame, we've been perfecting our lipstick formula for years, and have picked up some excellent advice for making lipstick last along the way</span>
+            </article>
+            <img class="p31" src="pic/s3_bg.png">
+        </section>
+        <section>
+            <article>
+                <p>How to 100 Years</p>
+                <span>How Bésame Cosmetics Harkens Back 100 Years To Create A Contemporary Brand</span>
+            </article>
+            <img class="p41" src="pic/s4_bg.png">
+        </section>
+    </div>
+</body>
+
+</html>

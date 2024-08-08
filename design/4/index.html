@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        img{
+            display: none;
+            width: 100%;
+        }
+
+        @media screen and (min-width:1025px) and (max-width:1920px) {
+            .pc{
+                display: block;
+            }
+        }
+        @media screen and (min-width:752px) and (max-width:1024px) {
+            .tablet{
+                display: block;
+            }
+        }
+        @media screen and (max-width:751px) {
+            .mobile{
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img class="pc" src="images/p.png">
+    <img class="tablet" src="images/t.png">
+    <img class="mobile" src="images/m.png">
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        div{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        img{
+            cursor: pointer;
+            width: auto;
+            height: 60%;
+        }
+        iframe{
+            position: relative;
+            margin: 0 auto;
+            top: 10%;
+            display: none;
+            margin-bottom: 5%;
+        }
+        iframe.on{
+            display: block;
+        }
+        span{
+            display: none;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 3px 6px;
+            position: absolute;
+            z-index: 10;
+            right: 10%;
+            bottom: 10%;
+            background: white;
+            color: black;
+        }
+        span:hover{
+            background: black;
+            color: white;
+        }
+        span.on{
+            display: block;
+        }
+    </style>
+    <script>
+        $(function(){
+            $(".gugugu").click(function(){
+                $("#gugugu,span").addClass("on")
+            })
+            $(".minecraft").click(function(){
+                $("#minecraft,span").addClass("on")
+            })
+            $(".town").click(function(){
+                $("#town,span").addClass("on")
+            })
+            $("span").click(function(){
+                $("iframe,span").removeClass("on")
+            })
+        })
+    </script>
+</head>
+<body>
+    <iframe id="gugugu" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="80%" height="80%" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F00Y1BBUlbV44ZoqCEv0HY2%2F%25EB%25A7%2588%25EC%259D%25B8%25ED%2581%25AC%25EB%259E%2598%25ED%2594%2584%25ED%258A%25B8-%25EB%25A6%25AC%25EB%2589%25B4%25EC%2596%25BC%3Fpage-id%3D0%253A1%26node-id%3D1-8%26viewport%3D-476%252C785%252C0.26%26t%3DstjBeQZszXtj1lFm-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26starting-point-node-id%3D1%253A8%26show-proto-sidebar%3D1" allowfullscreen></iframe>
+    <iframe id="minecraft" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="80%" height="80%" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FlcJqJctKBIosrAoGGolPmO%2F%25EC%259A%25B0%25EB%25A6%25AC-%25EB%258F%2599%25EB%2584%25A4-%25EC%25BB%25A8%25ED%2585%2590%25EC%25B8%25A0%3Fpage-id%3D1%253A51306%26node-id%3D1-52786%26viewport%3D1518%252C460%252C0.18%26t%3DDoG36Pe2EfIWnMJK-1%26scaling%3Dmin-zoom%26content-scaling%3Dfixed%26starting-point-node-id%3D1%253A53082%26show-proto-sidebar%3D1" allowfullscreen></iframe>
+    <iframe id="town" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="80%" height="80%" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F9sAi0MXf5TOrymca8D4Dfq%2FUntitled%3Fpage-id%3D0%253A1%26node-id%3D5-2%26viewport%3D605%252C361%252C0.2%26t%3Dd7uJXwmmjoSWBwXN-1%26scaling%3Dmin-zoom%26content-scaling%3Dfixed%26starting-point-node-id%3D5%253A2%26show-proto-sidebar%3D1" allowfullscreen></iframe>
+    <span>Back</span>
+    <div>
+        <img class="gugugu" src="images/gugugu.png">
+        <img class="minecraft" src="images/minecraft.png">
+        <img class="town" src="images/town.png">
+    </div>
+</body>
+</html>

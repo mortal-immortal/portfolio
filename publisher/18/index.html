@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>카카오페이 | 마음놓고 금융하다</title>
+<link rel="shortcut icon" href="https://t1.daumcdn.net/kakaopay/icons/favicon.ico">
+<link href="css/style.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+</style>
+<script>
+    $(function(){
+        function main_ht(){
+            ht=$(window).height()
+            $("#main").height(ht)
+        }
+        main_ht()
+        $(window).on("resize",function(){
+            main_ht()
+        })
+
+        $("header").hover(function(){
+            $("#menu_bg").css({
+                opacity:"1"
+            })
+            $(this).stop().animate({
+                height:530
+            },500)
+            $("#menu_bg").stop().animate({
+                height:530
+            },500)
+        },function(){
+            $(this).stop().animate({
+                height:84
+            },300)
+            $("#menu_bg").stop().animate({
+                height:84
+            },300,function(){
+                $(this).css({
+                    opacity:"0"
+                })
+            })
+        })
+
+        $("#menu>li").hover(function(){
+            var index = $(this).index()
+            var underline = $(this).find("span").stop()
+            if(index==0){
+                underline.animate({
+                    opacity:"1",
+                    width:73
+                },500)
+            }else if(index==1){
+                underline.animate({
+                    opacity:"1",
+                    width:58
+                },500)
+            }else if(index==2){
+                underline.animate({
+                    opacity:"1",
+                    width:46
+                },500)
+            }else{
+                underline.animate({
+                    opacity:"1",
+                    width:30
+                },500)
+            }
+
+            $(this).children("a").css({
+                fontWeight:"500"
+            })
+        },function(){
+            $(this).find("span").stop().animate({
+                opacity:"0",
+                width:0
+            },300)
+            $(this).children("a").css({
+                fontWeight:"300"
+            })
+        })
+
+        $("footer #family li:eq(0)").click(function(e){
+            e.preventDefault()
+            var nowClass = $("footer #family li").attr("class")
+            if($("footer #family li").attr("class")=="off"){
+                $("footer #family li").removeClass()
+                $("footer #family li").addClass("on")
+            }else{
+                $("footer #family li").removeClass()
+                $("footer #family li").addClass("off")
+            }
+        })
+
+        $(window).scroll(function(){
+            var sct=$(window).scrollTop()
+            var contentsTop=$("#contents").offset().top
+            
+            var distance=sct/contentsTop
+            if(distance>1){
+                distance=1
+            }
+            $("#main #main_bg").css({
+                opacity:.4+distance
+            })
+            $("#main .main_wrap").css({
+                opacity:1-distance
+            })
+            $("header #menu_bg").css({
+                opacity:distance
+            })
+
+            var c1Top=$(".c1").offset().top
+            var c2Top=$(".c2").offset().top
+            var c3Top=$(".c3").offset().top
+            var c4Top=$(".c4").offset().top
+            var c5Top=$(".c5").offset().top
+            var footTop=$("footer").offset().top
+
+            if(sct>c1Top-400 && sct < c2Top){
+                $(".c1").stop().animate({
+                    top:0,
+                    opacity:1
+                },500)
+            }else{
+                $(".c1").css({
+                    top:30,
+                    opacity:"0"
+                })
+            }
+
+            if(sct>c2Top-400 && sct < c3Top){
+                $(".c2").stop().animate({
+                    top:0,
+                    opacity:1
+                },500)
+                $(".c2 li:eq(0) span").stop().animate({
+                    width:137
+                },500)
+                $(".c2 li:eq(1) span").stop().animate({
+                    width:145
+                },500)
+            }else{
+                $(".c2").css({
+                    top:30,
+                    opacity:0
+                })
+                $(".c2 span").stop().animate({
+                    width:0
+                },500)
+            }
+
+            if(sct>c3Top-500&&sct<c4Top){
+                $(".c3 div img").stop().animate({
+                    top:0,
+                    opacity:"1"
+                },500)
+            }else{
+                $(".c3 div img").css({
+                    top:30,
+                    opacity:"0"
+                },500)
+            }
+            if(sct>c3Top&&sct<c4Top){
+                $(".c3 div h1").stop().animate({
+                    top:570,
+                    opacity:"1"
+                },500)
+            }else{
+                $(".c3 div h1").stop().animate({
+                    top:600,
+                    opacity:"0"
+                },500)
+            }
+
+            if(sct>c4Top-400&&sct<c5Top){
+                $(".c4").stop().animate({
+                    top:0,
+                    opacity:"1"
+                },500)
+            }else{
+                $(".c4").css({
+                    top:30,
+                    opacity:"0"
+                })
+            }
+
+            if(sct>c5Top-400&&sct<footTop){
+                $(".c5").stop().animate({
+                    top:0,
+                    opacity:"1"
+                },500)
+            }else{
+                $(".c5").css({
+                    top:30,
+                    opacity:"0"
+                })
+            }
+        })
+    })
+</script>
+</head>
+<body>
+
+<header>
+<h1><a href="#"><img src="images/logo.png" alt="logo"></a></h1>
+<ul id="menu">
+<li><a href="#">카카오페이<span></span></a>
+<dl id="sub">
+<dt><a href="#">브랜드 소개</a></dt>
+</dl></li>
+<li><a href="#">투자정보<span></span></a>
+<dl id="sub">
+<dt><a href="#">공고사항</a></dt>
+</dl></li>
+<li><a href="#">서비스<span></span></a>
+<div id="sub">
+<dl>
+<dt><a href="#">생활하다</a></dt>
+<dd><a href="#">송금</a></dd>
+<dd><a href="#">결제</a></dd>
+<dd><a href="#">멤버십</a></dd>
+</dl>
+<dl>
+<dt><a href="#">관리하다</a></dt>
+<dd><a href="#">자산관리</a></dd>
+<dd><a href="#">내문서함</a></dd>
+<dd><a href="#">청구서</a></dd>
+</dl>
+<dl>
+<dt><a href="#">금융하다</a></dt>
+<dd><a href="#">투자</a></dd>
+<dd><a href="#">대출</a></dd>
+<dd><a href="#">보험</a></dd>
+<dd><a href="#">금융제휴</a></dd>
+</dl>
+</div></li>
+<li><a href="#">소식<span></span></a>
+<dl id="sub">
+<dt><a href="#">보도자료</a></dt>
+<dt><a href="#">공지사항</a></dt>
+<dt><a href="#">공식채널</a></dt>
+</dl></li>
+<li><a href="#">문의<span></span></a>
+<dl id="sub">
+<dt><a href="#">고객센터</a></dt>
+<dt><a href="#">공동인증센터</a></dt>
+<dt><a href="#">결제가맹신청</a></dt>
+<dt><a href="#">제휴/사업문의</a></dt>
+</dl></li>
+<li><a href="#">채용<span></span></a></li>
+</ul>
+<div id="menu_bg"></div>
+</header>
+<section id="main">
+<div id="main_bg"></div>
+<video loop muted autoplay><source src="images/video.mp4"></video>
+<div class="main_wrap">
+<ul class="wrap_1">
+<li></li>
+<li>
+<div class="main_title">
+<h1>마음놓고 금융하다</h1>
+</div>
+</li>
+<li></li>
+<li></li>
+<li class="bg_line bor1"><div></div><div></div></li>
+<li class="bg_line bor2"><div></div><div></div></li>
+</ul>
+<ul class="wrap_2">
+<li></li>
+<li></li>
+<li></li>
+<li>
+<ul id="bg_line">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</section>
+
+<section id="contents">
+
+<ul class="content c1">
+<li><a href="#"><img src="images/img_1.jpeg" alt="img"></a></li>
+<li>
+<div class="icon"><img src="images/icon_2.png" alt="icon"></div>
+<p>카카오페이<br>안심하고 사용하세요</p>
+<button><a href="#"></a></button>
+</li>
+</ul>
+<ul class="content c2">
+<li>
+<p>투자, 대출, 보험 등<br>많은 금융서비스들이 있어요<span></span></p>
+<button><a href="#"></a></button>
+<div><a href="#"><img src="images/img_2.png" alt="img"></a></div>
+</li>
+<li>
+<p>지금 앉은 자리에서<br>내 대출한도를 조회할 수 있어요<span></span></p>
+<button><a href="#"></a></button>
+<div><a href="#"><img src="images/img_3.png" alt="img"></a></div>
+</li>
+</ul>
+<div class="content c3">
+<div><a href="#">
+<img src="images/img_4.png" alt="img">
+<h1>세상에 없던 카드 <span>페이카드2</span>를 만나보세요</h1>
+<button></button>
+</a></div>
+</div>
+<ul class="content c4">
+<li><a href="#"><img src="images/img_5.jpeg" alt="img"></a></li>
+<li>
+<div class="icon"><img src="images/icon_1.png" alt="icon"></div>
+<p>사장님, 안전한<br>카카오페이와 함께하세요</p>
+<button><a href="#"></a></button>
+</li>
+</ul>
+<ul class="content c5">
+<li>
+<div class="icon"><img src="images/icon_3.png" alt="icon"></div>
+<p>카카오페이가<br>예비크루를 찾고 있어요</p>
+<button><a href="#"></a></button>
+</li>
+<li><a href="#"><img src="images/img_6.jpeg" alt="img"></a></li>
+</ul>
+<div class="content"></div>
+
+<ul id="bg_line">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</section>
+
+<footer>
+<p>© Kakao Pay Corp.</p>
+<ul id="fnb">
+<li><a href="#">카카오페이 윤리강령</a></li>
+<li><a href="#">카카오페이 이용약관</a></li>
+<li><a href="#">전자금융거래 이용약관</a></li>
+<li><a href="#">개인정보 처리방침</a></li>
+<li><a href="#">위치기반 서비스 이용약관</a></li>
+</ul>
+<ul id="family">
+<li class="off"><a href="#">관련사이트<span>+</span></a></li>
+<li class="off"><a href="#">카카오페이증권</a></li>
+</ul>
+</footer>
+</body>
+</html>

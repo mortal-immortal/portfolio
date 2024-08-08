@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&Ms</title>
+    <!--공동 css&js-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--최서현 css&js-->
+    <link rel="stylesheet" href="css/choi.css">
+    <!-- <script src="js/jquery-3.5.1.min.js"></script> -->
+    <!--장대선 css&js-->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/aside.css">
+    <link rel="stylesheet" href="css/ds_sc2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/aside.js"></script>
+    <!-- 최서현 -->
+    <!-- <script src="js/cs_hd.js"></script> -->
+    <!--채영언니 css&js-->
+    <script src="js/m&m.js"></script>
+    <link rel="stylesheet" href="css/m&m.css">
+    <script src="js/jquery.mousewheel.min.js"></script>
+</head>
+<script>
+    //최서현
+    $(document).ready(function() {
+         var videos = $('.bxslider video'); // 모든 비디오 요소를 가져옵니다.
+        var totalVideos = videos.length; // 비디오의 총 개수를 가져옵니다.
+        var currentIndex = 0; // 현재 재생 중인 비디오의 인덱스를 저장할 변수입니다.
+        var progressBar = $('.progress-bar'); // 진행 바 요소를 가져옵니다.
+    
+        // 모든 비디오를 숨기고, 첫 번째 비디오만 보여줍니다.
+        videos.hide();
+        $(videos[0]).show();
+    
+        // 첫 번째 비디오 재생
+        playVideo(videos[0]);
+        
+        // 비디오 재생을 처리하는 함수
+        function playVideo(video) {
+        $(video).get(0).play(); // 비디오 재생
+        updateProgressBar(video); // 진행 바 업데이트
+        }
+        
+        // 비디오의 종료 이벤트를 처리하는 함수
+        videos.on('ended', function() {
+            var currentVideo = this;
+    
+        // 현재 비디오를 숨깁니다.
+            $(currentVideo).hide();
+        
+        // 현재 인덱스를 업데이트하고 다음 비디오의 인덱스를 계산합니다.
+            currentIndex = (currentIndex + 1) % totalVideos;
+        
+        // 다음 비디오를 보여주고 재생합니다.
+            var nextVideo = videos[currentIndex];
+            $(nextVideo).show();
+            playVideo(nextVideo);
+        });
+        
+        // 비디오의 시간 업데이트 이벤트를 처리하는 함수
+        function updateProgressBar(video) {
+            $(video).on('timeupdate', function() {
+                var currentTime = this.currentTime;
+                var duration = this.duration;
+                var percentagePlayed = (currentTime / duration) * 100;
+                progressBar.css('width', percentagePlayed + '%');
+        });
+        }
+    });
+
+    $(function(){
+    // fixed bt
+    var test=false
+    $(".mbt").click(function(){
+        if (test==false){
+            $(".m_box").css({
+            height:"550px",
+            opacity:"1"
+            });
+            test=true
+        }else{
+            $(".m_box").css({
+            height:"0px",
+            opacity:"0"
+            });
+            test=false
+        }
+    })
+    });
+    
+</script>
+<body scroll="no">
+    <header>
+        <div id="h_wrap">
+            <div class="m_logo"></div>
+            <div class="m_bg"></div>
+            <div class="mouse"></div>
+            <nav>
+                <ul>
+                    <li class="sh_menu"><a href="#">Shop</a>
+                        <ul class="smenu">
+                            <li><a href="#">Gifts</a></li>
+                            <li><a href="#">Party</a></li>
+                            <li><a href="#">Chocolate</a></li>
+                            <li><a href="#">Candy</a></li>
+                        </ul>    
+                    </li>
+                    <li class="sh_menu"><a href="#">Celebrate</a>
+                        <ul class="smenu">
+                            <li><a href="#">Birthday</a></li>
+                            <li><a href="#">Wedding</a></li>
+                            <li><a href="#">Baby</a></li>
+                            <li><a href="#">Pride</a></li>
+                            <li><a href="#">Thank You</a></li>
+                        </ul>
+                    </li>
+                    <li class="sh_menu"><a href="#">Explore</a>
+                        <ul class="smenu">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Stores</a></li>
+                            <li><a href="#">Recipes</a></li>
+                        </ul>
+                    </li>
+                    <li class="sh_menu"><a href="#">Business</a>
+                        <ul class="smenu">
+                            <li><a href="#">FAQ'S</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="msh">m</div>
+            <div class="msh2">&</div>
+
+            <div class="h_menu">
+                <div class="mbt">m</div>
+                <div class="m_box">
+                    <div class="ml"></div>
+                    <ul>
+                        <li><a href>Log-In</a></li>
+                        <li><a href>Sign</a></li>
+                        <li><a href>My Page</a></li>
+                        <li><a href>My Cart</a></li>
+                        <li><a href>Language</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bxslider">
+                <video src="images/M&M'S For All Funkind.mp4"
+                muted autoplay></video>
+
+                <video src="images/M&M's - Cookie Inception (2023, USA).mp4"
+                muted autoplay></video> 
+                
+                <video src="images/Another Banned M&M's Commercial.mp4"
+                muted autoplay></video>  
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div> <!--h_wrap-->
+    </header>
+            <!--채영언니-->
+    <div class="start-screen">
+        <h1>SCROLL DOWN</h1>
+      </div>
+      <div class="main-content-1">
+        <div class="sticky">
+          <div class="sticky-background ds_move1">
+            <!-- SCROLL ANIMATION -->
+            <div class="move_text">
+                <span class="font">diploma</span>
+                <span class="blue">&</span>
+                <span class="font">celebration</span>
+                <span class="brown">&</span>
+                <span class="font">dipioma</span>
+                <span class="red">&</span>
+                <span class="font">cap</span>
+                <span class="blue">&</span>
+                <span class="font">gown</span>
+                <span class="brown">&</span>
+                <span class="font">congratulations</span>
+                <span class="red">&</span>
+                <span class="font">celebration</span>
+                <span class="blue">&</span>
+                <span class="font">diploma</span>
+                <span class="brown">&</span>
+                <span class="font">cap</span>
+                <span class="red">&</span>
+                <span class="font">gown</span>
+                <span class="blue">&</span>
+                <span class="font">congratulations</span>
+                <span class="brown">&</span>
+                <span class="font">celebration</span>
+                <span class="red">&</span>
+                <span class="font">diploma</span>
+                <span class="blue">&</span>
+            </div>
+          </div>
+          <div class="sticky-background  ds_move2">
+            <!-- SCROLL ANIMATION -->
+            <div class="move_text">
+                <span class="font">diploma</span>
+                <span class="blue">&</span>
+                <span class="font">celebration</span>
+                <span class="brown">&</span>
+                <span class="font">dipioma</span>
+                <span class="red">&</span>
+                <span class="font">cap</span>
+                <span class="blue">&</span>
+                <span class="font">gown</span>
+                <span class="brown">&</span>
+                <span class="font">congratulations</span>
+                <span class="red">&</span>
+                <span class="font">celebration</span>
+                <span class="blue">&</span>
+                <span class="font">diploma</span>
+                <span class="brown">&</span>
+                <span class="font">cap</span>
+                <span class="red">&</span>
+                <span class="font">gown</span>
+                <span class="blue">&</span>
+                <span class="font">congratulations</span>
+                <span class="brown">&</span>
+                <span class="font">celebration</span>
+                <span class="red">&</span>
+                <span class="font">diploma</span>
+                <span class="blue">&</span>
+            </div>
+          </div>
+          <div class="card-frame">
+            <div class="card">
+              <div class="front">
+                <p>
+                    CELEBRATE GIFT<br />
+                    Bottle
+                    <span class="hd">
+                      ★★★★★ (74)<br />
+                      $49.99<br />
+                      100% Off Bulk Candy with code FRESH </span
+                    ><br />
+                    <button>Buy Now</button>
+                  </p>
+              </div>
+              <div class="back"></div>
+            </div>
+            <div class="card">
+              <div class="front">
+                <p>Birthday Gift Bottle
+                    <span class="hd">
+                        ★★☆☆☆ (20)<br>
+                        $49.99<br>
+                        93%
+                        of respondents would recommend this to a friend
+
+                    </span>
+                    <button>Buy Now</button>
+                </p>
+              </div>
+              <div class="back"></div>
+            </div>
+            <div class="card">
+              <div class="front">
+                <p>Gift Bottle In<br>
+                    White Tube
+                    <span class="hd">
+                        ★★★☆☆ (39)<br>
+                        $49.99<br>
+                        92%
+                        of respondents would recommend this to a friend
+                    </span>
+                    <button>Buy Now</button>
+                </p>
+              </div>
+              <div class="back"></div>
+            </div>
+            <div class="card">
+              <div class="front">
+                <p>Heart M Gift Bottle
+                    <span class="hd">
+                        ★★★★☆ (15)<br>
+                        $49.99<br>
+                        25%
+                        of respondents would recommend this to a friend
+                    </span>
+                    <button>Buy Now</button>
+                </p>
+              </div>
+              <div class="back"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <section>
+        <!--장대선-->
+        <!-- <p class="test">test</p> -->
+        <div id="section2">
+            <div class="group">
+                <div class="item">
+                    <h1>Crunchy Cookie M&M'S, 7.4oz</h1>
+                    <p>$5.00</p>
+                </div>
+                <div class="item">
+                    <h1>Mini M&M'S 3lb Bulk Candy</h1>
+                    <p>$19.99</p>
+                </div>
+                <div class="item">
+                    <h1>Classic Mix M&M'S, 8.3oz</h1>
+                    <p>$5.00</p>
+                </div>
+                <div class="item">
+                    <h1>Peanut Butter M&M'S, 9oz</h1>
+                    <p>$5.00</p>
+                </div>
+                <div class="item">
+                    <h1>M&M'S Ice Cream Sundae White & Dark Chocolate Candy, 7.44oz</h1>
+                    <p>$3.75</p>
+                </div>
+            </div>
+            <div class="ds_redline ds_redline1"></div>
+            <div class="ds_redline ds_redline2"></div>
+        </div>
+        <div id="section3">
+            <div class="ds_top">
+                <img class="ds_left" src="ds_images/제품 1.webp">
+                <img class="ds_left"  src="ds_images/제품 2.webp">
+                <img class="ds_left"  src="ds_images/제품 3.webp">
+                <img class="ds_left" src="ds_images/제품 4.webp">
+                <img class="ds_left" src="ds_images/제품 5.webp">
+                <img class="ds_left"  src="ds_images/제품 6.webp">
+            </div>
+            <div class="ds_top">
+                <img class="ds_left" src="ds_images/제품 7.webp">
+                <img class="ds_left"  src="ds_images/제품 8.webp">
+                <img class="ds_left"  src="ds_images/제품 9.webp">
+                <img class="ds_left" src="ds_images/제품 10.webp">
+                <img class="ds_left" src="ds_images/제품 11.webp">
+                <img class="ds_left"  src="ds_images/제품 12.webp">
+            </div>
+            <div class="ds_bottom">
+                <img class="ds_right" src="ds_images/제품 7.webp">
+                <img class="ds_right"  src="ds_images/제품 8.webp">
+                <img class="ds_right"  src="ds_images/제품 9.webp">
+                <img class="ds_right" src="ds_images/제품 10.webp">
+                <img class="ds_right" src="ds_images/제품 11.webp">
+                <img class="ds_right"  src="ds_images/제품 12.webp">
+            </div>
+            <div class="ds_bottom">
+                <img class="ds_right" src="ds_images/제품 13.webp">
+                <img class="ds_right"  src="ds_images/제품 1.webp">
+                <img class="ds_right"  src="ds_images/제품 2.webp">
+                <img class="ds_right" src="ds_images/제품 3.webp">
+                <img class="ds_right" src="ds_images/제품 4.webp">
+                <img class="ds_right"  src="ds_images/제품 5.webp">
+            </div>
+        </div>
+        </section>
+        
+        <aside>
+            <div class="ds_main">
+                <div class="ds_aside_logo"></div>
+                <div class="ds_aside_chara">
+                <div class="ds_ball">m</div>
+                <div class="ds_ball">m</div>
+                <div class="ds_ball">m</div>
+                <div class="ds_ball">m</div>
+            </div>
+            </div>
+            <div class="ds_aside_bottom ds_clear">
+                <img class="ds_left" src="ds_images/Layer 1.webp" >
+                <img class="ds_left" src="ds_images/Layer 2.webp" >
+                <img class="ds_left" src="ds_images/Layer 3.webp" >
+                <img class="ds_left" src="ds_images/Layer 4.webp" >
+                <img class="ds_left" src="ds_images/Layer 5.webp" >
+                <img class="ds_left" src="ds_images/Layer 6.webp" >
+                <img class="ds_left" src="ds_images/Layer 7.webp" >
+            </div>
+        </aside>
+
+        <footer>
+            <div class="ds_top">
+                <div class="ds_main">
+                    <p>&copy; 2024 MMS.COM. Mars Incorporated and its affiliates. All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="ds_bottom">
+                <div class="ds_main">
+                    <ul class="ds_clear">
+                        <li class="ds_left"><img src="ds_images/로고.svg"></li>
+                        <li class="ds_left">
+                            Help
+                            <ul>
+                                <li>Shipping Information</li>
+                                <li>Terms & Conditions</li>
+                                <li>FAQs</li>
+                                <li>Order Status</li>
+                                <li>Contact Us</li>
+                                <li>You Privacy Choices</li>
+                            </ul>
+                        </li>
+                        <li class="ds_left">
+                            About Us
+                            <ul>
+                                <li>Our Stores</li>
+                                <li>Supply Chain Transparency</li>
+                                <li>Careers</li>
+                                <li>Sustainability Canada</li>
+                            </ul>
+                        </li>
+                        <li class="ds_left">
+                            Connect With Us
+                            <ul class="ds_icon ds_clear">
+                                <li class="ds_left"><i class="fa-brands fa-instagram"></i></li>
+                                <li class="ds_left"><i class="fa-brands fa-facebook-f"></i></li>
+                                <li class="ds_left"><i class="fa-brands fa-x-twitter"></i></li>
+                                <li class="ds_left"><i class="fa-brands fa-youtube"></i></li>
+                                <li class="ds_left"><i class="fa-brands fa-pinterest-p"></i></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+        <script  src="js/ds_sc2.js"></script>
+        <script>
+            class CardFlipOnScroll {
+              constructor(wrapper, sticky) {
+                this.wrapper = wrapper
+                this.sticky = sticky
+                this.cards = sticky.querySelectorAll('.card')
+                this.length = this.cards.length
+        
+                this.start = 0
+                this.end = 0
+                this.step = 0
+              }
+        
+              init() {
+                this.start = this.wrapper.offsetTop - 100
+                this.end = this.wrapper.offsetTop + this.wrapper.offsetHeight - innerHeight * 1.2
+                this.step = (this.end - this.start) / (this.length * 2)
+              }
+        
+              animate() {
+                this.cards.forEach((card, i) => {
+                  const s = this.start + this.step * i
+                  const e = s + this.step * (this.length + 1)
+        
+                  if (scrollY <= s) {
+                    card.style.transform = `
+                      perspective(100vw)
+                      translateX(100vw) 
+                      rotateY(180deg)
+                    `
+                  } else if (scrollY > s && scrollY <= e - this.step) {
+                    card.style.transform = `
+                      perspective(100vw)
+                      translateX(${100 + (scrollY - s) / (e - s) * -100}vw)
+                      rotateY(180deg)
+                    `
+                  } else if (scrollY > e - this.step && scrollY <= e) {
+                    card.style.transform = `
+                      perspective(100vw)
+                      translateX(${100 + (scrollY - s) / (e - s) * -100}vw)
+                      rotateY(${180 + -(scrollY - (e - this.step)) / this.step * 180}deg)
+                    `
+                  } else if (scrollY > e) {
+                    card.style.transform = `
+                      perspective(100vw)
+                      translateX(0vw) 
+                      rotateY(0deg)
+                    `
+                  }
+                })
+              }
+            }
+        
+            const mainContent1 = document.querySelector('.main-content-1')
+            const sticky = document.querySelector('.sticky')
+            const cardFlipOnScroll = new CardFlipOnScroll(mainContent1, sticky)
+            cardFlipOnScroll.init()
+        
+            window.addEventListener('scroll', () => {
+              cardFlipOnScroll.animate()
+            })
+        
+            window.addEventListener('resize', () => {
+              cardFlipOnScroll.init()
+            })
+          </script>
+</body>
+</html>
